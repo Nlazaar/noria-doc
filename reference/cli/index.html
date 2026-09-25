@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/">
+        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/reference/cli/">
       
       
+        <link rel="prev" href="../macros/">
       
-        <link rel="next" href="quickstart/">
+      
+        <link rel="next" href="../../adapters/duckdb/">
       
       
         
       
       
-      <link rel="icon" href="assets/logo-icon.svg">
+      <link rel="icon" href="../../assets/logo-icon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Noria</title>
+        <title>CLI - Noria</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#noria-sql-first-data-pipeline-framework" class="md-skip">
+        <a href="#reference-cli" class="md-skip">
           Skip to content
         </a>
       
@@ -90,9 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Noria" class="md-header__button md-logo" aria-label="Noria" data-md-component="logo">
+    <a href="../.." title="Noria" class="md-header__button md-logo" aria-label="Noria" data-md-component="logo">
       
-  <img src="assets/logo-icon.svg" alt="logo">
+  <img src="../../assets/logo-icon.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Accueil
+              CLI
             
           </span>
         </div>
@@ -218,11 +220,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -241,7 +241,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="quickstart/" class="md-tabs__link">
+      <a href="../../quickstart/" class="md-tabs__link">
         
   
   
@@ -258,11 +258,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="reference/config/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../config/" class="md-tabs__link">
           
   
   
@@ -282,7 +284,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="adapters/duckdb/" class="md-tabs__link">
+        <a href="../../adapters/duckdb/" class="md-tabs__link">
           
   
   
@@ -302,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="advanced/seeds/" class="md-tabs__link">
+        <a href="../../advanced/seeds/" class="md-tabs__link">
           
   
   
@@ -322,7 +324,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="migration/" class="md-tabs__link">
+        <a href="../../migration/" class="md-tabs__link">
           
   
   
@@ -342,7 +344,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="na%C3%AFa/" class="md-tabs__link">
+        <a href="../../na%C3%AFa/" class="md-tabs__link">
           
   
   
@@ -376,9 +378,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Noria" class="md-nav__button md-logo" aria-label="Noria" data-md-component="logo">
+    <a href="../.." title="Noria" class="md-nav__button md-logo" aria-label="Noria" data-md-component="logo">
       
-  <img src="assets/logo-icon.svg" alt="logo">
+  <img src="../../assets/logo-icon.svg" alt="logo">
 
     </a>
     Noria
@@ -402,37 +404,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Accueil
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -448,59 +423,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#pourquoi-noria" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pourquoi Noria ?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#premier-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Premier pipeline
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -512,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="quickstart/" class="md-nav__link">
+      <a href="../../quickstart/" class="md-nav__link">
         
   
   
@@ -536,26 +458,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -573,7 +500,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -591,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/config/" class="md-nav__link">
+      <a href="../config/" class="md-nav__link">
         
   
   
@@ -619,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/write_modes/" class="md-nav__link">
+      <a href="../write_modes/" class="md-nav__link">
         
   
   
@@ -647,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/loops/" class="md-nav__link">
+      <a href="../loops/" class="md-nav__link">
         
   
   
@@ -675,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/macros/" class="md-nav__link">
+      <a href="../macros/" class="md-nav__link">
         
   
   
@@ -700,10 +627,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="reference/cli/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -719,6 +673,180 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#noria-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-run-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria run-job
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-compile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria compile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria preview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria validate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria add
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-dag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria dag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria monitor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria docs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria watch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria init
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilisation-avec-un-ordonnanceur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilisation avec un ordonnanceur
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -790,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="adapters/duckdb/" class="md-nav__link">
+      <a href="../../adapters/duckdb/" class="md-nav__link">
         
   
   
@@ -818,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="adapters/postgres/" class="md-nav__link">
+      <a href="../../adapters/postgres/" class="md-nav__link">
         
   
   
@@ -846,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="adapters/bigquery/" class="md-nav__link">
+      <a href="../../adapters/bigquery/" class="md-nav__link">
         
   
   
@@ -874,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="adapters/custom/" class="md-nav__link">
+      <a href="../../adapters/custom/" class="md-nav__link">
         
   
   
@@ -961,7 +1089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/seeds/" class="md-nav__link">
+      <a href="../../advanced/seeds/" class="md-nav__link">
         
   
   
@@ -989,7 +1117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/scd2/" class="md-nav__link">
+      <a href="../../advanced/scd2/" class="md-nav__link">
         
   
   
@@ -1017,7 +1145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/assertions/" class="md-nav__link">
+      <a href="../../advanced/assertions/" class="md-nav__link">
         
   
   
@@ -1045,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/freshness/" class="md-nav__link">
+      <a href="../../advanced/freshness/" class="md-nav__link">
         
   
   
@@ -1073,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/notifications/" class="md-nav__link">
+      <a href="../../advanced/notifications/" class="md-nav__link">
         
   
   
@@ -1101,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/schedulers/" class="md-nav__link">
+      <a href="../../advanced/schedulers/" class="md-nav__link">
         
   
   
@@ -1129,7 +1257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/dag/" class="md-nav__link">
+      <a href="../../advanced/dag/" class="md-nav__link">
         
   
   
@@ -1216,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="migration/" class="md-nav__link">
+      <a href="../../migration/" class="md-nav__link">
         
   
   
@@ -1244,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="migration/powercenter/" class="md-nav__link">
+      <a href="../../migration/powercenter/" class="md-nav__link">
         
   
   
@@ -1272,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="migration/alteryx/" class="md-nav__link">
+      <a href="../../migration/alteryx/" class="md-nav__link">
         
   
   
@@ -1300,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="migration/sas/" class="md-nav__link">
+      <a href="../../migration/sas/" class="md-nav__link">
         
   
   
@@ -1387,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="na%C3%AFa/" class="md-nav__link">
+      <a href="../../na%C3%AFa/" class="md-nav__link">
         
   
   
@@ -1415,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="na%C3%AFa/create_task/" class="md-nav__link">
+      <a href="../../na%C3%AFa/create_task/" class="md-nav__link">
         
   
   
@@ -1443,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="na%C3%AFa/analyse_pipeline/" class="md-nav__link">
+      <a href="../../na%C3%AFa/analyse_pipeline/" class="md-nav__link">
         
   
   
@@ -1471,7 +1599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="na%C3%AFa/debug/" class="md-nav__link">
+      <a href="../../na%C3%AFa/debug/" class="md-nav__link">
         
   
   
@@ -1526,10 +1654,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pourquoi-noria" class="md-nav__link">
+  <a href="#noria-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pourquoi Noria ?
+        noria run
       
     </span>
   </a>
@@ -1537,10 +1665,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#noria-run-job" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        noria run-job
       
     </span>
   </a>
@@ -1548,10 +1676,131 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#premier-pipeline" class="md-nav__link">
+  <a href="#noria-jobs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Premier pipeline
+        noria jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-compile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria compile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria preview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-validate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria validate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria add
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-dag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria dag
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria monitor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria docs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria watch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noria-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria init
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilisation-avec-un-ordonnanceur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utilisation avec un ordonnanceur
       
     </span>
   </a>
@@ -1578,107 +1827,185 @@
   
 
 
-<p align="center">
-  <img src="assets/logo.svg" width="220" alt="Noria"/>
-</p>
-
-<h1 id="noria-sql-first-data-pipeline-framework">Noria — SQL-first data pipeline framework</h1>
-<p><strong>Noria</strong> est un framework Python léger pour construire des pipelines de données SQL. Il cible les data analysts, data engineers, et les profils métiers habitués à SQL, R ou SAS — sans avoir à écrire du Python orienté objet.</p>
-<h2 id="pourquoi-noria">Pourquoi Noria ?</h2>
+<p align="center"><img alt="Noria" height="40" src="../../assets/logo-icon.svg" /></p>
+<h1 id="reference-cli">Référence CLI</h1>
+<h2 id="noria-run"><code>noria run</code></h2>
+<p>Lance le pipeline complet ou un sous-ensemble de jobs.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>noria<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
-<th>Besoin</th>
-<th>Solution Noria</th>
+<th>Option</th>
+<th>Description</th>
+<th>Défaut</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>SQL portable (DuckDB → PostgreSQL)</td>
-<td>Macros cross-DB Jinja2</td>
+<td><code>--job</code> / <code>-j</code></td>
+<td>Job(s) spécifiques à exécuter</td>
+<td>tous</td>
 </tr>
 <tr>
-<td>Déclarer les sources une seule fois</td>
-<td><code>catalog:</code> + <code>{{ source('id') }}</code></td>
+<td><code>--env</code> / <code>-e</code></td>
+<td>Environnement (<code>envs/{env}.yml</code>)</td>
+<td>aucun</td>
 </tr>
 <tr>
-<td>Chaîner plusieurs SQL dans un job</td>
-<td><code>stages:</code> + <code>{{ prev }}</code></td>
+<td><code>--dry-run</code></td>
+<td>Compiler le SQL sans exécuter</td>
+<td>false</td>
 </tr>
 <tr>
-<td>Boucler sur une liste ou une requête</td>
-<td><code>foreach:</code> / <code>foreach_query:</code></td>
+<td><code>--workers</code> / <code>-w</code></td>
+<td>Threads parallèles max</td>
+<td>4</td>
 </tr>
 <tr>
-<td>Changer de base sans toucher le SQL</td>
-<td><code>--env prod</code> → <code>envs/prod.yml</code></td>
+<td><code>--only-tags</code></td>
+<td>Filtre par tag(s)</td>
+<td>aucun</td>
 </tr>
 <tr>
-<td>Exécution parallèle</td>
-<td><code>foreach_parallel: true</code>, DAG parallèle</td>
+<td><code>--continue-on-error</code></td>
+<td>Ne pas s'arrêter sur erreur</td>
+<td>false</td>
 </tr>
 <tr>
-<td>Éviter les écrasements accidentels</td>
-<td><code>write_mode: safe_replace</code></td>
+<td><code>--param k=v</code></td>
+<td>Paramètre CLI (surcharge noria.yml)</td>
+<td>aucun</td>
 </tr>
 <tr>
-<td>SCD Type 2</td>
-<td><code>write_mode: scd2</code></td>
+<td><code>--params-file</code></td>
+<td>Fichier YAML de paramètres</td>
+<td>aucun</td>
 </tr>
 <tr>
-<td>Data quality</td>
-<td><code>type: assert</code></td>
+<td><code>--log-file</code></td>
+<td>Chemin du fichier de log</td>
+<td>aucun</td>
 </tr>
 <tr>
-<td>Chargement de fichiers</td>
-<td><code>type: seed</code></td>
+<td><code>--monitor</code></td>
+<td>Démarrer le dashboard de monitoring</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>--verbose</code> / <code>-v</code></td>
+<td>Logs DEBUG détaillés</td>
+<td>false</td>
 </tr>
 </tbody>
 </table>
-<h2 id="installation">Installation</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>noria
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># ou avec PostgreSQL :</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"noria[postgres]"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>noria<span class="w"> </span>run<span class="w">                              </span><span class="c1"># tout exécuter (env défaut)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod<span class="w">                   </span><span class="c1"># environnement prod</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>noria<span class="w"> </span>run<span class="w"> </span>--job<span class="w"> </span>clients<span class="w">                </span><span class="c1"># un seul job</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>noria<span class="w"> </span>run<span class="w"> </span>--job<span class="w"> </span>clients<span class="w"> </span>--job<span class="w"> </span>rapport<span class="w">  </span><span class="c1"># plusieurs jobs</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>noria<span class="w"> </span>run<span class="w"> </span>--only-tags<span class="w"> </span>daily<span class="w">            </span><span class="c1"># jobs tagués daily</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>noria<span class="w"> </span>run<span class="w"> </span>--dry-run<span class="w">                    </span><span class="c1"># SQL sans exécution</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>noria<span class="w"> </span>run<span class="w"> </span>--param<span class="w"> </span><span class="nv">schema</span><span class="o">=</span>staging<span class="w">       </span><span class="c1"># surcharge un paramètre</span>
 </code></pre></div>
-<h2 id="premier-pipeline">Premier pipeline</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># noria.yml</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mon_pipeline</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">database</span><span class="p">:</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">dialect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">duckdb</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/warehouse.db</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">params</span><span class="p">:</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Sources déclarées une fois, réutilisées partout</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nt">catalog</span><span class="p">:</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nt">raw_clients</span><span class="p">:</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">raw</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nt">table</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">customers</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nt">jobs</span><span class="p">:</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="nt">clients</span><span class="p">:</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/clients.sql</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.clients"</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">  </span><span class="nt">stats</span><span class="p">:</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/stats.sql</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.monthly_stats"</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">clients</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">reporting</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">daily</span><span class="p p-Indicator">]</span>
+<hr />
+<h2 id="noria-run-job"><code>noria run-job</code></h2>
+<p>Exécute un seul job sans ses dépendances.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>noria<span class="w"> </span>run-job<span class="w"> </span>&lt;nom_du_job&gt;<span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span><span class="w"> </span><span class="o">[</span>--dry-run<span class="o">]</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- sql/clients.sql</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">source</span><span class="p">(</span><span class="s1">'raw_clients'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">statut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'actif'</span>
+<hr />
+<h2 id="noria-jobs"><code>noria jobs</code></h2>
+<p>Liste tous les jobs du pipeline et leurs dépendances.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>noria<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>noria<span class="w"> </span>run<span class="w">                          </span><span class="c1"># exécution complète</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod<span class="w">               </span><span class="c1"># environnement production</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>noria<span class="w"> </span>run<span class="w"> </span>--only-tags<span class="w"> </span>daily<span class="w">        </span><span class="c1"># seulement les jobs tagués daily</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>noria<span class="w"> </span>run<span class="w"> </span>--dry-run<span class="w">                </span><span class="c1"># prévisualiser le SQL sans exécuter</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>noria<span class="w"> </span><span class="nb">jobs</span><span class="w">                         </span><span class="c1"># lister les jobs et leurs dépendances</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>noria<span class="w"> </span>dag<span class="w">                          </span><span class="c1"># ouvrir le DAG dans le navigateur</span>
+<hr />
+<h2 id="noria-compile"><code>noria compile</code></h2>
+<p>Compile le SQL Jinja2 sans exécuter — utile pour vérifier le SQL généré.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>noria<span class="w"> </span>compile<span class="w"> </span><span class="o">[</span>--job<span class="w"> </span>nom<span class="o">]</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span><span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>fichier.sql<span class="o">]</span>
+</code></pre></div>
+<hr />
+<h2 id="noria-preview"><code>noria preview</code></h2>
+<p>Affiche les premières lignes d'un job <strong>sans écrire en base</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>noria<span class="w"> </span>preview<span class="w"> </span>&lt;nom_du_job&gt;<span class="w"> </span><span class="o">[</span>--limit<span class="w"> </span><span class="m">20</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span>
+</code></pre></div>
+<hr />
+<h2 id="noria-validate"><code>noria validate</code></h2>
+<p>Valide la configuration et le DAG sans connexion base de données.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>noria<span class="w"> </span>validate<span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span>
+</code></pre></div>
+<hr />
+<h2 id="noria-add"><code>noria add</code></h2>
+<p>Ajoute un nouveau job à <code>noria.yml</code> de manière interactive.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>noria<span class="w"> </span>add<span class="w"> </span>&lt;nom_du_job&gt;<span class="w"> </span><span class="o">[</span>--sql<span class="w"> </span>sql/mon_job.sql<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target<span class="w"> </span>main.ma_table<span class="o">]</span><span class="w"> </span><span class="o">[</span>--after<span class="w"> </span>autre_job<span class="o">]</span>
+</code></pre></div>
+<hr />
+<h2 id="noria-dag"><code>noria dag</code></h2>
+<p>Génère la cartographie visuelle du DAG.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>noria<span class="w"> </span>dag<span class="w"> </span><span class="o">[</span>--format<span class="w"> </span>html<span class="p">|</span>mermaid<span class="p">|</span>ascii<span class="o">]</span><span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>fichier<span class="o">]</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>html</code></td>
+<td>Page HTML avec Mermaid (défaut, s'ouvre dans le navigateur)</td>
+</tr>
+<tr>
+<td><code>mermaid</code></td>
+<td>Texte Mermaid brut (pour README, GitLab, Notion)</td>
+</tr>
+<tr>
+<td><code>ascii</code></td>
+<td>Arbre ASCII dans le terminal</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="noria-status"><code>noria status</code></h2>
+<p>Affiche l'historique des exécutions.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>noria<span class="w"> </span>status<span class="w"> </span><span class="o">[</span>--limit<span class="w"> </span><span class="m">20</span><span class="o">]</span>
+</code></pre></div>
+<hr />
+<h2 id="noria-monitor"><code>noria monitor</code></h2>
+<p>Démarre le dashboard web de monitoring.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>noria<span class="w"> </span>monitor<span class="w"> </span><span class="o">[</span>--port<span class="w"> </span><span class="m">7070</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--open/--no-open<span class="o">]</span>
+</code></pre></div>
+<hr />
+<h2 id="noria-docs"><code>noria docs</code></h2>
+<p>Génère une page HTML de documentation du pipeline (jobs, SQL, dépendances).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>noria<span class="w"> </span>docs<span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>docs/pipeline.html<span class="o">]</span>
+</code></pre></div>
+<hr />
+<h2 id="noria-watch"><code>noria watch</code></h2>
+<p>Mode développeur : relance le pipeline automatiquement à chaque modification d'un fichier SQL ou YAML.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>noria<span class="w"> </span>watch<span class="w">  </span><span class="c1"># nécessite: pip install "noria[watch]"</span>
+</code></pre></div>
+<hr />
+<h2 id="noria-init"><code>noria init</code></h2>
+<p>Crée un nouveau projet Noria avec la structure de fichiers complète.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>noria<span class="w"> </span>init<span class="w"> </span>mon_pipeline<span class="w"> </span><span class="o">[</span>--dir<span class="w"> </span>/chemin/parent<span class="o">]</span>
+</code></pre></div>
+<hr />
+<h2 id="utilisation-avec-un-ordonnanceur">Utilisation avec un ordonnanceur</h2>
+<p>Noria est conçu pour s'intégrer sans friction dans Jenkins, Airflow, cron ou tout autre ordonnanceur.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Jenkins / script shell</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod<span class="w"> </span>--project<span class="w"> </span>/pipelines/mon_pipeline<span class="w"> </span>--log-file<span class="w"> </span>logs/run.log
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Airflow (BashOperator)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod<span class="w"> </span>--only-tags<span class="w"> </span>daily<span class="w"> </span>--continue-on-error
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Cron (crontab)</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="m">0</span><span class="w"> </span><span class="m">6</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/pipelines/mon_pipeline<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod
+</code></pre></div>
+<p>Les variables de connexion sensibles passent par des variables d'environnement résolues dans <code>envs/prod.yml</code> :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># envs/prod.yml</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nt">database</span><span class="p">:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_HOST}</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_PASSWORD}</span>
 </code></pre></div>
 
 
@@ -1735,10 +2062,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/">
+        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/adapters/custom/">
       
       
+        <link rel="prev" href="../bigquery/">
       
-        <link rel="next" href="quickstart/">
+      
+        <link rel="next" href="../../advanced/seeds/">
       
       
         
       
       
-      <link rel="icon" href="assets/logo-icon.svg">
+      <link rel="icon" href="../../assets/logo-icon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Noria</title>
+        <title>Créer un adaptateur - Noria</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#noria-sql-first-data-pipeline-framework" class="md-skip">
+        <a href="#creer-un-adaptateur-personnalise" class="md-skip">
           Skip to content
         </a>
       
@@ -90,9 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Noria" class="md-header__button md-logo" aria-label="Noria" data-md-component="logo">
+    <a href="../.." title="Noria" class="md-header__button md-logo" aria-label="Noria" data-md-component="logo">
       
-  <img src="assets/logo-icon.svg" alt="logo">
+  <img src="../../assets/logo-icon.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Accueil
+              Créer un adaptateur
             
           </span>
         </div>
@@ -218,11 +220,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -241,7 +241,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="quickstart/" class="md-tabs__link">
+      <a href="../../quickstart/" class="md-tabs__link">
         
   
   
@@ -262,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="reference/config/" class="md-tabs__link">
+        <a href="../../reference/config/" class="md-tabs__link">
           
   
   
@@ -278,11 +278,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="adapters/duckdb/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../duckdb/" class="md-tabs__link">
           
   
   
@@ -302,7 +304,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="advanced/seeds/" class="md-tabs__link">
+        <a href="../../advanced/seeds/" class="md-tabs__link">
           
   
   
@@ -322,7 +324,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="migration/" class="md-tabs__link">
+        <a href="../../migration/" class="md-tabs__link">
           
   
   
@@ -342,7 +344,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="na%C3%AFa/" class="md-tabs__link">
+        <a href="../../na%C3%AFa/" class="md-tabs__link">
           
   
   
@@ -376,9 +378,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Noria" class="md-nav__button md-logo" aria-label="Noria" data-md-component="logo">
+    <a href="../.." title="Noria" class="md-nav__button md-logo" aria-label="Noria" data-md-component="logo">
       
-  <img src="assets/logo-icon.svg" alt="logo">
+  <img src="../../assets/logo-icon.svg" alt="logo">
 
     </a>
     Noria
@@ -402,37 +404,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Accueil
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -448,59 +423,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#pourquoi-noria" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pourquoi Noria ?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#premier-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Premier pipeline
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -512,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="quickstart/" class="md-nav__link">
+      <a href="../../quickstart/" class="md-nav__link">
         
   
   
@@ -591,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/config/" class="md-nav__link">
+      <a href="../../reference/config/" class="md-nav__link">
         
   
   
@@ -619,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/write_modes/" class="md-nav__link">
+      <a href="../../reference/write_modes/" class="md-nav__link">
         
   
   
@@ -647,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/loops/" class="md-nav__link">
+      <a href="../../reference/loops/" class="md-nav__link">
         
   
   
@@ -675,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/macros/" class="md-nav__link">
+      <a href="../../reference/macros/" class="md-nav__link">
         
   
   
@@ -703,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/cli/" class="md-nav__link">
+      <a href="../../reference/cli/" class="md-nav__link">
         
   
   
@@ -735,26 +657,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -772,7 +699,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -790,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="adapters/duckdb/" class="md-nav__link">
+      <a href="../duckdb/" class="md-nav__link">
         
   
   
@@ -818,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="adapters/postgres/" class="md-nav__link">
+      <a href="../postgres/" class="md-nav__link">
         
   
   
@@ -846,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="adapters/bigquery/" class="md-nav__link">
+      <a href="../bigquery/" class="md-nav__link">
         
   
   
@@ -871,10 +798,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="adapters/custom/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Créer un adaptateur
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -890,6 +844,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-creer-la-classe-adaptateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Créer la classe adaptateur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-enregistrer-ladaptateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Enregistrer l'adaptateur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-utiliser-dans-noriayml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Utiliser dans noria.yml
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodes-abstraites-requises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthodes abstraites requises
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -961,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/seeds/" class="md-nav__link">
+      <a href="../../advanced/seeds/" class="md-nav__link">
         
   
   
@@ -989,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/scd2/" class="md-nav__link">
+      <a href="../../advanced/scd2/" class="md-nav__link">
         
   
   
@@ -1017,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/assertions/" class="md-nav__link">
+      <a href="../../advanced/assertions/" class="md-nav__link">
         
   
   
@@ -1045,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/freshness/" class="md-nav__link">
+      <a href="../../advanced/freshness/" class="md-nav__link">
         
   
   
@@ -1073,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/notifications/" class="md-nav__link">
+      <a href="../../advanced/notifications/" class="md-nav__link">
         
   
   
@@ -1101,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/schedulers/" class="md-nav__link">
+      <a href="../../advanced/schedulers/" class="md-nav__link">
         
   
   
@@ -1129,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="advanced/dag/" class="md-nav__link">
+      <a href="../../advanced/dag/" class="md-nav__link">
         
   
   
@@ -1216,7 +1234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="migration/" class="md-nav__link">
+      <a href="../../migration/" class="md-nav__link">
         
   
   
@@ -1244,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="migration/powercenter/" class="md-nav__link">
+      <a href="../../migration/powercenter/" class="md-nav__link">
         
   
   
@@ -1272,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="migration/alteryx/" class="md-nav__link">
+      <a href="../../migration/alteryx/" class="md-nav__link">
         
   
   
@@ -1300,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="migration/sas/" class="md-nav__link">
+      <a href="../../migration/sas/" class="md-nav__link">
         
   
   
@@ -1387,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="na%C3%AFa/" class="md-nav__link">
+      <a href="../../na%C3%AFa/" class="md-nav__link">
         
   
   
@@ -1415,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="na%C3%AFa/create_task/" class="md-nav__link">
+      <a href="../../na%C3%AFa/create_task/" class="md-nav__link">
         
   
   
@@ -1443,7 +1461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="na%C3%AFa/analyse_pipeline/" class="md-nav__link">
+      <a href="../../na%C3%AFa/analyse_pipeline/" class="md-nav__link">
         
   
   
@@ -1471,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="na%C3%AFa/debug/" class="md-nav__link">
+      <a href="../../na%C3%AFa/debug/" class="md-nav__link">
         
   
   
@@ -1526,10 +1544,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pourquoi-noria" class="md-nav__link">
+  <a href="#1-creer-la-classe-adaptateur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pourquoi Noria ?
+        1. Créer la classe adaptateur
       
     </span>
   </a>
@@ -1537,10 +1555,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#2-enregistrer-ladaptateur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        2. Enregistrer l'adaptateur
       
     </span>
   </a>
@@ -1548,10 +1566,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#premier-pipeline" class="md-nav__link">
+  <a href="#3-utiliser-dans-noriayml" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Premier pipeline
+        3. Utiliser dans noria.yml
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodes-abstraites-requises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthodes abstraites requises
       
     </span>
   </a>
@@ -1578,108 +1607,104 @@
   
 
 
-<p align="center">
-  <img src="assets/logo.svg" width="220" alt="Noria"/>
-</p>
-
-<h1 id="noria-sql-first-data-pipeline-framework">Noria — SQL-first data pipeline framework</h1>
-<p><strong>Noria</strong> est un framework Python léger pour construire des pipelines de données SQL. Il cible les data analysts, data engineers, et les profils métiers habitués à SQL, R ou SAS — sans avoir à écrire du Python orienté objet.</p>
-<h2 id="pourquoi-noria">Pourquoi Noria ?</h2>
+<p align="center"><img alt="Noria" height="40" src="../../assets/logo-icon.svg" /></p>
+<h1 id="creer-un-adaptateur-personnalise">Créer un adaptateur personnalisé</h1>
+<p>Noria expose une API de plugin qui permet d'ajouter un nouvel adaptateur sans modifier le framework.</p>
+<h2 id="1-creer-la-classe-adaptateur">1. Créer la classe adaptateur</h2>
+<p>Héritez de <code>noria.adapters.base.BaseAdapter</code> et implémentez toutes les méthodes abstraites :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># my_pkg/my_adapter.py</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">noria.adapters.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseAdapter</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Engine</span><span class="p">,</span> <span class="n">create_engine</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">ClickHouseAdapter</span><span class="p">(</span><span class="n">BaseAdapter</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">dialect_name</span> <span class="o">=</span> <span class="s2">"clickhouse"</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">create_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_config</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Engine</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"clickhouse+native://</span><span class="si">{</span><span class="n">db_config</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">db_config</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">db_config</span><span class="o">.</span><span class="n">database</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="k">return</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">drop_table_sql</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"DROP TABLE IF EXISTS </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_qualified</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span><span class="w"> </span><span class="n">table</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">create_table_as_sql</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">select_sql</span><span class="p">):</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        <span class="n">qt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qualified</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"CREATE TABLE </span><span class="si">{</span><span class="n">qt</span><span class="si">}</span><span class="s2"> ENGINE=MergeTree() ORDER BY tuple() AS</span><span class="se">\n</span><span class="si">{</span><span class="n">select_sql</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="c1"># ... implémenter les autres méthodes abstraites</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_macro_cast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">type_</span><span class="p">):</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"CAST(</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">, '</span><span class="si">{</span><span class="n">type_</span><span class="si">}</span><span class="s2">')"</span>
+</code></pre></div>
+<h2 id="2-enregistrer-ladaptateur">2. Enregistrer l'adaptateur</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">noria.adapters</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_adapter</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">my_pkg.my_adapter</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClickHouseAdapter</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">register_adapter</span><span class="p">(</span><span class="s2">"clickhouse"</span><span class="p">,</span> <span class="n">ClickHouseAdapter</span><span class="p">)</span>
+</code></pre></div>
+<p>Appelez <code>register_adapter</code> avant d'instancier un <code>Pipeline</code>, par exemple dans un hook d'entrée ou un script d'initialisation.</p>
+<h2 id="3-utiliser-dans-noriayml">3. Utiliser dans noria.yml</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">database</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">dialect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clickhouse</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9000</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+</code></pre></div>
+<h2 id="methodes-abstraites-requises">Méthodes abstraites requises</h2>
 <table>
 <thead>
 <tr>
-<th>Besoin</th>
-<th>Solution Noria</th>
+<th>Méthode</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>SQL portable (DuckDB → PostgreSQL)</td>
-<td>Macros cross-DB Jinja2</td>
+<td><code>create_engine(db_config)</code></td>
+<td>Retourne un <code>sqlalchemy.Engine</code></td>
 </tr>
 <tr>
-<td>Déclarer les sources une seule fois</td>
-<td><code>catalog:</code> + <code>{{ source('id') }}</code></td>
+<td><code>drop_table_sql(schema, table)</code></td>
+<td>DROP TABLE IF EXISTS</td>
 </tr>
 <tr>
-<td>Chaîner plusieurs SQL dans un job</td>
-<td><code>stages:</code> + <code>{{ prev }}</code></td>
+<td><code>create_table_as_sql(schema, table, select)</code></td>
+<td>CREATE TABLE AS SELECT</td>
 </tr>
 <tr>
-<td>Boucler sur une liste ou une requête</td>
-<td><code>foreach:</code> / <code>foreach_query:</code></td>
+<td><code>truncate_sql(schema, table)</code></td>
+<td>TRUNCATE</td>
 </tr>
 <tr>
-<td>Changer de base sans toucher le SQL</td>
-<td><code>--env prod</code> → <code>envs/prod.yml</code></td>
+<td><code>insert_into_sql(schema, table, select)</code></td>
+<td>INSERT INTO … SELECT</td>
 </tr>
 <tr>
-<td>Exécution parallèle</td>
-<td><code>foreach_parallel: true</code>, DAG parallèle</td>
+<td><code>merge_sql(schema, table, select, keys)</code></td>
+<td>Upsert par clé</td>
 </tr>
 <tr>
-<td>Éviter les écrasements accidentels</td>
-<td><code>write_mode: safe_replace</code></td>
+<td><code>incremental_sql(schema, table, select, key_col)</code></td>
+<td>Refresh partition</td>
 </tr>
 <tr>
+<td><code>scd2_sql(schema, table, select, keys)</code></td>
 <td>SCD Type 2</td>
-<td><code>write_mode: scd2</code></td>
 </tr>
 <tr>
-<td>Data quality</td>
-<td><code>type: assert</code></td>
+<td><code>update_sql(schema, table, select, keys, cols)</code></td>
+<td>UPDATE ciblé</td>
 </tr>
 <tr>
-<td>Chargement de fichiers</td>
-<td><code>type: seed</code></td>
+<td><code>table_exists_sql(schema, table)</code></td>
+<td>Vérifier existence table</td>
+</tr>
+<tr>
+<td><code>row_count_sql(schema, table)</code></td>
+<td>Compter les lignes</td>
 </tr>
 </tbody>
 </table>
-<h2 id="installation">Installation</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>noria
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># ou avec PostgreSQL :</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"noria[postgres]"</span>
-</code></pre></div>
-<h2 id="premier-pipeline">Premier pipeline</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># noria.yml</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mon_pipeline</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">database</span><span class="p">:</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">dialect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">duckdb</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/warehouse.db</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">params</span><span class="p">:</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Sources déclarées une fois, réutilisées partout</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nt">catalog</span><span class="p">:</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="nt">raw_clients</span><span class="p">:</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">raw</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nt">table</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">customers</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nt">jobs</span><span class="p">:</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="nt">clients</span><span class="p">:</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/clients.sql</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.clients"</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">  </span><span class="nt">stats</span><span class="p">:</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/stats.sql</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.monthly_stats"</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">clients</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">reporting</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">daily</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- sql/clients.sql</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">source</span><span class="p">(</span><span class="s1">'raw_clients'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">statut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'actif'</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>noria<span class="w"> </span>run<span class="w">                          </span><span class="c1"># exécution complète</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod<span class="w">               </span><span class="c1"># environnement production</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>noria<span class="w"> </span>run<span class="w"> </span>--only-tags<span class="w"> </span>daily<span class="w">        </span><span class="c1"># seulement les jobs tagués daily</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>noria<span class="w"> </span>run<span class="w"> </span>--dry-run<span class="w">                </span><span class="c1"># prévisualiser le SQL sans exécuter</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>noria<span class="w"> </span><span class="nb">jobs</span><span class="w">                         </span><span class="c1"># lister les jobs et leurs dépendances</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>noria<span class="w"> </span>dag<span class="w">                          </span><span class="c1"># ouvrir le DAG dans le navigateur</span>
-</code></pre></div>
 
 
 
@@ -1735,10 +1760,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
