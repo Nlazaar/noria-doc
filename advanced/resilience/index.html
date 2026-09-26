@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/na%C3%AFa/debug/">
+        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/advanced/resilience/">
       
       
-        <link rel="prev" href="../analyse_pipeline/">
+        <link rel="prev" href="../anonymization/">
       
+      
+        <link rel="next" href="../lineage/">
       
       
         
@@ -25,7 +27,7 @@
     
     
       
-        <title>Déboguer une erreur - Noria</title>
+        <title>Résilience & anomalies - Noria</title>
       
     
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#naia-deboguer-une-erreur" class="md-skip">
+        <a href="#resilience-et-detection-danomalies" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Déboguer une erreur
+              Résilience & anomalies
             
           </span>
         </div>
@@ -317,11 +319,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../advanced/seeds/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../seeds/" class="md-tabs__link">
           
   
   
@@ -377,13 +381,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../na%C3%AFa/" class="md-tabs__link">
           
   
   
@@ -950,26 +952,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -987,7 +994,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1005,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/seeds/" class="md-nav__link">
+      <a href="../seeds/" class="md-nav__link">
         
   
   
@@ -1033,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/scd2/" class="md-nav__link">
+      <a href="../scd2/" class="md-nav__link">
         
   
   
@@ -1061,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/assertions/" class="md-nav__link">
+      <a href="../assertions/" class="md-nav__link">
         
   
   
@@ -1089,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/anonymization/" class="md-nav__link">
+      <a href="../anonymization/" class="md-nav__link">
         
   
   
@@ -1114,10 +1121,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../advanced/resilience/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Résilience & anomalies
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1133,6 +1167,170 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#retry-cible-retry_on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry ciblé (retry_on)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retry ciblé (retry_on)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration de base
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtrer-par-type-derreur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtrer par type d'erreur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-dusage-typiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas d'usage typiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detection-danomalies-de-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Détection d'anomalies de volume
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Détection d&#39;anomalies de volume">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paramètres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comportement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comportement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-particulier-historique-stable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cas particulier — historique stable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategie-recommandee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stratégie recommandée
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combinaison-retry-anomaly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinaison retry + anomaly
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeout-par-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeout par job
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1145,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/lineage/" class="md-nav__link">
+      <a href="../lineage/" class="md-nav__link">
         
   
   
@@ -1173,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/impact/" class="md-nav__link">
+      <a href="../impact/" class="md-nav__link">
         
   
   
@@ -1201,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/freshness/" class="md-nav__link">
+      <a href="../freshness/" class="md-nav__link">
         
   
   
@@ -1229,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/monitoring/" class="md-nav__link">
+      <a href="../monitoring/" class="md-nav__link">
         
   
   
@@ -1257,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/notifications/" class="md-nav__link">
+      <a href="../notifications/" class="md-nav__link">
         
   
   
@@ -1285,7 +1483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/schedulers/" class="md-nav__link">
+      <a href="../schedulers/" class="md-nav__link">
         
   
   
@@ -1313,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/dag/" class="md-nav__link">
+      <a href="../dag/" class="md-nav__link">
         
   
   
@@ -1603,31 +1801,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -1645,7 +1838,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1663,7 +1856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../na%C3%AFa/" class="md-nav__link">
         
   
   
@@ -1691,7 +1884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_task/" class="md-nav__link">
+      <a href="../../na%C3%AFa/create_task/" class="md-nav__link">
         
   
   
@@ -1719,7 +1912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../analyse_pipeline/" class="md-nav__link">
+      <a href="../../na%C3%AFa/analyse_pipeline/" class="md-nav__link">
         
   
   
@@ -1744,37 +1937,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Déboguer une erreur
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../na%C3%AFa/debug/" class="md-nav__link">
         
   
   
@@ -1790,170 +1956,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#comment-lutiliser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comment l'utiliser
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reference-des-erreurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Référence des erreurs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Référence des erreurs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-de-compilation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs de compilation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-dexecution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs d'exécution
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-de-connexion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs de connexion
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemples-de-diagnostic-naia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemples de diagnostic NAÏA
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Exemples de diagnostic NAÏA">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-1-safe_replace-guard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 1 — safe_replace guard
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-2-compilationerror-variable-non-definie" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 2 — CompilationError variable non définie
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-3-assertion-echouee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 3 — Assertion échouée
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-4-cycle-dans-les-dependances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 4 — Cycle dans les dépendances
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inspecter-le-sql-compile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inspecter le SQL compilé
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#activer-les-logs-detailles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Activer les logs détaillés
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1993,33 +1995,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comment-lutiliser" class="md-nav__link">
+  <a href="#retry-cible-retry_on" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comment l'utiliser
+        Retry ciblé (retry_on)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reference-des-erreurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Référence des erreurs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Référence des erreurs">
+    <nav class="md-nav" aria-label="Retry ciblé (retry_on)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#erreurs-de-compilation" class="md-nav__link">
+  <a href="#configuration-de-base" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Erreurs de compilation
+        Configuration de base
       
     </span>
   </a>
@@ -2027,10 +2018,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#erreurs-dexecution" class="md-nav__link">
+  <a href="#filtrer-par-type-derreur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Erreurs d'exécution
+        Filtrer par type d'erreur
       
     </span>
   </a>
@@ -2038,10 +2029,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#erreurs-de-connexion" class="md-nav__link">
+  <a href="#cas-dusage-typiques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Erreurs de connexion
+        Cas d'usage typiques
       
     </span>
   </a>
@@ -2054,22 +2045,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exemples-de-diagnostic-naia" class="md-nav__link">
+  <a href="#detection-danomalies-de-volume" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemples de diagnostic NAÏA
+        Détection d'anomalies de volume
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Exemples de diagnostic NAÏA">
+    <nav class="md-nav" aria-label="Détection d&#39;anomalies de volume">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exemple-1-safe_replace-guard" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple 1 — safe_replace guard
+        Configuration
       
     </span>
   </a>
@@ -2077,10 +2068,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemple-2-compilationerror-variable-non-definie" class="md-nav__link">
+  <a href="#parametres" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple 2 — CompilationError variable non définie
+        Paramètres
       
     </span>
   </a>
@@ -2088,10 +2079,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemple-3-assertion-echouee" class="md-nav__link">
+  <a href="#comportement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple 3 — Assertion échouée
+        Comportement
       
     </span>
   </a>
@@ -2099,10 +2090,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemple-4-cycle-dans-les-dependances" class="md-nav__link">
+  <a href="#cas-particulier-historique-stable" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple 4 — Cycle dans les dépendances
+        Cas particulier — historique stable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategie-recommandee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stratégie recommandée
       
     </span>
   </a>
@@ -2115,10 +2117,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inspecter-le-sql-compile" class="md-nav__link">
+  <a href="#combinaison-retry-anomaly" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inspecter le SQL compilé
+        Combinaison retry + anomaly
       
     </span>
   </a>
@@ -2126,10 +2128,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#activer-les-logs-detailles" class="md-nav__link">
+  <a href="#timeout-par-job" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Activer les logs détaillés
+        Timeout par job
       
     </span>
   </a>
@@ -2157,228 +2159,207 @@
 
 
 <p align="center"><img alt="Noria" height="40" src="../../assets/logo-icon.svg" /></p>
-<h1 id="naia-deboguer-une-erreur">NAÏA — Déboguer une erreur</h1>
-<p>NAÏA diagnostique les erreurs Noria et propose une solution concrète avec le code corrigé.</p>
-<h2 id="comment-lutiliser">Comment l'utiliser</h2>
+<h1 id="resilience-et-detection-danomalies">Résilience et détection d'anomalies</h1>
+<p>Noria propose deux mécanismes pour rendre les pipelines robustes face aux erreurs transitoires et aux données aberrantes :</p>
 <ol>
-<li>Charge le prompt <code>3_debug_erreur.prompt.md</code></li>
-<li>Colle le message d'erreur complet (avec la stack trace si disponible)</li>
-<li>NAÏA identifie la cause et propose une solution avec le code corrigé</li>
+<li><strong>Retry ciblé</strong> — réessayer un job uniquement sur certains types d'erreurs</li>
+<li><strong>Détection d'anomalies</strong> — alerter si le volume de données sort de la norme historique</li>
 </ol>
-<h2 id="reference-des-erreurs">Référence des erreurs</h2>
-<h3 id="erreurs-de-compilation">Erreurs de compilation</h3>
-<table>
-<thead>
-<tr>
-<th>Erreur</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>CompilationError: undefined variable 'x'</code></td>
-<td>Variable Jinja2 <code>{{ x }}</code> non définie</td>
-<td>Ajouter <code>x:</code> dans <code>params:</code> ou vérifier l'orthographe</td>
-</tr>
-<tr>
-<td><code>CompilationError: macro not found</code></td>
-<td>Macro appelée dans le SQL mais absente</td>
-<td>Vérifier <code>sql/macros/</code> ou utiliser une macro intégrée</td>
-</tr>
-<tr>
-<td><code>ConfigError: merge_key required</code></td>
-<td><code>output_write: merge</code> sans <code>merge_key</code></td>
-<td>Ajouter <code>merge_key: [col_id]</code></td>
-</tr>
-<tr>
-<td><code>ConfigError: scd2_key required</code></td>
-<td><code>output_write: scd2</code> sans <code>scd2_key</code></td>
-<td>Ajouter <code>scd2_key: [col_id]</code></td>
-</tr>
-<tr>
-<td><code>ConfigError: seed_file required</code></td>
-<td><code>type: seed</code> sans <code>seed_file</code></td>
-<td>Ajouter <code>seed_file: data/mon_fichier.csv</code></td>
-</tr>
-<tr>
-<td><code>DependencyError: cycle detected</code></td>
-<td>Cycle dans <code>needs</code></td>
-<td>Visualiser avec <code>noria dag</code> et corriger</td>
-</tr>
-<tr>
-<td><code>DependencyError: unknown task 'x'</code></td>
-<td><code>needs:</code> référence une tâche inexistante</td>
-<td>Vérifier le nom de la tâche</td>
-</tr>
-</tbody>
-</table>
-<h3 id="erreurs-dexecution">Erreurs d'exécution</h3>
-<table>
-<thead>
-<tr>
-<th>Erreur</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ExecutionError: safe_replace guard on 'stats': query returned 0 row(s) but safe_replace_min_rows=1</code></td>
-<td>La requête SQL renvoie moins de lignes que le seuil</td>
-<td>Vérifier la requête ou baisser <code>safe_replace_min_rows</code></td>
-</tr>
-<tr>
-<td><code>ExecutionError: assert FAILED — 3 violation(s)</code></td>
-<td>Assertion qualité : des lignes de violation ont été retournées</td>
-<td>Vérifier les données, les violations sont dans le log</td>
-</tr>
-<tr>
-<td><code>ExecutionError: Freshness check FAILED</code></td>
-<td>La table source est plus ancienne que <code>max_hours</code></td>
-<td>Attendre l'alimentation de la source ou ajuster <code>max_hours</code></td>
-</tr>
-<tr>
-<td><code>TaskError: timed out after 300s</code></td>
-<td>La tâche dépasse le <code>timeout:</code> configuré</td>
-<td>Augmenter <code>timeout:</code> ou optimiser la requête</td>
-</tr>
-<tr>
-<td><code>Seed file not found: data/ref.csv</code></td>
-<td><code>seed_file:</code> pointe vers un fichier absent</td>
-<td>Vérifier le chemin relatif depuis la racine du projet</td>
-</tr>
-</tbody>
-</table>
-<h3 id="erreurs-de-connexion">Erreurs de connexion</h3>
-<table>
-<thead>
-<tr>
-<th>Erreur</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>OperationalError: could not connect to server</code></td>
-<td>PostgreSQL inaccessible</td>
-<td>Vérifier <code>host</code>, <code>port</code>, credentials dans <code>.noria/.env</code></td>
-</tr>
-<tr>
-<td><code>google.auth.exceptions.DefaultCredentialsError</code></td>
-<td>Application Default Credentials absentes (BigQuery)</td>
-<td>Exécuter <code>gcloud auth application-default login</code></td>
-</tr>
-<tr>
-<td><code>duckdb.IOException: Could not open file</code></td>
-<td>Fichier DuckDB verrouillé par un autre process</td>
-<td>Fermer les autres connexions (DBeaver, notebook, etc.)</td>
-</tr>
-</tbody>
-</table>
 <hr />
-<h2 id="exemples-de-diagnostic-naia">Exemples de diagnostic NAÏA</h2>
-<h3 id="exemple-1-safe_replace-guard">Exemple 1 — safe_replace guard</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ExecutionError: safe_replace guard on 'monthly_stats': query returned 0 row(s)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>but safe_replace_min_rows=1000 — aborting to protect existing data
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong></p>
-<p>La requête SQL de <code>monthly_stats</code> ne retourne aucune ligne. Causes possibles :
-1. La table source est vide (tâche précédente a échoué silencieusement)
-2. Un filtre de date trop restrictif élimine toutes les lignes
-3. Une jointure trop sélective produit un résultat vide</p>
-<p><strong>Commande de diagnostic :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w">   </span><span class="c1"># voir le SQL compilé</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w"> </span>--dry-run<span class="w">  </span><span class="c1"># compter les lignes sans écrire</span>
-</code></pre></div></p>
-<p><strong>Solution :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Option 1 — baisser le seuil si les données sont légitimement peu nombreuses</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">monthly_stats</span><span class="p">:</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">output_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">safe_replace</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">safe_replace_min_rows</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w">   </span><span class="c1"># au lieu de 1000</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Option 2 — supprimer le garde-fou si replace total est acceptable</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">monthly_stats</span><span class="p">:</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">output_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
-</code></pre></div></p>
-<hr />
-<h3 id="exemple-2-compilationerror-variable-non-definie">Exemple 2 — CompilationError variable non définie</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CompilationError: undefined variable 'date_debut' in sql/filtrage.sql (line 5)
-</code></pre></div></p>
-<p><strong>SQL fautif :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">date_commande</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">'{{ date_debut }}'</span>
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong> <code>date_debut</code> n'est pas déclaré dans <code>params:</code>.</p>
-<p><strong>Solution :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">nodes</span><span class="p">:</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">filtrage</span><span class="p">:</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/filtrage.sql</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">params</span><span class="p">:</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">date_debut</span><span class="p">:</span><span class="w"> </span><span class="s">"2024-01-01"</span><span class="w">   </span><span class="c1"># ajouter le paramètre manquant</span>
-</code></pre></div></p>
-<p>Ou passer la valeur à l'exécution :
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>noria<span class="w"> </span>run<span class="w"> </span>--params<span class="w"> </span><span class="nv">date_debut</span><span class="o">=</span><span class="m">2024</span>-01-01
-</code></pre></div></p>
-<hr />
-<h3 id="exemple-3-assertion-echouee">Exemple 3 — Assertion échouée</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ExecutionError: assert FAILED — task 'assert_positive_revenue' returned 3 violation(s)
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Sample rows:
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  client_id | ca_total | motif
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  C001      | -142.50  | CA négatif interdit
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  C089      | -23.00   | CA négatif interdit
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  C234      | -5.75    | CA négatif interdit
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong> 3 clients ont un CA négatif dans la table <code>customer_stats</code>. Ce n'est pas un bug Noria — c'est un vrai problème de données.</p>
-<p><strong>Démarche de résolution :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- Investiguer la source des avoirs</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">client_id</span><span class="p">,</span><span class="w"> </span><span class="n">date_commande</span><span class="p">,</span><span class="w"> </span><span class="n">montant_ht</span><span class="p">,</span><span class="w"> </span><span class="n">type_piece</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customer_stats</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">client_id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">'C001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'C089'</span><span class="p">,</span><span class="w"> </span><span class="s1">'C234'</span><span class="p">)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">date_commande</span>
-</code></pre></div></p>
-<p><strong>Si le comportement est attendu :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">assert_positive_revenue</span><span class="p">:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/assert_positive_revenue.sql</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">soft_fail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># log un WARNING sans bloquer le pipeline</span>
-</code></pre></div></p>
-<hr />
-<h3 id="exemple-4-cycle-dans-les-dependances">Exemple 4 — Cycle dans les dépendances</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>DependencyError: cycle detected — [stats → rapport → stats]
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong> <code>rapport</code> dépend de <code>stats</code>, et <code>stats</code> dépend de <code>rapport</code> — c'est impossible à exécuter.</p>
-<p><strong>Diagnostic visuel :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>noria<span class="w"> </span>dag<span class="w"> </span>--format<span class="w"> </span>ascii
-</code></pre></div></p>
-<p><strong>Solution :</strong> Identifier quelle dépendance est incorrecte et la supprimer.</p>
-<hr />
-<h2 id="inspecter-le-sql-compile">Inspecter le SQL compilé</h2>
-<p>Avant de soumettre une erreur à NAÏA, utilise <code>noria compile</code> pour voir le SQL réel après résolution des variables et des macros :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># SQL compilé d'une tâche</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># SQL compilé avec des params spécifiques</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w"> </span>--params<span class="w"> </span><span class="nv">schema</span><span class="o">=</span>prod
+<h2 id="retry-cible-retry_on">Retry ciblé (<code>retry_on</code>)</h2>
+<h3 id="configuration-de-base">Configuration de base</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">load_api</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/load_api.sql</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main.api_data</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">retry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="w">              </span><span class="c1"># jusqu'à 3 tentatives supplémentaires</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">retry_delay_s</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w">     </span><span class="c1"># attendre 10s entre chaque tentative</span>
 </code></pre></div>
-<p>Cela aide à identifier :
-- Les variables non résolues
-- Les macros qui génèrent du SQL inattendu
-- Les filtres de date qui éliminent trop de données</p>
-<h2 id="activer-les-logs-detailles">Activer les logs détaillés</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>noria<span class="w"> </span>run<span class="w"> </span>--verbose<span class="w">                     </span><span class="c1"># logs DEBUG dans le terminal</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--log-file<span class="w"> </span>noria_debug.log<span class="w">    </span><span class="c1"># écrire les logs dans un fichier</span>
+<p>Avec <code>retry</code> seul, Noria réessaie sur <strong>n'importe quelle erreur</strong>.</p>
+<h3 id="filtrer-par-type-derreur">Filtrer par type d'erreur</h3>
+<p><code>retry_on</code> limite les retries aux erreurs dont le message contient l'un des motifs :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">load_api</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/load_api.sql</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main.api_data</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">retry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">retry_delay_s</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">retry_on</span><span class="p">:</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"connection</span><span class="nv"> </span><span class="s">refused"</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"timeout"</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"too</span><span class="nv"> </span><span class="s">many</span><span class="nv"> </span><span class="s">connections"</span>
 </code></pre></div>
-<p>Les logs détaillés montrent :
-- Le SQL exact exécuté sur la base
-- Les durées d'exécution par tâche
-- Les tentatives de retry
-- Les résultats des freshness checks</p>
+<p>Si l'erreur est <code>"SSL certificate expired"</code> (absent de <code>retry_on</code>), Noria échoue <strong>immédiatement</strong> sans retenter — évitant d'attendre inutilement.</p>
+<h3 id="cas-dusage-typiques">Cas d'usage typiques</h3>
+<table>
+<thead>
+<tr>
+<th>Contexte</th>
+<th>Motifs <code>retry_on</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API externe instable</td>
+<td><code>"timeout"</code>, <code>"connection refused"</code>, <code>"503"</code></td>
+</tr>
+<tr>
+<td>Base PostgreSQL sous charge</td>
+<td><code>"too many connections"</code>, <code>"deadlock"</code></td>
+</tr>
+<tr>
+<td>BigQuery quota</td>
+<td><code>"rateLimitExceeded"</code>, <code>"quota"</code></td>
+</tr>
+<tr>
+<td>Fichier source temporairement absent</td>
+<td><code>"file not found"</code>, <code>"no such file"</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Erreurs non-retriables</p>
+<p>Les erreurs de logique SQL (<code>syntax error</code>, <code>column not found</code>, <code>permission denied</code>) ne doivent <strong>pas</strong> figurer dans <code>retry_on</code> — elles reflètent un problème de code, pas un problème transitoire.</p>
+</div>
+<hr />
+<h2 id="detection-danomalies-de-volume">Détection d'anomalies de volume</h2>
+<p>Noria compare le nombre de lignes écrites à l'<strong>historique des runs précédents</strong> via un z-score statistique. Si le volume sort trop de la normale, le job peut être mis en erreur ou générer un avertissement.</p>
+<h3 id="configuration">Configuration</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">load_orders</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/load_orders.sql</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main.orders</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">anomaly_detection</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">z_score_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.0</span><span class="w">   </span><span class="c1"># seuil par défaut</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">min_history</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">           </span><span class="c1"># runs historiques minimum pour activer</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">warn_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">         </span><span class="c1"># false = erreur bloquante, true = warning</span>
+</code></pre></div>
+<h3 id="parametres">Paramètres</h3>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Défaut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td><code>true</code></td>
+<td>Activer la détection pour ce job</td>
+</tr>
+<tr>
+<td><code>z_score_threshold</code></td>
+<td><code>3.0</code></td>
+<td>Seuil z-score au-delà duquel c'est une anomalie</td>
+</tr>
+<tr>
+<td><code>min_history</code></td>
+<td><code>5</code></td>
+<td>Nombre minimum de runs passés avant activation</td>
+</tr>
+<tr>
+<td><code>warn_only</code></td>
+<td><code>false</code></td>
+<td><code>true</code> = log warning, <code>false</code> = erreur bloquante</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comportement">Comportement</h3>
+<p>Une fois <code>min_history</code> runs enregistrés :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Moyenne historique : 50 000 lignes
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Écart-type : 2 000 lignes
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Run actuel : 200 000 lignes → z-score = 75 → ANOMALIE
+</code></pre></div>
+<p>Si <code>warn_only: false</code> (défaut) :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ExecutionError: Anomalie détectée pour 'load_orders' : 200 000 lignes
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>(z-score 75.0 &gt; seuil 3.0, historique moy=50000, σ=2000)
+</code></pre></div></p>
+<p>Si <code>warn_only: true</code> :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>WARNING  Anomalie pour 'load_orders' : 200 000 lignes (z-score 75.0)
+</code></pre></div>
+Le pipeline continue malgré l'anomalie.</p>
+<h3 id="cas-particulier-historique-stable">Cas particulier — historique stable</h3>
+<p>Quand tous les runs précédents ont exactement le même nombre de lignes (écart-type = 0), tout écart est considéré comme une anomalie :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Historique : toujours 1 000 lignes
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Run actuel : 1 ligne → ANOMALIE (valeur hors de la baseline stable)
+</code></pre></div>
+<h3 id="strategie-recommandee">Stratégie recommandée</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">load_critical</span><span class="p">:</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">anomaly_detection</span><span class="p">:</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="nt">z_score_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4.0</span><span class="w">   </span><span class="c1"># tolérance plus large pour les tables volatiles</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="nt">min_history</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">      </span><span class="nt">warn_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">         </span><span class="c1"># bloquant — cette table alimente le reporting</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="nt">load_volatile</span><span class="p">:</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nt">anomaly_detection</span><span class="p">:</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">      </span><span class="nt">z_score_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5.0</span><span class="w">   </span><span class="c1"># données très variables (campagnes marketing)</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">      </span><span class="nt">min_history</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">      </span><span class="nt">warn_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">          </span><span class="c1"># non-bloquant — surveiller sans stopper</span>
+</code></pre></div>
+<hr />
+<h2 id="combinaison-retry-anomaly">Combinaison retry + anomaly</h2>
+<p>Ces deux mécanismes sont indépendants et se combinent naturellement :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">load_orders</span><span class="p">:</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/load_orders.sql</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main.orders</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nt">retry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nt">retry_delay_s</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nt">retry_on</span><span class="p">:</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"connection</span><span class="nv"> </span><span class="s">timeout"</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nt">anomaly_detection</span><span class="p">:</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="nt">z_score_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.0</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="nt">warn_only</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<ol>
+<li>Si la connexion échoue → retry jusqu'à 2 fois</li>
+<li>Une fois les données écrites → vérification du volume</li>
+<li>Si volume anormal → warning (pipeline continue)</li>
+</ol>
+<hr />
+<h2 id="timeout-par-job">Timeout par job</h2>
+<p>Pour éviter qu'un job bloquant ne fige tout le pipeline :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">load_slow_api</span><span class="p">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/load_api.sql</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span><span class="w">   </span><span class="c1"># secondes — fail après 5 minutes</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nt">retry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nt">retry_on</span><span class="p">:</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"timeout"</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timeout</code></td>
+<td>Durée max en secondes (None = pas de limite)</td>
+</tr>
+<tr>
+<td><code>retry</code></td>
+<td>Nombre de retries après la première tentative</td>
+</tr>
+<tr>
+<td><code>retry_delay_s</code></td>
+<td>Délai entre retries (en secondes, accepte décimaux)</td>
+</tr>
+<tr>
+<td><code>retry_on</code></td>
+<td>Liste de motifs — retry seulement si l'erreur correspond</td>
+</tr>
+</tbody>
+</table>
 
 
 

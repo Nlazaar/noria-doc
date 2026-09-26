@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/na%C3%AFa/debug/">
+        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/advanced/monitoring/">
       
       
-        <link rel="prev" href="../analyse_pipeline/">
+        <link rel="prev" href="../freshness/">
       
+      
+        <link rel="next" href="../notifications/">
       
       
         
@@ -25,7 +27,7 @@
     
     
       
-        <title>Déboguer une erreur - Noria</title>
+        <title>Monitoring - Noria</title>
       
     
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#naia-deboguer-une-erreur" class="md-skip">
+        <a href="#dashboard-de-monitoring" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Déboguer une erreur
+              Monitoring
             
           </span>
         </div>
@@ -317,11 +319,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../advanced/seeds/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../seeds/" class="md-tabs__link">
           
   
   
@@ -377,13 +381,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../na%C3%AFa/" class="md-tabs__link">
           
   
   
@@ -950,26 +952,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -987,7 +994,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1005,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/seeds/" class="md-nav__link">
+      <a href="../seeds/" class="md-nav__link">
         
   
   
@@ -1033,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/scd2/" class="md-nav__link">
+      <a href="../scd2/" class="md-nav__link">
         
   
   
@@ -1061,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/assertions/" class="md-nav__link">
+      <a href="../assertions/" class="md-nav__link">
         
   
   
@@ -1089,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/anonymization/" class="md-nav__link">
+      <a href="../anonymization/" class="md-nav__link">
         
   
   
@@ -1117,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/resilience/" class="md-nav__link">
+      <a href="../resilience/" class="md-nav__link">
         
   
   
@@ -1145,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/lineage/" class="md-nav__link">
+      <a href="../lineage/" class="md-nav__link">
         
   
   
@@ -1173,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/impact/" class="md-nav__link">
+      <a href="../impact/" class="md-nav__link">
         
   
   
@@ -1201,7 +1208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/freshness/" class="md-nav__link">
+      <a href="../freshness/" class="md-nav__link">
         
   
   
@@ -1226,10 +1233,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../advanced/monitoring/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1245,6 +1279,170 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#acceder-au-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accéder au dashboard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancer-le-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lancer le dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lancer le dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avec-un-run-en-cours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avec un run en cours
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#en-standalone-hors-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        En standalone (hors run)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-quaffiche-le-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qu'affiche le dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ce qu&#39;affiche le dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#onglet-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Onglet Runs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onglet-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Onglet Jobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onglet-lignage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Onglet Lignage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onglet-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Onglet Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activer-automatiquement-au-demarrage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activer automatiquement au démarrage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acces-depuis-une-autre-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accès depuis une autre machine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API REST
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1257,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/notifications/" class="md-nav__link">
+      <a href="../notifications/" class="md-nav__link">
         
   
   
@@ -1285,7 +1483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/schedulers/" class="md-nav__link">
+      <a href="../schedulers/" class="md-nav__link">
         
   
   
@@ -1313,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/dag/" class="md-nav__link">
+      <a href="../dag/" class="md-nav__link">
         
   
   
@@ -1603,31 +1801,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -1645,7 +1838,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1663,7 +1856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../na%C3%AFa/" class="md-nav__link">
         
   
   
@@ -1691,7 +1884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_task/" class="md-nav__link">
+      <a href="../../na%C3%AFa/create_task/" class="md-nav__link">
         
   
   
@@ -1719,7 +1912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../analyse_pipeline/" class="md-nav__link">
+      <a href="../../na%C3%AFa/analyse_pipeline/" class="md-nav__link">
         
   
   
@@ -1744,37 +1937,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Déboguer une erreur
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../na%C3%AFa/debug/" class="md-nav__link">
         
   
   
@@ -1790,170 +1956,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#comment-lutiliser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comment l'utiliser
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reference-des-erreurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Référence des erreurs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Référence des erreurs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-de-compilation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs de compilation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-dexecution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs d'exécution
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-de-connexion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs de connexion
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemples-de-diagnostic-naia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemples de diagnostic NAÏA
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Exemples de diagnostic NAÏA">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-1-safe_replace-guard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 1 — safe_replace guard
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-2-compilationerror-variable-non-definie" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 2 — CompilationError variable non définie
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-3-assertion-echouee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 3 — Assertion échouée
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-4-cycle-dans-les-dependances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 4 — Cycle dans les dépendances
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inspecter-le-sql-compile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inspecter le SQL compilé
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#activer-les-logs-detailles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Activer les logs détaillés
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1993,10 +1995,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comment-lutiliser" class="md-nav__link">
+  <a href="#acceder-au-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comment l'utiliser
+        Accéder au dashboard
       
     </span>
   </a>
@@ -2004,22 +2006,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reference-des-erreurs" class="md-nav__link">
+  <a href="#lancer-le-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Référence des erreurs
+        Lancer le dashboard
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Référence des erreurs">
+    <nav class="md-nav" aria-label="Lancer le dashboard">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#erreurs-de-compilation" class="md-nav__link">
+  <a href="#avec-un-run-en-cours" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Erreurs de compilation
+        Avec un run en cours
       
     </span>
   </a>
@@ -2027,21 +2029,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#erreurs-dexecution" class="md-nav__link">
+  <a href="#en-standalone-hors-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Erreurs d'exécution
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-de-connexion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs de connexion
+        En standalone (hors run)
       
     </span>
   </a>
@@ -2054,22 +2045,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exemples-de-diagnostic-naia" class="md-nav__link">
+  <a href="#ce-quaffiche-le-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemples de diagnostic NAÏA
+        Ce qu'affiche le dashboard
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Exemples de diagnostic NAÏA">
+    <nav class="md-nav" aria-label="Ce qu&#39;affiche le dashboard">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exemple-1-safe_replace-guard" class="md-nav__link">
+  <a href="#onglet-runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple 1 — safe_replace guard
+        Onglet Runs
       
     </span>
   </a>
@@ -2077,10 +2068,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemple-2-compilationerror-variable-non-definie" class="md-nav__link">
+  <a href="#onglet-jobs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple 2 — CompilationError variable non définie
+        Onglet Jobs
       
     </span>
   </a>
@@ -2088,10 +2079,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemple-3-assertion-echouee" class="md-nav__link">
+  <a href="#onglet-lignage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple 3 — Assertion échouée
+        Onglet Lignage
       
     </span>
   </a>
@@ -2099,10 +2090,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exemple-4-cycle-dans-les-dependances" class="md-nav__link">
+  <a href="#onglet-impact" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exemple 4 — Cycle dans les dépendances
+        Onglet Impact
       
     </span>
   </a>
@@ -2115,10 +2106,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inspecter-le-sql-compile" class="md-nav__link">
+  <a href="#activer-automatiquement-au-demarrage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inspecter le SQL compilé
+        Activer automatiquement au démarrage
       
     </span>
   </a>
@@ -2126,10 +2117,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#activer-les-logs-detailles" class="md-nav__link">
+  <a href="#acces-depuis-une-autre-machine" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Activer les logs détaillés
+        Accès depuis une autre machine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-rest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API REST
       
     </span>
   </a>
@@ -2157,228 +2159,182 @@
 
 
 <p align="center"><img alt="Noria" height="40" src="../../assets/logo-icon.svg" /></p>
-<h1 id="naia-deboguer-une-erreur">NAÏA — Déboguer une erreur</h1>
-<p>NAÏA diagnostique les erreurs Noria et propose une solution concrète avec le code corrigé.</p>
-<h2 id="comment-lutiliser">Comment l'utiliser</h2>
-<ol>
-<li>Charge le prompt <code>3_debug_erreur.prompt.md</code></li>
-<li>Colle le message d'erreur complet (avec la stack trace si disponible)</li>
-<li>NAÏA identifie la cause et propose une solution avec le code corrigé</li>
-</ol>
-<h2 id="reference-des-erreurs">Référence des erreurs</h2>
-<h3 id="erreurs-de-compilation">Erreurs de compilation</h3>
-<table>
-<thead>
-<tr>
-<th>Erreur</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>CompilationError: undefined variable 'x'</code></td>
-<td>Variable Jinja2 <code>{{ x }}</code> non définie</td>
-<td>Ajouter <code>x:</code> dans <code>params:</code> ou vérifier l'orthographe</td>
-</tr>
-<tr>
-<td><code>CompilationError: macro not found</code></td>
-<td>Macro appelée dans le SQL mais absente</td>
-<td>Vérifier <code>sql/macros/</code> ou utiliser une macro intégrée</td>
-</tr>
-<tr>
-<td><code>ConfigError: merge_key required</code></td>
-<td><code>output_write: merge</code> sans <code>merge_key</code></td>
-<td>Ajouter <code>merge_key: [col_id]</code></td>
-</tr>
-<tr>
-<td><code>ConfigError: scd2_key required</code></td>
-<td><code>output_write: scd2</code> sans <code>scd2_key</code></td>
-<td>Ajouter <code>scd2_key: [col_id]</code></td>
-</tr>
-<tr>
-<td><code>ConfigError: seed_file required</code></td>
-<td><code>type: seed</code> sans <code>seed_file</code></td>
-<td>Ajouter <code>seed_file: data/mon_fichier.csv</code></td>
-</tr>
-<tr>
-<td><code>DependencyError: cycle detected</code></td>
-<td>Cycle dans <code>needs</code></td>
-<td>Visualiser avec <code>noria dag</code> et corriger</td>
-</tr>
-<tr>
-<td><code>DependencyError: unknown task 'x'</code></td>
-<td><code>needs:</code> référence une tâche inexistante</td>
-<td>Vérifier le nom de la tâche</td>
-</tr>
-</tbody>
-</table>
-<h3 id="erreurs-dexecution">Erreurs d'exécution</h3>
-<table>
-<thead>
-<tr>
-<th>Erreur</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ExecutionError: safe_replace guard on 'stats': query returned 0 row(s) but safe_replace_min_rows=1</code></td>
-<td>La requête SQL renvoie moins de lignes que le seuil</td>
-<td>Vérifier la requête ou baisser <code>safe_replace_min_rows</code></td>
-</tr>
-<tr>
-<td><code>ExecutionError: assert FAILED — 3 violation(s)</code></td>
-<td>Assertion qualité : des lignes de violation ont été retournées</td>
-<td>Vérifier les données, les violations sont dans le log</td>
-</tr>
-<tr>
-<td><code>ExecutionError: Freshness check FAILED</code></td>
-<td>La table source est plus ancienne que <code>max_hours</code></td>
-<td>Attendre l'alimentation de la source ou ajuster <code>max_hours</code></td>
-</tr>
-<tr>
-<td><code>TaskError: timed out after 300s</code></td>
-<td>La tâche dépasse le <code>timeout:</code> configuré</td>
-<td>Augmenter <code>timeout:</code> ou optimiser la requête</td>
-</tr>
-<tr>
-<td><code>Seed file not found: data/ref.csv</code></td>
-<td><code>seed_file:</code> pointe vers un fichier absent</td>
-<td>Vérifier le chemin relatif depuis la racine du projet</td>
-</tr>
-</tbody>
-</table>
-<h3 id="erreurs-de-connexion">Erreurs de connexion</h3>
-<table>
-<thead>
-<tr>
-<th>Erreur</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>OperationalError: could not connect to server</code></td>
-<td>PostgreSQL inaccessible</td>
-<td>Vérifier <code>host</code>, <code>port</code>, credentials dans <code>.noria/.env</code></td>
-</tr>
-<tr>
-<td><code>google.auth.exceptions.DefaultCredentialsError</code></td>
-<td>Application Default Credentials absentes (BigQuery)</td>
-<td>Exécuter <code>gcloud auth application-default login</code></td>
-</tr>
-<tr>
-<td><code>duckdb.IOException: Could not open file</code></td>
-<td>Fichier DuckDB verrouillé par un autre process</td>
-<td>Fermer les autres connexions (DBeaver, notebook, etc.)</td>
-</tr>
-</tbody>
-</table>
+<h1 id="dashboard-de-monitoring">Dashboard de monitoring</h1>
+<p>Noria embarque un dashboard web qui s'ouvre dans le navigateur et affiche l'état du pipeline en temps réel.</p>
+<p>Il est basé sur <strong>FastAPI + HTMX</strong> — léger, sans dépendance frontend, accessible à <code>http://127.0.0.1:7070</code>.</p>
 <hr />
-<h2 id="exemples-de-diagnostic-naia">Exemples de diagnostic NAÏA</h2>
-<h3 id="exemple-1-safe_replace-guard">Exemple 1 — safe_replace guard</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ExecutionError: safe_replace guard on 'monthly_stats': query returned 0 row(s)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>but safe_replace_min_rows=1000 — aborting to protect existing data
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong></p>
-<p>La requête SQL de <code>monthly_stats</code> ne retourne aucune ligne. Causes possibles :
-1. La table source est vide (tâche précédente a échoué silencieusement)
-2. Un filtre de date trop restrictif élimine toutes les lignes
-3. Une jointure trop sélective produit un résultat vide</p>
-<p><strong>Commande de diagnostic :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w">   </span><span class="c1"># voir le SQL compilé</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w"> </span>--dry-run<span class="w">  </span><span class="c1"># compter les lignes sans écrire</span>
-</code></pre></div></p>
-<p><strong>Solution :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Option 1 — baisser le seuil si les données sont légitimement peu nombreuses</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">monthly_stats</span><span class="p">:</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">output_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">safe_replace</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">safe_replace_min_rows</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w">   </span><span class="c1"># au lieu de 1000</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Option 2 — supprimer le garde-fou si replace total est acceptable</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">monthly_stats</span><span class="p">:</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">output_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
-</code></pre></div></p>
-<hr />
-<h3 id="exemple-2-compilationerror-variable-non-definie">Exemple 2 — CompilationError variable non définie</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CompilationError: undefined variable 'date_debut' in sql/filtrage.sql (line 5)
-</code></pre></div></p>
-<p><strong>SQL fautif :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">date_commande</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">'{{ date_debut }}'</span>
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong> <code>date_debut</code> n'est pas déclaré dans <code>params:</code>.</p>
-<p><strong>Solution :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">nodes</span><span class="p">:</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">filtrage</span><span class="p">:</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/filtrage.sql</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">params</span><span class="p">:</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">date_debut</span><span class="p">:</span><span class="w"> </span><span class="s">"2024-01-01"</span><span class="w">   </span><span class="c1"># ajouter le paramètre manquant</span>
-</code></pre></div></p>
-<p>Ou passer la valeur à l'exécution :
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>noria<span class="w"> </span>run<span class="w"> </span>--params<span class="w"> </span><span class="nv">date_debut</span><span class="o">=</span><span class="m">2024</span>-01-01
-</code></pre></div></p>
-<hr />
-<h3 id="exemple-3-assertion-echouee">Exemple 3 — Assertion échouée</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ExecutionError: assert FAILED — task 'assert_positive_revenue' returned 3 violation(s)
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Sample rows:
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  client_id | ca_total | motif
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  C001      | -142.50  | CA négatif interdit
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  C089      | -23.00   | CA négatif interdit
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  C234      | -5.75    | CA négatif interdit
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong> 3 clients ont un CA négatif dans la table <code>customer_stats</code>. Ce n'est pas un bug Noria — c'est un vrai problème de données.</p>
-<p><strong>Démarche de résolution :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- Investiguer la source des avoirs</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">client_id</span><span class="p">,</span><span class="w"> </span><span class="n">date_commande</span><span class="p">,</span><span class="w"> </span><span class="n">montant_ht</span><span class="p">,</span><span class="w"> </span><span class="n">type_piece</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customer_stats</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">client_id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">'C001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'C089'</span><span class="p">,</span><span class="w"> </span><span class="s1">'C234'</span><span class="p">)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">date_commande</span>
-</code></pre></div></p>
-<p><strong>Si le comportement est attendu :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">assert_positive_revenue</span><span class="p">:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/assert_positive_revenue.sql</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">soft_fail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># log un WARNING sans bloquer le pipeline</span>
-</code></pre></div></p>
-<hr />
-<h3 id="exemple-4-cycle-dans-les-dependances">Exemple 4 — Cycle dans les dépendances</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>DependencyError: cycle detected — [stats → rapport → stats]
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong> <code>rapport</code> dépend de <code>stats</code>, et <code>stats</code> dépend de <code>rapport</code> — c'est impossible à exécuter.</p>
-<p><strong>Diagnostic visuel :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>noria<span class="w"> </span>dag<span class="w"> </span>--format<span class="w"> </span>ascii
-</code></pre></div></p>
-<p><strong>Solution :</strong> Identifier quelle dépendance est incorrecte et la supprimer.</p>
-<hr />
-<h2 id="inspecter-le-sql-compile">Inspecter le SQL compilé</h2>
-<p>Avant de soumettre une erreur à NAÏA, utilise <code>noria compile</code> pour voir le SQL réel après résolution des variables et des macros :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># SQL compilé d'une tâche</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># SQL compilé avec des params spécifiques</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w"> </span>--params<span class="w"> </span><span class="nv">schema</span><span class="o">=</span>prod
+<h2 id="acceder-au-dashboard">Accéder au dashboard</h2>
+<p>Une fois le serveur démarré (voir ci-dessous), ouvrir dans le navigateur :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>http://127.0.0.1:7070
 </code></pre></div>
-<p>Cela aide à identifier :
-- Les variables non résolues
-- Les macros qui génèrent du SQL inattendu
-- Les filtres de date qui éliminent trop de données</p>
-<h2 id="activer-les-logs-detailles">Activer les logs détaillés</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>noria<span class="w"> </span>run<span class="w"> </span>--verbose<span class="w">                     </span><span class="c1"># logs DEBUG dans le terminal</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--log-file<span class="w"> </span>noria_debug.log<span class="w">    </span><span class="c1"># écrire les logs dans un fichier</span>
+<p>Le port par défaut est <strong>7070</strong>. Si tu as changé le port dans <code>noria.yml</code> ou via <code>--port</code>, utiliser ce port à la place.</p>
+<hr />
+<h2 id="lancer-le-dashboard">Lancer le dashboard</h2>
+<h3 id="avec-un-run-en-cours">Avec un run en cours</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>noria<span class="w"> </span>run<span class="w"> </span>--monitor
 </code></pre></div>
-<p>Les logs détaillés montrent :
-- Le SQL exact exécuté sur la base
-- Les durées d'exécution par tâche
-- Les tentatives de retry
-- Les résultats des freshness checks</p>
+<p>Le dashboard démarre automatiquement <strong>en arrière-plan</strong> au début du run. Ouvrir <code>http://127.0.0.1:7070</code> dans le navigateur pendant ou après l'exécution — il se met à jour toutes les 3 secondes.</p>
+<h3 id="en-standalone-hors-run">En standalone (hors run)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>noria<span class="w"> </span>monitor<span class="w">                        </span><span class="c1"># démarre le serveur, URL affichée dans le terminal</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span><span class="w">            </span><span class="c1"># port custom → http://127.0.0.1:8080</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--open<span class="w">                 </span><span class="c1"># démarre + ouvre le navigateur automatiquement</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--open<span class="w">     </span><span class="c1"># les deux</span>
+</code></pre></div>
+<p>Utile pour consulter l'historique des runs passés sans relancer le pipeline.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>L'URL est toujours affichée dans le terminal au démarrage :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Dashboard disponible → http://127.0.0.1:7070
+</code></pre></div></p>
+</div>
+<hr />
+<h2 id="ce-quaffiche-le-dashboard">Ce qu'affiche le dashboard</h2>
+<p>Le dashboard est organisé en <strong>4 onglets</strong> :</p>
+<h3 id="onglet-runs">Onglet Runs</h3>
+<p>Bannière live rafraîchie toutes les <strong>3 secondes</strong> :</p>
+<ul>
+<li><code>En cours</code> — pipeline actif, jobs en cours listés</li>
+<li><code>Idle</code> — aucune exécution active</li>
+</ul>
+<p>Tableau des <strong>30 derniers runs</strong> avec :</p>
+<table>
+<thead>
+<tr>
+<th>Colonne</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run ID</td>
+<td>Identifiant unique du run</td>
+</tr>
+<tr>
+<td>Statut</td>
+<td><code>OK</code> / <code>KO</code> / <code>Running</code> / <code>Aborted</code></td>
+</tr>
+<tr>
+<td>Durée</td>
+<td>Temps total d'exécution</td>
+</tr>
+<tr>
+<td>Jobs</td>
+<td>Nombre de jobs exécutés</td>
+</tr>
+<tr>
+<td>Lignes</td>
+<td>Total de lignes écrites</td>
+</tr>
+<tr>
+<td>Démarré</td>
+<td>Horodatage de début</td>
+</tr>
+</tbody>
+</table>
+<p>Cliquer sur un run affiche le détail job par job :</p>
+<ul>
+<li>Statut individuel (OK / KO / Skipped / Aborted)</li>
+<li>Durée par job</li>
+<li>Lignes écrites</li>
+<li>Message d'erreur complet si échec</li>
+</ul>
+<p>Un bouton <strong>Déclencher un run</strong> lance le pipeline en arrière-plan depuis le navigateur.</p>
+<h3 id="onglet-jobs">Onglet Jobs</h3>
+<p>Vue d'ensemble de tous les jobs du pipeline :</p>
+<ul>
+<li>Nom, type, table cible, tags</li>
+<li>Dernier statut connu et horodatage</li>
+<li>Lien vers le détail du dernier run</li>
+</ul>
+<h3 id="onglet-lignage">Onglet Lignage</h3>
+<p>Graphe <strong>Mermaid.js</strong> interactif du pipeline :</p>
+<ul>
+<li>Nœuds = jobs, arêtes = dépendances (<code>after:</code>)</li>
+<li>Sources et cibles de tables annotées</li>
+<li>Mise à jour automatique après chaque run</li>
+</ul>
+<h3 id="onglet-impact">Onglet Impact</h3>
+<p>Analyse d'impact bidirectionnelle interactive :</p>
+<ul>
+<li>Champ de recherche par table ou pipeline</li>
+<li>Résultats en temps réel (HTMX)</li>
+<li>Clic sur une table → ses pipelines amont/aval</li>
+<li>Clic sur un pipeline → ses tables sources et cibles</li>
+</ul>
+<hr />
+<h2 id="activer-automatiquement-au-demarrage">Activer automatiquement au démarrage</h2>
+<p>Pour que le dashboard s'ouvre à chaque <code>noria run</code> sans le flag <code>--monitor</code> :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># noria.yml</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">monitoring</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7070</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">auto_open</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">   </span><span class="c1"># true = ouvre le navigateur automatiquement</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Défaut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td><code>true</code></td>
+<td>Démarrer le dashboard avec <code>noria run</code></td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td><code>7070</code></td>
+<td>Port d'écoute</td>
+</tr>
+<tr>
+<td><code>auto_open</code></td>
+<td><code>false</code></td>
+<td>Ouvrir le navigateur automatiquement</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>enabled: true</code> démarre le serveur en arrière-plan mais n'ouvre pas le navigateur sauf si <code>auto_open: true</code>.</p>
+</div>
+<hr />
+<h2 id="acces-depuis-une-autre-machine">Accès depuis une autre machine</h2>
+<p>Par défaut le dashboard écoute sur <code>127.0.0.1</code> (loopback). Pour l'exposer sur le réseau local :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">7070</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Sécurité</p>
+<p>Le dashboard n'a pas d'authentification. Ne pas l'exposer sur Internet sans proxy sécurisé.</p>
+</div>
+<hr />
+<h2 id="api-rest">API REST</h2>
+<p>Le dashboard expose une API REST complète — voir la <a href="../../reference/api/">Référence API</a> pour la documentation complète.</p>
+<p>Endpoints principaux :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>GET  /api/v1/health                          → santé du serveur
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>GET  /api/v1/runs                            → 50 derniers runs
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>GET  /api/v1/runs/{run_id}                   → détail d'un run
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>GET  /api/v1/jobs                            → liste des jobs
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>GET  /api/v1/lineage                         → lignage du pipeline
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>GET  /api/v1/impact/pipeline/{nom}           → tables d'un pipeline
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>GET  /api/v1/impact/table/{schema.table}     → pipelines d'une table
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>POST /api/v1/trigger                         → déclencher un run
+</code></pre></div>
+<p>Exemple :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>http://127.0.0.1:7070/api/v1/runs<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[0]'</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">"run_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"finished_ok"</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-25T08:30:00"</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">"duration_s"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.2</span><span class="p">,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">"jobs_ok"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nt">"jobs_ko"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nt">"rows_written"</span><span class="p">:</span><span class="w"> </span><span class="mi">12450</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</code></pre></div>
 
 
 

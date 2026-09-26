@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/na%C3%AFa/debug/">
+        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/advanced/anonymization/">
       
       
-        <link rel="prev" href="../analyse_pipeline/">
+        <link rel="prev" href="../assertions/">
       
+      
+        <link rel="next" href="../resilience/">
       
       
         
@@ -25,7 +27,7 @@
     
     
       
-        <title>Déboguer une erreur - Noria</title>
+        <title>Anonymisation RGPD - Noria</title>
       
     
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#naia-deboguer-une-erreur" class="md-skip">
+        <a href="#anonymisation-rgpd-dcp" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Déboguer une erreur
+              Anonymisation RGPD
             
           </span>
         </div>
@@ -317,11 +319,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../advanced/seeds/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../seeds/" class="md-tabs__link">
           
   
   
@@ -377,13 +381,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../na%C3%AFa/" class="md-tabs__link">
           
   
   
@@ -950,26 +952,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -987,7 +994,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1005,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/seeds/" class="md-nav__link">
+      <a href="../seeds/" class="md-nav__link">
         
   
   
@@ -1033,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/scd2/" class="md-nav__link">
+      <a href="../scd2/" class="md-nav__link">
         
   
   
@@ -1061,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/assertions/" class="md-nav__link">
+      <a href="../assertions/" class="md-nav__link">
         
   
   
@@ -1086,10 +1093,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../advanced/anonymization/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anonymisation RGPD
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1105,6 +1139,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodes-disponibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Méthodes disponibles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comportement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comportement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combinaison-avec-les-schema-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinaison avec les schema tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibilite-dialectes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibilité dialectes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-complet-pipeline-rgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple complet — pipeline RGPD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques-rgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques RGPD
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1117,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/resilience/" class="md-nav__link">
+      <a href="../resilience/" class="md-nav__link">
         
   
   
@@ -1145,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/lineage/" class="md-nav__link">
+      <a href="../lineage/" class="md-nav__link">
         
   
   
@@ -1173,7 +1304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/impact/" class="md-nav__link">
+      <a href="../impact/" class="md-nav__link">
         
   
   
@@ -1201,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/freshness/" class="md-nav__link">
+      <a href="../freshness/" class="md-nav__link">
         
   
   
@@ -1229,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/monitoring/" class="md-nav__link">
+      <a href="../monitoring/" class="md-nav__link">
         
   
   
@@ -1257,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/notifications/" class="md-nav__link">
+      <a href="../notifications/" class="md-nav__link">
         
   
   
@@ -1285,7 +1416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/schedulers/" class="md-nav__link">
+      <a href="../schedulers/" class="md-nav__link">
         
   
   
@@ -1313,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/dag/" class="md-nav__link">
+      <a href="../dag/" class="md-nav__link">
         
   
   
@@ -1603,31 +1734,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -1645,7 +1771,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1663,7 +1789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../na%C3%AFa/" class="md-nav__link">
         
   
   
@@ -1691,7 +1817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_task/" class="md-nav__link">
+      <a href="../../na%C3%AFa/create_task/" class="md-nav__link">
         
   
   
@@ -1719,7 +1845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../analyse_pipeline/" class="md-nav__link">
+      <a href="../../na%C3%AFa/analyse_pipeline/" class="md-nav__link">
         
   
   
@@ -1744,37 +1870,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Déboguer une erreur
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../na%C3%AFa/debug/" class="md-nav__link">
         
   
   
@@ -1790,170 +1889,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#comment-lutiliser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comment l'utiliser
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reference-des-erreurs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Référence des erreurs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Référence des erreurs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-de-compilation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs de compilation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-dexecution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs d'exécution
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-de-connexion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs de connexion
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemples-de-diagnostic-naia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemples de diagnostic NAÏA
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Exemples de diagnostic NAÏA">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-1-safe_replace-guard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 1 — safe_replace guard
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-2-compilationerror-variable-non-definie" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 2 — CompilationError variable non définie
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-3-assertion-echouee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 3 — Assertion échouée
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-4-cycle-dans-les-dependances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 4 — Cycle dans les dépendances
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inspecter-le-sql-compile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inspecter le SQL compilé
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#activer-les-logs-detailles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Activer les logs détaillés
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1993,10 +1928,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comment-lutiliser" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comment l'utiliser
+        Configuration
       
     </span>
   </a>
@@ -2004,121 +1939,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reference-des-erreurs" class="md-nav__link">
+  <a href="#methodes-disponibles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Référence des erreurs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Référence des erreurs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-de-compilation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs de compilation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-dexecution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs d'exécution
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#erreurs-de-connexion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Erreurs de connexion
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemples-de-diagnostic-naia" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemples de diagnostic NAÏA
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Exemples de diagnostic NAÏA">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-1-safe_replace-guard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 1 — safe_replace guard
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-2-compilationerror-variable-non-definie" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 2 — CompilationError variable non définie
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-3-assertion-echouee" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 3 — Assertion échouée
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-4-cycle-dans-les-dependances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple 4 — Cycle dans les dépendances
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inspecter-le-sql-compile" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inspecter le SQL compilé
+        Méthodes disponibles
       
     </span>
   </a>
@@ -2126,10 +1950,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#activer-les-logs-detailles" class="md-nav__link">
+  <a href="#comportement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Activer les logs détaillés
+        Comportement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combinaison-avec-les-schema-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinaison avec les schema tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibilite-dialectes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibilité dialectes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-complet-pipeline-rgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple complet — pipeline RGPD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques-rgpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques RGPD
       
     </span>
   </a>
@@ -2157,228 +2025,194 @@
 
 
 <p align="center"><img alt="Noria" height="40" src="../../assets/logo-icon.svg" /></p>
-<h1 id="naia-deboguer-une-erreur">NAÏA — Déboguer une erreur</h1>
-<p>NAÏA diagnostique les erreurs Noria et propose une solution concrète avec le code corrigé.</p>
-<h2 id="comment-lutiliser">Comment l'utiliser</h2>
-<ol>
-<li>Charge le prompt <code>3_debug_erreur.prompt.md</code></li>
-<li>Colle le message d'erreur complet (avec la stack trace si disponible)</li>
-<li>NAÏA identifie la cause et propose une solution avec le code corrigé</li>
-</ol>
-<h2 id="reference-des-erreurs">Référence des erreurs</h2>
-<h3 id="erreurs-de-compilation">Erreurs de compilation</h3>
-<table>
-<thead>
-<tr>
-<th>Erreur</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>CompilationError: undefined variable 'x'</code></td>
-<td>Variable Jinja2 <code>{{ x }}</code> non définie</td>
-<td>Ajouter <code>x:</code> dans <code>params:</code> ou vérifier l'orthographe</td>
-</tr>
-<tr>
-<td><code>CompilationError: macro not found</code></td>
-<td>Macro appelée dans le SQL mais absente</td>
-<td>Vérifier <code>sql/macros/</code> ou utiliser une macro intégrée</td>
-</tr>
-<tr>
-<td><code>ConfigError: merge_key required</code></td>
-<td><code>output_write: merge</code> sans <code>merge_key</code></td>
-<td>Ajouter <code>merge_key: [col_id]</code></td>
-</tr>
-<tr>
-<td><code>ConfigError: scd2_key required</code></td>
-<td><code>output_write: scd2</code> sans <code>scd2_key</code></td>
-<td>Ajouter <code>scd2_key: [col_id]</code></td>
-</tr>
-<tr>
-<td><code>ConfigError: seed_file required</code></td>
-<td><code>type: seed</code> sans <code>seed_file</code></td>
-<td>Ajouter <code>seed_file: data/mon_fichier.csv</code></td>
-</tr>
-<tr>
-<td><code>DependencyError: cycle detected</code></td>
-<td>Cycle dans <code>needs</code></td>
-<td>Visualiser avec <code>noria dag</code> et corriger</td>
-</tr>
-<tr>
-<td><code>DependencyError: unknown task 'x'</code></td>
-<td><code>needs:</code> référence une tâche inexistante</td>
-<td>Vérifier le nom de la tâche</td>
-</tr>
-</tbody>
-</table>
-<h3 id="erreurs-dexecution">Erreurs d'exécution</h3>
-<table>
-<thead>
-<tr>
-<th>Erreur</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ExecutionError: safe_replace guard on 'stats': query returned 0 row(s) but safe_replace_min_rows=1</code></td>
-<td>La requête SQL renvoie moins de lignes que le seuil</td>
-<td>Vérifier la requête ou baisser <code>safe_replace_min_rows</code></td>
-</tr>
-<tr>
-<td><code>ExecutionError: assert FAILED — 3 violation(s)</code></td>
-<td>Assertion qualité : des lignes de violation ont été retournées</td>
-<td>Vérifier les données, les violations sont dans le log</td>
-</tr>
-<tr>
-<td><code>ExecutionError: Freshness check FAILED</code></td>
-<td>La table source est plus ancienne que <code>max_hours</code></td>
-<td>Attendre l'alimentation de la source ou ajuster <code>max_hours</code></td>
-</tr>
-<tr>
-<td><code>TaskError: timed out after 300s</code></td>
-<td>La tâche dépasse le <code>timeout:</code> configuré</td>
-<td>Augmenter <code>timeout:</code> ou optimiser la requête</td>
-</tr>
-<tr>
-<td><code>Seed file not found: data/ref.csv</code></td>
-<td><code>seed_file:</code> pointe vers un fichier absent</td>
-<td>Vérifier le chemin relatif depuis la racine du projet</td>
-</tr>
-</tbody>
-</table>
-<h3 id="erreurs-de-connexion">Erreurs de connexion</h3>
-<table>
-<thead>
-<tr>
-<th>Erreur</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>OperationalError: could not connect to server</code></td>
-<td>PostgreSQL inaccessible</td>
-<td>Vérifier <code>host</code>, <code>port</code>, credentials dans <code>.noria/.env</code></td>
-</tr>
-<tr>
-<td><code>google.auth.exceptions.DefaultCredentialsError</code></td>
-<td>Application Default Credentials absentes (BigQuery)</td>
-<td>Exécuter <code>gcloud auth application-default login</code></td>
-</tr>
-<tr>
-<td><code>duckdb.IOException: Could not open file</code></td>
-<td>Fichier DuckDB verrouillé par un autre process</td>
-<td>Fermer les autres connexions (DBeaver, notebook, etc.)</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="exemples-de-diagnostic-naia">Exemples de diagnostic NAÏA</h2>
-<h3 id="exemple-1-safe_replace-guard">Exemple 1 — safe_replace guard</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ExecutionError: safe_replace guard on 'monthly_stats': query returned 0 row(s)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>but safe_replace_min_rows=1000 — aborting to protect existing data
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong></p>
-<p>La requête SQL de <code>monthly_stats</code> ne retourne aucune ligne. Causes possibles :
-1. La table source est vide (tâche précédente a échoué silencieusement)
-2. Un filtre de date trop restrictif élimine toutes les lignes
-3. Une jointure trop sélective produit un résultat vide</p>
-<p><strong>Commande de diagnostic :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w">   </span><span class="c1"># voir le SQL compilé</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w"> </span>--dry-run<span class="w">  </span><span class="c1"># compter les lignes sans écrire</span>
-</code></pre></div></p>
-<p><strong>Solution :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Option 1 — baisser le seuil si les données sont légitimement peu nombreuses</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">monthly_stats</span><span class="p">:</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">output_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">safe_replace</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">safe_replace_min_rows</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w">   </span><span class="c1"># au lieu de 1000</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Option 2 — supprimer le garde-fou si replace total est acceptable</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">monthly_stats</span><span class="p">:</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">output_write</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
-</code></pre></div></p>
-<hr />
-<h3 id="exemple-2-compilationerror-variable-non-definie">Exemple 2 — CompilationError variable non définie</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CompilationError: undefined variable 'date_debut' in sql/filtrage.sql (line 5)
-</code></pre></div></p>
-<p><strong>SQL fautif :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">date_commande</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">'{{ date_debut }}'</span>
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong> <code>date_debut</code> n'est pas déclaré dans <code>params:</code>.</p>
-<p><strong>Solution :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">nodes</span><span class="p">:</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">filtrage</span><span class="p">:</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/filtrage.sql</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">params</span><span class="p">:</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">date_debut</span><span class="p">:</span><span class="w"> </span><span class="s">"2024-01-01"</span><span class="w">   </span><span class="c1"># ajouter le paramètre manquant</span>
-</code></pre></div></p>
-<p>Ou passer la valeur à l'exécution :
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>noria<span class="w"> </span>run<span class="w"> </span>--params<span class="w"> </span><span class="nv">date_debut</span><span class="o">=</span><span class="m">2024</span>-01-01
-</code></pre></div></p>
-<hr />
-<h3 id="exemple-3-assertion-echouee">Exemple 3 — Assertion échouée</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ExecutionError: assert FAILED — task 'assert_positive_revenue' returned 3 violation(s)
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Sample rows:
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  client_id | ca_total | motif
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  C001      | -142.50  | CA négatif interdit
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  C089      | -23.00   | CA négatif interdit
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  C234      | -5.75    | CA négatif interdit
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong> 3 clients ont un CA négatif dans la table <code>customer_stats</code>. Ce n'est pas un bug Noria — c'est un vrai problème de données.</p>
-<p><strong>Démarche de résolution :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- Investiguer la source des avoirs</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">client_id</span><span class="p">,</span><span class="w"> </span><span class="n">date_commande</span><span class="p">,</span><span class="w"> </span><span class="n">montant_ht</span><span class="p">,</span><span class="w"> </span><span class="n">type_piece</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">FROM</span><span class="w"> </span><span class="n">customer_stats</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">client_id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">'C001'</span><span class="p">,</span><span class="w"> </span><span class="s1">'C089'</span><span class="p">,</span><span class="w"> </span><span class="s1">'C234'</span><span class="p">)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">date_commande</span>
-</code></pre></div></p>
-<p><strong>Si le comportement est attendu :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">assert_positive_revenue</span><span class="p">:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/assert_positive_revenue.sql</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">soft_fail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># log un WARNING sans bloquer le pipeline</span>
-</code></pre></div></p>
-<hr />
-<h3 id="exemple-4-cycle-dans-les-dependances">Exemple 4 — Cycle dans les dépendances</h3>
-<p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>DependencyError: cycle detected — [stats → rapport → stats]
-</code></pre></div></p>
-<p><strong>NAÏA diagnostique :</strong> <code>rapport</code> dépend de <code>stats</code>, et <code>stats</code> dépend de <code>rapport</code> — c'est impossible à exécuter.</p>
-<p><strong>Diagnostic visuel :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>noria<span class="w"> </span>dag<span class="w"> </span>--format<span class="w"> </span>ascii
-</code></pre></div></p>
-<p><strong>Solution :</strong> Identifier quelle dépendance est incorrecte et la supprimer.</p>
-<hr />
-<h2 id="inspecter-le-sql-compile">Inspecter le SQL compilé</h2>
-<p>Avant de soumettre une erreur à NAÏA, utilise <code>noria compile</code> pour voir le SQL réel après résolution des variables et des macros :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># SQL compilé d'une tâche</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># SQL compilé avec des params spécifiques</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w"> </span>--params<span class="w"> </span><span class="nv">schema</span><span class="o">=</span>prod
+<h1 id="anonymisation-rgpd-dcp">Anonymisation RGPD / DCP</h1>
+<p>Noria intègre un moteur d'anonymisation natif qui s'applique <strong>directement en SQL</strong> sur la table cible, après chaque écriture. Aucune dépendance externe, compatible avec tous les dialectes.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Ajoutez <code>anonymize:</code> dans la définition d'un job :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">load_customers</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/load_customers.sql</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main.customers</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">anonymize</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">hash</span><span class="w">      </span><span class="c1"># pseudonymisation MD5</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">phone</span><span class="p">:</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">mask</span><span class="w">      </span><span class="c1"># "06 12 ** ** 78"</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">nom</span><span class="p">:</span><span class="w">     </span><span class="l l-Scalar l-Scalar-Plain">partial</span><span class="w">   </span><span class="c1"># "Ali***"</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">ssn</span><span class="p">:</span><span class="w">     </span><span class="l l-Scalar l-Scalar-Plain">sha256</span><span class="w">    </span><span class="c1"># hash SHA-256 (fort)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">adresse</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redact</span><span class="w">    </span><span class="c1"># → NULL</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">salaire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">noise</span><span class="w">     </span><span class="c1"># valeur ±10% aléatoire</span>
 </code></pre></div>
-<p>Cela aide à identifier :
-- Les variables non résolues
-- Les macros qui génèrent du SQL inattendu
-- Les filtres de date qui éliminent trop de données</p>
-<h2 id="activer-les-logs-detailles">Activer les logs détaillés</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>noria<span class="w"> </span>run<span class="w"> </span>--verbose<span class="w">                     </span><span class="c1"># logs DEBUG dans le terminal</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--log-file<span class="w"> </span>noria_debug.log<span class="w">    </span><span class="c1"># écrire les logs dans un fichier</span>
+<h2 id="methodes-disponibles">Méthodes disponibles</h2>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>Résultat</th>
+<th>Usage typique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hash</code></td>
+<td>MD5 32 chars, déterministe</td>
+<td>email, identifiant métier</td>
+</tr>
+<tr>
+<td><code>sha256</code></td>
+<td>SHA-256 64 chars, plus fort</td>
+<td>IBAN, numéro sécu, mot de passe</td>
+</tr>
+<tr>
+<td><code>mask</code></td>
+<td><code>"Al***nt"</code> — garde 2 chars début+fin</td>
+<td>téléphone, carte bancaire</td>
+</tr>
+<tr>
+<td><code>partial</code></td>
+<td><code>"Ali***"</code> — garde 3 premiers + <code>***</code></td>
+<td>nom, prénom</td>
+</tr>
+<tr>
+<td><code>redact</code></td>
+<td><code>NULL</code> — suppression totale</td>
+<td>adresse, données sensibles brutes</td>
+</tr>
+<tr>
+<td><code>noise</code></td>
+<td>valeur ± 10% aléatoire (numérique)</td>
+<td>salaire, âge, revenus</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Déterminisme</p>
+<p><code>hash</code> et <code>sha256</code> sont <strong>déterministes</strong> : la même valeur en entrée donne toujours le même hash. C'est une <strong>pseudonymisation</strong> (RGPD Art. 4-5), pas une anonymisation complète. Pour une anonymisation irréversible, utilisez <code>redact</code>.</p>
+</div>
+<h2 id="comportement">Comportement</h2>
+<ul>
+<li>L'anonymisation s'applique <strong>après</strong> l'écriture en table — le SQL source reste inchangé.</li>
+<li>Compatible avec tous les modes d'écriture (<code>replace</code>, <code>append</code>, <code>merge</code>, …).</li>
+<li>Les valeurs <code>NULL</code> restent <code>NULL</code> (aucune erreur).</li>
+<li>Le nombre de colonnes anonymisées est loggé :
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>INFO  Tâche 'load_customers' — 3 colonne(s) anonymisée(s) dans 'main.customers'
+</code></pre></div></li>
+</ul>
+<h2 id="combinaison-avec-les-schema-tests">Combinaison avec les schema tests</h2>
+<p>L'anonymisation est appliquée <strong>avant</strong> les schema tests, donc les vérifications portent sur les données masquées :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">load_customers</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/load_customers.sql</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main.customers</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">anonymize</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hash</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">schema_tests</span><span class="p">:</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">email</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">not_null</span><span class="w">   </span><span class="c1"># vérifie que le hash n'est pas NULL</span>
 </code></pre></div>
-<p>Les logs détaillés montrent :
-- Le SQL exact exécuté sur la base
-- Les durées d'exécution par tâche
-- Les tentatives de retry
-- Les résultats des freshness checks</p>
+<h2 id="compatibilite-dialectes">Compatibilité dialectes</h2>
+<table>
+<thead>
+<tr>
+<th>Méthode</th>
+<th>DuckDB</th>
+<th>PostgreSQL</th>
+<th>BigQuery</th>
+<th>Snowflake</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hash</code></td>
+<td>✓ MD5()</td>
+<td>✓ MD5()</td>
+<td>✓ TO_HEX(MD5())</td>
+<td>✓ MD5()</td>
+</tr>
+<tr>
+<td><code>sha256</code></td>
+<td>✓ sha256()</td>
+<td>✓ digest()</td>
+<td>✓ TO_HEX(SHA256())</td>
+<td>✓ SHA2()</td>
+</tr>
+<tr>
+<td><code>mask</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code>partial</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code>redact</code></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code>noise</code></td>
+<td>✓ random()</td>
+<td>✓ random()</td>
+<td>✓ RAND()</td>
+<td>✓ UNIFORM()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemple-complet-pipeline-rgpd">Exemple complet — pipeline RGPD</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># noria.yml</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">load_raw</span><span class="p">:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/load_raw.sql</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">raw.customers_raw</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"Chargement</span><span class="nv"> </span><span class="s">brut</span><span class="nv"> </span><span class="s">sans</span><span class="nv"> </span><span class="s">anonymisation</span><span class="nv"> </span><span class="s">(zone</span><span class="nv"> </span><span class="s">confidentielle)"</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nt">anonymize_for_analytics</span><span class="p">:</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/select_all_customers.sql</span><span class="w">   </span><span class="c1"># SELECT * FROM raw.customers_raw</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">analytics.customers</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">load_raw</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"Version</span><span class="nv"> </span><span class="s">anonymisée</span><span class="nv"> </span><span class="s">pour</span><span class="nv"> </span><span class="s">les</span><span class="nv"> </span><span class="s">équipes</span><span class="nv"> </span><span class="s">analytiques"</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="nt">anonymize</span><span class="p">:</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">hash</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="nt">phone</span><span class="p">:</span><span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">mask</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">      </span><span class="nt">date_naissance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">noise</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">      </span><span class="nt">adresse</span><span class="p">:</span><span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">redact</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">      </span><span class="nt">prenom</span><span class="p">:</span><span class="w">         </span><span class="l l-Scalar l-Scalar-Plain">partial</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">      </span><span class="nt">nom_famille</span><span class="p">:</span><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">partial</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="nt">schema_tests</span><span class="p">:</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">email</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">not_null</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">customer_id</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unique</span>
+</code></pre></div>
+<h2 id="bonnes-pratiques-rgpd">Bonnes pratiques RGPD</h2>
+<div class="admonition tip">
+<p class="admonition-title">Architecture recommandée</p>
+<ul>
+<li><strong>Zone brute</strong> (<code>raw.*</code>) : données originales, accès restreint</li>
+<li><strong>Zone analytique</strong> (<code>analytics.*</code>) : données anonymisées, accès élargi</li>
+<li>Séparez les deux pipelines avec des <code>after:</code> pour garantir l'ordre</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Pseudonymisation vs anonymisation</p>
+<p><code>hash</code> et <code>sha256</code> sont réversibles avec un dictionnaire de correspondance.
+Pour une anonymisation complète au sens RGPD, préférez <code>redact</code> ou <code>noise</code>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Audit</p>
+<p>Chaque run loggue les colonnes anonymisées. La table d'audit <code>_noria_audit</code>
+enregistre le job, les métadonnées et l'horodatage — traçabilité complète.</p>
+</div>
 
 
 
