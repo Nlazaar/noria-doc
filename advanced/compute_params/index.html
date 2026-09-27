@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/adapters/postgres/">
+        <link rel="canonical" href="https://nlazaar.github.io/noria-doc/advanced/compute_params/">
       
       
-        <link rel="prev" href="../duckdb/">
-      
-      
-        <link rel="next" href="../bigquery/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>PostgreSQL - Noria</title>
+        <title>Compute params - Noria</title>
       
     
     
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adaptateur-postgresql" class="md-skip">
+        <a href="#parametres-calcules-compute_params" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PostgreSQL
+              Compute params
             
           </span>
         </div>
@@ -299,13 +295,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../duckdb/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../adapters/duckdb/" class="md-tabs__link">
           
   
   
@@ -325,7 +319,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../advanced/seeds/" class="md-tabs__link">
+        <a href="../seeds/" class="md-tabs__link">
           
   
   
@@ -781,31 +775,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -823,7 +812,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -841,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../duckdb/" class="md-nav__link">
+      <a href="../../adapters/duckdb/" class="md-nav__link">
         
   
   
@@ -866,37 +855,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    PostgreSQL
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../adapters/postgres/" class="md-nav__link">
         
   
   
@@ -912,142 +874,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#avec-une-url-de-connexion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Avec une URL de connexion
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#securite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sécurité
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#macros-specifiques-postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Macros spécifiques PostgreSQL
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schemas-postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schémas PostgreSQL
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fonctionnalites-sql-postgresql-utiles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fonctionnalités SQL PostgreSQL utiles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-de-connexions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pool de connexions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#seeds-postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Seeds PostgreSQL
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1060,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bigquery/" class="md-nav__link">
+      <a href="../../adapters/bigquery/" class="md-nav__link">
         
   
   
@@ -1088,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../custom/" class="md-nav__link">
+      <a href="../../adapters/custom/" class="md-nav__link">
         
   
   
@@ -1175,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/seeds/" class="md-nav__link">
+      <a href="../seeds/" class="md-nav__link">
         
   
   
@@ -1203,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/scd2/" class="md-nav__link">
+      <a href="../scd2/" class="md-nav__link">
         
   
   
@@ -1231,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/assertions/" class="md-nav__link">
+      <a href="../assertions/" class="md-nav__link">
         
   
   
@@ -1259,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/anonymization/" class="md-nav__link">
+      <a href="../anonymization/" class="md-nav__link">
         
   
   
@@ -1287,7 +1113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/resilience/" class="md-nav__link">
+      <a href="../resilience/" class="md-nav__link">
         
   
   
@@ -1315,7 +1141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/lineage/" class="md-nav__link">
+      <a href="../lineage/" class="md-nav__link">
         
   
   
@@ -1343,7 +1169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/impact/" class="md-nav__link">
+      <a href="../impact/" class="md-nav__link">
         
   
   
@@ -1371,7 +1197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/freshness/" class="md-nav__link">
+      <a href="../freshness/" class="md-nav__link">
         
   
   
@@ -1399,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/monitoring/" class="md-nav__link">
+      <a href="../monitoring/" class="md-nav__link">
         
   
   
@@ -1427,7 +1253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/notifications/" class="md-nav__link">
+      <a href="../notifications/" class="md-nav__link">
         
   
   
@@ -1455,7 +1281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/schedulers/" class="md-nav__link">
+      <a href="../schedulers/" class="md-nav__link">
         
   
   
@@ -1483,7 +1309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/dag/" class="md-nav__link">
+      <a href="../dag/" class="md-nav__link">
         
   
   
@@ -1967,17 +1793,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1986,30 +1801,13 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#avec-une-url-de-connexion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Avec une URL de connexion
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#securite" class="md-nav__link">
+  <a href="#regle-dutilisation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sécurité
+        Règle d'utilisation
       
     </span>
   </a>
@@ -2017,10 +1815,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#macros-specifiques-postgresql" class="md-nav__link">
+  <a href="#portee-des-parametres" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Macros spécifiques PostgreSQL
+        Portée des paramètres
       
     </span>
   </a>
@@ -2028,10 +1826,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#schemas-postgresql" class="md-nav__link">
+  <a href="#valeurs-retournees" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Schémas PostgreSQL
+        Valeurs retournées
       
     </span>
   </a>
@@ -2039,43 +1837,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fonctionnalites-sql-postgresql-utiles" class="md-nav__link">
+  <a href="#compatibilite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fonctionnalités SQL PostgreSQL utiles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-de-connexions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pool de connexions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#seeds-postgresql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Seeds PostgreSQL
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Limitations
+        Compatibilité
       
     </span>
   </a>
@@ -2103,145 +1868,90 @@
 
 
 <p align="center"><img alt="Noria" height="40" src="../../assets/logo-icon.svg" /></p>
-<h1 id="adaptateur-postgresql">Adaptateur PostgreSQL</h1>
-<p>L'adaptateur PostgreSQL permet d'utiliser Noria avec une base de données PostgreSQL existante — idéal pour les pipelines de production, les entrepôts de données mutualisés, ou la migration depuis un ETL classique.</p>
-<h2 id="installation">Installation</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"noria[postgres]"</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Installe psycopg2-binary en plus de noria</span>
-</code></pre></div>
+<h1 id="parametres-calcules-compute_params">Paramètres calculés (<code>compute_params</code>)</h1>
+<p>Un job <code>compute_params</code> exécute un SELECT et injecte le premier résultat comme
+paramètres Jinja2 dans les jobs suivants. Cas d'usage typique : calculer une
+date de référence, un identifiant de lot ou un seuil dynamique, puis l'utiliser
+dans d'autres jobs de la même exécution.</p>
 <h2 id="configuration">Configuration</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">database</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">dialect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgresql</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span><span class="w">          </span><span class="c1"># ou adresse du serveur</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span><span class="w">               </span><span class="c1"># port par défaut PostgreSQL</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mon_entrepot</span><span class="w">   </span><span class="c1"># nom de la base</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">noria_user</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">"${DB_PASSWORD}"</span><span class="w">    </span><span class="c1"># depuis .noria/.env</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span><span class="w">                </span><span class="c1"># schéma par défaut (optionnel)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">get_date_ref</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/compute_date_ref.sql</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">compute_params</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">clients_actifs</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/clients_actifs.sql</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.clients_actifs"</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">get_date_ref</span><span class="p p-Indicator">]</span><span class="w">       </span><span class="c1"># ← OBLIGATOIRE (voir règle ci-dessous)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-<h3 id="avec-une-url-de-connexion">Avec une URL de connexion</h3>
-<p>Tu peux aussi utiliser une variable d'environnement contenant l'URL complète en passant par <code>options</code> :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># .noria/.env</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">PG_URL</span><span class="o">=</span>postgresql://user:password@host:5432/database
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- sql/compute_date_ref.sql</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">MAX</span><span class="p">(</span><span class="n">date_vente</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">date_ref</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">CURRENT_DATE</span><span class="w">     </span><span class="k">AS</span><span class="w"> </span><span class="n">date_run</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">ventes</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">statut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'validé'</span>
 </code></pre></div>
-<h2 id="securite">Sécurité</h2>
-<p>Ne jamais stocker le mot de passe en clair dans <code>noria.yml</code>. Utilise toujours <code>.noria/.env</code> :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># .noria/.env  (ajouté dans .gitignore)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">DB_HOST</span><span class="o">=</span>pg.mycompany.internal
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">DB_USER</span><span class="o">=</span>noria_prod
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">DB_PASSWORD</span><span class="o">=</span>s3cr3t
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">DB_NAME</span><span class="o">=</span>entrepot_prod
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">-- sql/clients_actifs.sql</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">clients</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">derniere_visite</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">'{{ date_ref }}'</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">database</span><span class="p">:</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">dialect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgresql</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">"${DB_HOST}"</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="s">"${DB_NAME}"</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">"${DB_USER}"</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">"${DB_PASSWORD}"</span>
+<p>Noria exécute <code>get_date_ref</code> en premier, récupère la première ligne du SELECT
+(<code>date_ref</code>, <code>date_run</code>), et les injecte dans le contexte Jinja2 de tous les jobs
+suivants.</p>
+<h2 id="regle-dutilisation">Règle d'utilisation</h2>
+<div class="admonition warning">
+<p class="admonition-title">after: obligatoire vers le producteur de paramètres calculés</p>
+<p>Si un job <strong>B</strong> utilise dans son SQL une variable produite par un job <strong>A</strong>
+(<code>compute_params: true</code>), alors <strong><code>after: [A]</code> est obligatoire dans B</strong>.</p>
+<p>Sans <code>after:</code>, le DAG Noria peut exécuter B <em>en parallèle</em> de A ou <em>avant</em> A.
+Dans ce cas, B ne voit pas encore les params calculés par A (la portée est
+globale mais les params ne sont injectés qu'une fois A terminé).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># ❌ INCORRECT — B peut démarrer avant A</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">A</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/a.sql</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">compute_params</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">B</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/b.sql</span><span class="w">          </span><span class="c1"># utilise {{ date_ref }} produit par A</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"main.b"</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># ✓ CORRECT — B attend la fin de A</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="nt">A</span><span class="p">:</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/a.sql</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="nt">compute_params</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span><span class="nt">B</span><span class="p">:</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/b.sql</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"main.b"</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">A</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-<h2 id="macros-specifiques-postgresql">Macros spécifiques PostgreSQL</h2>
-<table>
-<thead>
-<tr>
-<th>Macro</th>
-<th>Résultat PostgreSQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>{{ cast('col', 'TEXT') }}</code></td>
-<td><code>col::TEXT</code></td>
-</tr>
-<tr>
-<td><code>{{ cast('col', 'INTEGER') }}</code></td>
-<td><code>col::INTEGER</code></td>
-</tr>
-<tr>
-<td><code>{{ date_trunc('month', 'col') }}</code></td>
-<td><code>DATE_TRUNC('month', col)</code></td>
-</tr>
-<tr>
-<td><code>{{ current_timestamp() }}</code></td>
-<td><code>NOW()</code></td>
-</tr>
-<tr>
-<td><code>{{ concat('a', 'b') }}</code></td>
-<td><code>CONCAT(a, b)</code></td>
-</tr>
-<tr>
-<td><code>{{ to_char('col', 'YYYY-MM') }}</code></td>
-<td><code>TO_CHAR(col, 'YYYY-MM')</code></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Syntaxe <code>::</code> pour le cast</p>
-<p>L'adaptateur PostgreSQL utilise la syntaxe native <code>col::TYPE</code> pour le cast — plus idiomatique et légèrement plus performante.</p>
 </div>
-<h2 id="schemas-postgresql">Schémas PostgreSQL</h2>
-<p>Noria <strong>ne crée pas</strong> les schémas automatiquement. Si le schéma cible n'existe pas, Noria lève une erreur explicite avant tout DDL :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ExecutionError: Schema 'dwh' does not exist in the database.
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  Job 'clients' targets 'dwh.*' but the schema is missing.
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  Create it manually before running:
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    CREATE SCHEMA dwh;
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  Or update 'target:' / 'params.schema' in noria.yml to use an existing schema.
+<h2 id="portee-des-parametres">Portée des paramètres</h2>
+<p>La portée est <strong>globale</strong> : une fois A terminé, ses params sont visibles par
+tous les jobs qui s'exécutent après A dans le DAG. Un job C déclaré <code>after: [A]</code>
+— même s'il ne dépend pas logiquement de A — verra les params de A.</p>
+<p>Cette portée globale est intentionnelle pour les cas d'usage simples (date de
+référence commune à tout le pipeline). Si vous avez besoin d'isoler les params
+à une branche du DAG, utilisez <code>params:</code> statiques au niveau du job.</p>
+<h2 id="valeurs-retournees">Valeurs retournées</h2>
+<p>Seule la <strong>première ligne</strong> du SELECT est utilisée. Les colonnes deviennent
+des paramètres Jinja2.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">-- Retourne plusieurs lignes : seule la première est injectée</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">date_ref</span><span class="p">,</span><span class="w"> </span><span class="n">seuil</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">params</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span>
 </code></pre></div>
-<p>Créez le schéma une seule fois avant le premier <code>noria run</code> :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">-- Connexion directe à la base, ou via un pre_hook de pipeline</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">dwh</span><span class="p">;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">jobs</span><span class="p">:</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">clients</span><span class="p">:</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/clients.sql</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"dwh.clients"</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
-</code></pre></div>
-<h2 id="fonctionnalites-sql-postgresql-utiles">Fonctionnalités SQL PostgreSQL utiles</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- Générer des séries de dates</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">generate_series</span><span class="p">(</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="s1">'2024-01-01'</span><span class="p">::</span><span class="nb">DATE</span><span class="p">,</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="s1">'2024-12-31'</span><span class="p">::</span><span class="nb">DATE</span><span class="p">,</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">'1 month'</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">)::</span><span class="nb">DATE</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">mois</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1">-- JSON</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="k">SELECT</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="k">data</span><span class="o">-&gt;&gt;</span><span class="s1">'nom'</span><span class="w">        </span><span class="k">AS</span><span class="w"> </span><span class="n">nom</span><span class="p">,</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="p">(</span><span class="k">data</span><span class="o">-&gt;&gt;</span><span class="s1">'age'</span><span class="p">)::</span><span class="nb">INT</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">age</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="k">FROM</span><span class="w"> </span><span class="n">clients_json</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="c1">-- Tableaux</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">UNNEST</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">articles</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="c1">-- Fonctions fenêtre (identiques à DuckDB)</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="k">SELECT</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="n">client_id</span><span class="p">,</span>
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ca</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rang</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats</span>
-</code></pre></div>
-<h2 id="pool-de-connexions">Pool de connexions</h2>
-<p>Noria utilise SQLAlchemy avec <code>pool_pre_ping=True</code> pour PostgreSQL — les connexions inactives sont vérifiées avant usage, ce qui évite les erreurs après une longue période d'inactivité.</p>
-<h2 id="seeds-postgresql">Seeds PostgreSQL</h2>
-<p>Les seeds CSV, Parquet et JSON sont supportés sur PostgreSQL via DuckDB comme chargeur
-embarqué (ADR-003). Le fichier est lu en mémoire DuckDB, puis écrit dans PostgreSQL via
-l'extension <code>postgres</code> de DuckDB.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">jobs</span><span class="p">:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">ref_pays</span><span class="p">:</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seed</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="nt">seed_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/pays.csv</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"public.ref_pays"</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"Référentiel</span><span class="nv"> </span><span class="s">des</span><span class="nv"> </span><span class="s">pays</span><span class="nv"> </span><span class="s">ISO</span><span class="nv"> </span><span class="s">3166"</span>
-</code></pre></div>
-<ul>
-<li>La table cible est toujours reconstruite (<code>replace</code> implicite).</li>
-<li>Les noms de fichiers avec apostrophe (<code>l'export.csv</code>) sont supportés.</li>
-<li><strong>Atomicité</strong> : si la lecture du fichier échoue, la table existante reste intacte.</li>
-<li>La première exécution télécharge l'extension <code>postgres</code> de DuckDB (accès réseau requis une seule fois).</li>
-</ul>
-<h2 id="limitations">Limitations</h2>
-<ul>
-<li><strong>Transactions</strong> : Noria exécute chaque job dans sa propre transaction implicite.</li>
-</ul>
+<h2 id="compatibilite">Compatibilité</h2>
+<p><code>compute_params</code> est compatible avec :
+- <code>after:</code> (pour chaîner les dépendances)
+- <code>tags:</code>, <code>retry:</code>, <code>timeout:</code></p>
+<p><code>compute_params</code> est incompatible avec :
+- <code>target:</code> (aucune table n'est écrite)
+- <code>write_mode:</code>, <code>stages:</code>, <code>foreach:</code></p>
 
 
 

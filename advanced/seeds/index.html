@@ -1094,6 +1094,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dialectes-supportes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dialectes supportés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1906,6 +1917,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dialectes-supportes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dialectes supportés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1987,13 +2009,43 @@
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">seed_null_value</span><span class="p">:</span><span class="w"> </span><span class="s">"N/A"</span><span class="w">         </span><span class="c1"># valeur NULL (défaut: "")</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.categories"</span>
 </code></pre></div>
+<h2 id="dialectes-supportes">Dialectes supportés</h2>
+<table>
+<thead>
+<tr>
+<th>Dialecte</th>
+<th>Support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DuckDB</td>
+<td>Natif — les fonctions <code>read_*</code> s'exécutent directement dans la base.</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>Via DuckDB embarqué + extension <code>postgres</code> (ADR-003). Le fichier est d'abord chargé en mémoire DuckDB, puis copié vers PostgreSQL.</td>
+</tr>
+<tr>
+<td>BigQuery / Snowflake</td>
+<td>Non supporté — utilise un seed DuckDB intermédiaire ou un <code>pre_hook</code> avec <code>COPY FROM</code>.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Les seeds utilisent les fonctions natives DuckDB (<code>read_csv_auto</code>, <code>read_parquet</code>, <code>read_json_auto</code>) pour une performance maximale.</li>
 <li>La table est toujours DROP + CREATE (<code>write_mode: replace</code> implicite).</li>
 <li>Les seeds n'ont pas de <code>sql:</code> — le SQL de lecture est généré automatiquement.</li>
 <li>Compatible avec <code>after:</code>, <code>tags:</code>, <code>retry:</code>.</li>
+<li><strong>Atomicité</strong> : si la lecture du fichier échoue (fichier absent, format incorrect), la table cible reste intacte.</li>
+<li><strong>Noms avec apostrophe</strong> : les chemins comme <code>l'export.csv</code> sont supportés.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">PostgreSQL — premier usage</p>
+<p>La première exécution d'un seed PostgreSQL télécharge l'extension <code>postgres</code> de DuckDB
+depuis son registre. Un accès réseau est requis une seule fois ; l'extension est ensuite
+mise en cache localement.</p>
+</div>
 
 
 
