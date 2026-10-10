@@ -16,7 +16,7 @@
         <link rel="prev" href="../admin/publish/">
       
       
-        <link rel="next" href="create_task/">
+        <link rel="next" href="create_job/">
       
       
         
@@ -1787,10 +1787,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creer-une-tache" class="md-nav__link">
+  <a href="#creer-un-job" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Créer une tâche
+        Créer un job
       
     </span>
   </a>
@@ -1851,14 +1851,14 @@
   
   
     <li class="md-nav__item">
-      <a href="create_task/" class="md-nav__link">
+      <a href="create_job/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Créer une tâche
+    Créer un job
   
 
     
@@ -2024,10 +2024,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creer-une-tache" class="md-nav__link">
+  <a href="#creer-un-job" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Créer une tâche
+        Créer un job
       
     </span>
   </a>
@@ -2095,21 +2095,21 @@
 <p align="center"><img src="../assets/logo-icon.svg" height="40" alt="Noria"/></p>
 
 <h1 id="naia-noria-ai-assistant">NAÏA — Noria AI Assistant</h1>
-<p><strong>NAÏA</strong> (Noria AI Assistant) est le copilote IA intégré au framework Noria. Il s'appuie sur GitHub Copilot ou Claude pour assister le développeur dans toutes les tâches courantes : créer des tâches, analyser un pipeline, déboguer des erreurs, réécrire des traitements ETL.</p>
+<p><strong>NAÏA</strong> (Noria AI Assistant) est le copilote IA intégré au framework Noria. Il s'appuie sur GitHub Copilot ou Claude pour assister le développeur dans toutes les activités courantes : créer des jobs, analyser un pipeline, déboguer des erreurs, réécrire des traitements ETL.</p>
 <h2 id="ce-que-naia-peut-faire">Ce que NAÏA peut faire</h2>
 <table>
 <thead>
 <tr>
-<th>Tâche</th>
+<th>Action</th>
 <th>Prompt</th>
 <th>Commande</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Créer une tâche Noria à partir d'une description</td>
-<td><code>1_create_task.prompt.md</code></td>
-<td><a href="create_task/">→ Créer une tâche</a></td>
+<td>Créer un job Noria à partir d'une description</td>
+<td><code>1_create_job.prompt.md</code></td>
+<td><a href="create_job/">→ Créer un job</a></td>
 </tr>
 <tr>
 <td>Analyser un pipeline et suggérer des améliorations</td>
@@ -2136,35 +2136,35 @@
 <li>Les instructions <code>.github/copilot-instructions.md</code> sont automatiquement chargées par Copilot</li>
 </ol>
 <p>Pour utiliser un prompt spécifique :
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@workspace /1_create_task  je veux une tâche qui calcule le CA mensuel par région
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@workspace /1_create_job  je veux un job qui calcule le CA mensuel par région
 </code></pre></div></p>
 <h3 id="avec-claude-claudeai-ou-claude-code">Avec Claude (claude.ai ou Claude Code)</h3>
 <p>Colle le contenu du prompt dans la conversation, puis décris ta demande. Les prompts sont dans <code>.github/prompts/</code> du projet.</p>
 <p>Avec Claude Code (CLI), tu peux aussi pointer directement vers le fichier :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cat<span class="w"> </span>.github/prompts/1_create_task.prompt.md
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cat<span class="w"> </span>.github/prompts/1_create_job.prompt.md
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Copie le contenu et colle-le dans Claude</span>
 </code></pre></div>
 <h2 id="exemples-de-conversations-naia">Exemples de conversations NAÏA</h2>
-<h3 id="creer-une-tache">Créer une tâche</h3>
+<h3 id="creer-un-job">Créer un job</h3>
 <blockquote>
-<p><strong>Toi :</strong> je veux une tâche qui calcule le chiffre d'affaires mensuel par commercial, à partir de la table <code>ventes_brut</code>, en excluant les avoirs, avec un merge sur (commercial_id, mois)</p>
+<p><strong>Toi :</strong> je veux un job qui calcule le chiffre d'affaires mensuel par commercial, à partir de la table <code>ventes_brut</code>, en excluant les avoirs, avec un merge sur (commercial_id, mois)</p>
 <p><strong>NAÏA :</strong> Voici la configuration...</p>
 </blockquote>
 <h3 id="analyser-un-pipeline">Analyser un pipeline</h3>
 <blockquote>
 <p><strong>Toi :</strong> voici mon noria.yml [colle le fichier] — qu'est-ce qui pourrait être amélioré ?</p>
-<p><strong>NAÏA :</strong> J'ai identifié 3 points : (1) la tâche <code>load_raw</code> n'a pas de retry alors qu'elle accède à une API externe, (2) <code>region_stats</code> pourrait bénéficier de <code>output_write: safe_replace</code> pour éviter un écrasement accidentel, (3) <code>final_report</code> n'a pas de description...</p>
+<p><strong>NAÏA :</strong> J'ai identifié 3 points : (1) le job <code>load_raw</code> n'a pas de retry alors qu'il accède à une API externe, (2) <code>region_stats</code> pourrait bénéficier de <code>output_write: safe_replace</code> pour éviter un écrasement accidentel, (3) <code>final_report</code> n'a pas de description...</p>
 </blockquote>
 <h3 id="deboguer">Déboguer</h3>
 <blockquote>
 <p><strong>Toi :</strong> j'ai cette erreur : <code>ExecutionError: safe_replace guard on 'stats': query returned 0 row(s) but safe_replace_min_rows=1</code></p>
-<p><strong>NAÏA :</strong> Cette erreur signifie que ta requête SQL dans <code>stats.sql</code> ne retourne aucune ligne. Vérifie d'abord avec <code>noria compile --task stats</code> pour voir le SQL compilé, puis...</p>
+<p><strong>NAÏA :</strong> Cette erreur signifie que ta requête SQL dans <code>stats.sql</code> ne retourne aucune ligne. Vérifie d'abord avec <code>noria compile --job stats</code> pour voir le SQL compilé, puis...</p>
 </blockquote>
 <h2 id="architecture-des-prompts">Architecture des prompts</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.github/
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── copilot-instructions.md          # contexte auto-chargé par Copilot
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>└── prompts/
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ├── 1_create_task.prompt.md      # créer une tâche
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ├── 1_create_job.prompt.md       # créer un job
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    ├── 2_analyse_pipeline.prompt.md # analyser un pipeline
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    ├── 3_debug_erreur.prompt.md     # déboguer une erreur
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    └── 4_migration_etl.prompt.md    # migrer depuis PowerCenter/Alteryx/SAS

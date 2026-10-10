@@ -758,6 +758,67 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pourquoi-utiliser-les-macros-preparer-un-changement-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi utiliser les macros : préparer un changement de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pourquoi utiliser les macros : préparer un changement de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-noria-adapte-et-ce-quil-nadapte-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que Noria adapte, et ce qu'il n'adapte pas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-le-meme-fichier-sql-sur-deux-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple : le même fichier SQL sur deux bases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-quatre-regles-dun-sql-portable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les quatre règles d'un SQL portable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites-a-connaitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limites à connaître
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#macros-built-in" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2044,14 +2105,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../na%C3%AFa/create_task/" class="md-nav__link">
+      <a href="../../na%C3%AFa/create_job/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Créer une tâche
+    Créer un job
   
 
     
@@ -2153,6 +2214,67 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pourquoi-utiliser-les-macros-preparer-un-changement-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi utiliser les macros : préparer un changement de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pourquoi utiliser les macros : préparer un changement de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-noria-adapte-et-ce-quil-nadapte-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que Noria adapte, et ce qu'il n'adapte pas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-le-meme-fichier-sql-sur-deux-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple : le même fichier SQL sur deux bases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-quatre-regles-dun-sql-portable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les quatre règles d'un SQL portable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limites-a-connaitre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limites à connaître
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#macros-built-in" class="md-nav__link">
@@ -2481,11 +2603,90 @@
 <p align="center"><img alt="Noria" height="40" src="../../assets/logo-icon.svg" /></p>
 <h1 id="macros-sql-cross-db">Macros SQL cross-DB</h1>
 <p>Les macros Noria sont des fonctions Jinja2 qui génèrent du SQL adapté au dialecte cible. Écrire <code>{{ cast('col', 'VARCHAR') }}</code> produit <code>CAST(col AS VARCHAR)</code> en DuckDB et <code>col::VARCHAR</code> en PostgreSQL — sans changer le code SQL.</p>
+<h2 id="pourquoi-utiliser-les-macros-preparer-un-changement-de-base">Pourquoi utiliser les macros : préparer un changement de base</h2>
+<p>Si votre entreprise change de base de données un jour (de PostgreSQL vers Snowflake, de DuckDB vers PostgreSQL…), vos scripts SQL devront suivre. Les macros réduisent fortement ce travail : <strong>écrites une fois, elles produisent la bonne syntaxe pour chaque base.</strong></p>
+<h3 id="ce-que-noria-adapte-et-ce-quil-nadapte-pas">Ce que Noria adapte, et ce qu'il n'adapte pas</h3>
+<table>
+<thead>
+<tr>
+<th>Partie du SQL</th>
+<th>Changement de base</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le SQL que Noria génère lui-même (<code>CREATE TABLE</code>, <code>MERGE</code>, SCD2, incrémental… selon <code>write_mode</code>)</td>
+<td>✅ adapté automatiquement</td>
+</tr>
+<tr>
+<td>Votre SQL, là où vous utilisez une macro Noria</td>
+<td>✅ adapté automatiquement</td>
+</tr>
+<tr>
+<td>Votre SQL écrit « en dur » avec une syntaxe propre à une base</td>
+<td>❌ envoyé tel quel : à réécrire</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Jinja ne traduit pas le SQL</p>
+<p>Jinja n'est qu'un moteur de modèles : il ne réécrit pas votre SQL. <strong>Seules les macros</strong> produisent une syntaxe différente selon la base. Une ligne comme <code>WHERE nom ILIKE 'a%'</code> sera envoyée telle quelle, et échouera sur une base qui ne connaît pas <code>ILIKE</code>.</p>
+</div>
+<h3 id="exemple-le-meme-fichier-sql-sur-deux-bases">Exemple : le même fichier SQL sur deux bases</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- sql/clients.sql</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span><span class="w"> </span><span class="s1">'VARCHAR'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                  </span><span class="k">AS</span><span class="w"> </span><span class="n">id_client</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="s1">'date_inscription'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">mois_inscription</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nb_commandes'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">panier_moyen</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">()</span><span class="w"> </span><span class="err">}}</span><span class="w">                     </span><span class="k">AS</span><span class="w"> </span><span class="n">charge_le</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">clients</span>
+</code></pre></div>
+<p><code>noria compile --env dev</code> (DuckDB) produit :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">CAST</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">)</span><span class="w">                                              </span><span class="k">AS</span><span class="w"> </span><span class="n">id_client</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="n">date_inscription</span><span class="p">)</span><span class="w">                            </span><span class="k">AS</span><span class="w"> </span><span class="n">mois_inscription</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">nb_commandes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="n">ca_total</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nb_commandes</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">panier_moyen</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">CURRENT_TIMESTAMP</span><span class="w">                                                </span><span class="k">AS</span><span class="w"> </span><span class="n">charge_le</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">clients</span>
+</code></pre></div>
+<p><code>noria compile --env prod</code> (PostgreSQL) produit :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">id</span><span class="p">::</span><span class="nb">VARCHAR</span><span class="w">                                                      </span><span class="k">AS</span><span class="w"> </span><span class="n">id_client</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">DATE_TRUNC</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="n">date_inscription</span><span class="p">)</span><span class="w">                            </span><span class="k">AS</span><span class="w"> </span><span class="n">mois_inscription</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">nb_commandes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="n">ca_total</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">nb_commandes</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">panier_moyen</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">NOW</span><span class="p">()</span><span class="w">                                                            </span><span class="k">AS</span><span class="w"> </span><span class="n">charge_le</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">clients</span>
+</code></pre></div>
+<p>Le fichier SQL n'a pas changé : seule la base cible, choisie par <code>--env</code>, a changé.</p>
+<h3 id="les-quatre-regles-dun-sql-portable">Les quatre règles d'un SQL portable</h3>
+<ol>
+<li><strong>Écrivez d'abord du SQL standard.</strong> <code>SELECT</code>, <code>JOIN</code>, <code>GROUP BY</code>, <code>CASE WHEN</code>, <code>COALESCE</code>, <code>CAST(x AS type)</code> fonctionnent partout, sans macro.</li>
+<li><strong>Utilisez une macro pour ce qui varie d'une base à l'autre</strong> : manipulation de dates, horodatage courant, division sans erreur par zéro, concaténation.</li>
+<li><strong>Évitez les syntaxes propres à une seule base</strong> : <code>::type</code>, <code>ILIKE</code>, <code>DISTINCT ON</code>, fonctions JSON ou de tableaux, intervalles de dates. Si vous en avez besoin, isolez-les dans une <a href="#macros-utilisateur">macro utilisateur</a> qui teste <code>dialect</code> (voir ci-dessous).</li>
+<li><strong>Vérifiez avant de migrer</strong> : <code>noria compile --env &lt;nouvelle_base&gt;</code> montre le SQL exact qui sera envoyé, puis <code>noria run --env &lt;nouvelle_base&gt; --dry-run</code>.</li>
+</ol>
+<h3 id="limites-a-connaitre">Limites à connaître</h3>
+<ul>
+<li><strong>Les types ne sont pas traduits.</strong> <code>{{ cast('id', 'TEXT') }}</code> produit <code>CAST(id AS TEXT)</code> partout, or BigQuery ne connaît pas <code>TEXT</code> (il attend <code>STRING</code>). Choisissez des types acceptés par toutes vos bases cibles.</li>
+<li><strong>Même syntaxe, résultat différent.</strong> Certaines opérations s'écrivent pareil mais ne donnent pas le même résultat :<ul>
+<li>la division de deux entiers : <code>5 / 2</code> vaut <code>2</code> sous PostgreSQL mais <code>2.5</code> sous DuckDB. Écrivez <code>ca_total * 1.0 / nb_commandes</code> pour obtenir un décimal partout ;</li>
+<li>la concaténation avec une valeur <code>NULL</code> : selon la base, le résultat ignore le <code>NULL</code> ou devient <code>NULL</code>. Protégez les colonnes avec <code>{{ coalesce('prenom', "''") }}</code>.</li>
+</ul>
+</li>
+<li><strong>Les macros couvrent les cas courants, pas tout.</strong> Pour une fonction non couverte, écrivez votre propre macro en testant la variable <code>dialect</code> :</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c">{# sql/macros/utils.sql.j2 #}</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">contient</span><span class="o">(</span><span class="nv">col</span><span class="o">,</span> <span class="nv">motif</span><span class="o">)</span> <span class="cp">%}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="x">  </span><span class="cp">{%</span>- <span class="k">if</span> <span class="nv">dialect</span> <span class="o">==</span> <span class="s1">'postgresql'</span> -<span class="cp">%}</span><span class="x"> </span><span class="cp">{{</span> <span class="nv">col</span> <span class="cp">}}</span><span class="x"> ILIKE '%</span><span class="cp">{{</span> <span class="nv">motif</span> <span class="cp">}}</span><span class="x">%'</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="x">  </span><span class="cp">{%</span>- <span class="k">else</span> -<span class="cp">%}</span><span class="x"> LOWER(</span><span class="cp">{{</span> <span class="nv">col</span> <span class="cp">}}</span><span class="x">) LIKE LOWER('%</span><span class="cp">{{</span> <span class="nv">motif</span> <span class="cp">}}</span><span class="x">%')</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="x">  </span><span class="cp">{%</span>- <span class="k">endif</span> -<span class="cp">%}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span>
+</code></pre></div>
 <h2 id="macros-built-in">Macros built-in</h2>
 <h3 id="castcol-type-conversion-de-type"><code>cast(col, type)</code> — conversion de type</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">{{</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="s1">'montant'</span><span class="p">,</span><span class="w"> </span><span class="s1">'DECIMAL(18,2)'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">{{</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span><span class="w"> </span><span class="s1">'VARCHAR'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">{{</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="s1">'date_str'</span><span class="p">,</span><span class="w"> </span><span class="s1">'DATE'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">{{</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="s1">'montant'</span><span class="p">,</span><span class="w"> </span><span class="s1">'DECIMAL(18,2)'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="err">{{</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span><span class="w"> </span><span class="s1">'VARCHAR'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="err">{{</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="s1">'date_str'</span><span class="p">,</span><span class="w"> </span><span class="s1">'DATE'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2511,11 +2712,11 @@
 </table>
 <hr />
 <h3 id="date_truncperiod-col-tronquer-une-date"><code>date_trunc(period, col)</code> — tronquer une date</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="c1">-- premier jour du mois</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span><span class="w">  </span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="c1">-- premier jour de l'année</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'week'</span><span class="p">,</span><span class="w">  </span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="c1">-- premier jour de la semaine</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w">   </span><span class="s1">'ts'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">              </span><span class="c1">-- minuit</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'hour'</span><span class="p">,</span><span class="w">  </span><span class="s1">'ts'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="c1">-- premier jour du mois</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span><span class="w">  </span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="c1">-- premier jour de l'année</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'week'</span><span class="p">,</span><span class="w">  </span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="c1">-- premier jour de la semaine</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span><span class="w">   </span><span class="s1">'ts'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">              </span><span class="c1">-- minuit</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'hour'</span><span class="p">,</span><span class="w">  </span><span class="s1">'ts'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
 </code></pre></div>
 <p>Périodes disponibles : <code>second</code>, <code>minute</code>, <code>hour</code>, <code>day</code>, <code>week</code>, <code>month</code>, <code>quarter</code>, <code>year</code>.</p>
 <table>
@@ -2542,7 +2743,7 @@
 </table>
 <hr />
 <h3 id="current_timestamp-timestamp-courant"><code>current_timestamp()</code> — timestamp courant</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">{{</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">()</span><span class="w"> </span><span class="err">}}</span><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="n">updated_at</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="err">{{</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">()</span><span class="w"> </span><span class="err">}}</span><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="n">updated_at</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2568,8 +2769,8 @@
 </table>
 <hr />
 <h3 id="concatargs-concatenation"><code>concat(*args)</code> — concaténation</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">concat</span><span class="p">(</span><span class="s1">'prenom'</span><span class="p">,</span><span class="w"> </span><span class="ss">"' '"</span><span class="p">,</span><span class="w"> </span><span class="s1">'nom'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">concat</span><span class="p">(</span><span class="s1">'code_pays'</span><span class="p">,</span><span class="w"> </span><span class="ss">"'-'"</span><span class="p">,</span><span class="w"> </span><span class="s1">'code_region'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">concat</span><span class="p">(</span><span class="s1">'prenom'</span><span class="p">,</span><span class="w"> </span><span class="ss">"' '"</span><span class="p">,</span><span class="w"> </span><span class="s1">'nom'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">concat</span><span class="p">(</span><span class="s1">'code_pays'</span><span class="p">,</span><span class="w"> </span><span class="ss">"'-'"</span><span class="p">,</span><span class="w"> </span><span class="s1">'code_region'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2595,25 +2796,25 @@
 </table>
 <hr />
 <h3 id="coalesceargs-premiere-valeur-non-null"><code>coalesce(*args)</code> — première valeur non NULL</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">{{</span><span class="w"> </span><span class="k">coalesce</span><span class="p">(</span><span class="s1">'email_pro'</span><span class="p">,</span><span class="w"> </span><span class="s1">'email_perso'</span><span class="p">,</span><span class="w"> </span><span class="ss">"'inconnu'"</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="err">{{</span><span class="w"> </span><span class="k">coalesce</span><span class="p">(</span><span class="s1">'email_pro'</span><span class="p">,</span><span class="w"> </span><span class="s1">'email_perso'</span><span class="p">,</span><span class="w"> </span><span class="ss">"'inconnu'"</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
 </code></pre></div>
 <p>Tous les dialectes : <code>COALESCE(email_pro, email_perso, 'inconnu')</code></p>
 <hr />
 <h3 id="if_nullcol-default-valeur-par-defaut-si-null"><code>if_null(col, default)</code> — valeur par défaut si NULL</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">if_null</span><span class="p">(</span><span class="s1">'commentaire'</span><span class="p">,</span><span class="w"> </span><span class="ss">"'aucun'"</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">if_null</span><span class="p">(</span><span class="s1">'montant'</span><span class="p">,</span><span class="w"> </span><span class="s1">'0'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">if_null</span><span class="p">(</span><span class="s1">'commentaire'</span><span class="p">,</span><span class="w"> </span><span class="ss">"'aucun'"</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">if_null</span><span class="p">(</span><span class="s1">'montant'</span><span class="p">,</span><span class="w"> </span><span class="s1">'0'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
 </code></pre></div>
 <p>Tous les dialectes : <code>COALESCE(commentaire, 'aucun')</code></p>
 <hr />
 <h3 id="safe_dividenumerator-denominator-division-sans-risque-de-division-par-zero"><code>safe_divide(numerator, denominator)</code> — division sans risque de division par zéro</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nb_commandes'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">             </span><span class="k">AS</span><span class="w"> </span><span class="n">panier_moyen</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">ROUND</span><span class="p">(</span><span class="err">{{</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="s1">'nb_livres'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nb_total'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">taux_livraison</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nb_commandes'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">             </span><span class="k">AS</span><span class="w"> </span><span class="n">panier_moyen</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">ROUND</span><span class="p">(</span><span class="err">{{</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="s1">'nb_livres'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nb_total'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">taux_livraison</span>
 </code></pre></div>
 <p>Tous les dialectes : <code>CASE WHEN nb_commandes = 0 THEN NULL ELSE ca_total / nb_commandes END</code></p>
 <hr />
 <h3 id="to_charcol-format-formater-une-date-en-texte"><code>to_char(col, format)</code> — formater une date en texte</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">to_char</span><span class="p">(</span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="s1">'date_op'</span><span class="p">),</span><span class="w"> </span><span class="s1">'YYYY-MM'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="k">AS</span><span class="w"> </span><span class="n">mois_label</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">to_char</span><span class="p">(</span><span class="s1">'date_naissance'</span><span class="p">,</span><span class="w"> </span><span class="s1">'DD/MM/YYYY'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">              </span><span class="k">AS</span><span class="w"> </span><span class="n">date_fr</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="err">{{</span><span class="w"> </span><span class="n">to_char</span><span class="p">(</span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="s1">'date_op'</span><span class="p">),</span><span class="w"> </span><span class="s1">'YYYY-MM'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="k">AS</span><span class="w"> </span><span class="n">mois_label</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">to_char</span><span class="p">(</span><span class="s1">'date_naissance'</span><span class="p">,</span><span class="w"> </span><span class="s1">'DD/MM/YYYY'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">              </span><span class="k">AS</span><span class="w"> </span><span class="n">date_fr</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2625,7 +2826,7 @@
 <tbody>
 <tr>
 <td>DuckDB</td>
-<td><code>STRFTIME(col, 'YYYY-MM')</code></td>
+<td><code>STRFTIME(col, '%Y-%m')</code></td>
 </tr>
 <tr>
 <td>PostgreSQL</td>
@@ -2633,33 +2834,33 @@
 </tr>
 <tr>
 <td>BigQuery</td>
-<td><code>FORMAT_TIMESTAMP('YYYY-MM', col)</code></td>
+<td><code>FORMAT_TIMESTAMP('%Y-%m', col)</code></td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h3 id="limitn-limiter-le-nombre-de-lignes"><code>limit(n)</code> — limiter le nombre de lignes</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ma_table</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="err">{{</span><span class="w"> </span><span class="k">limit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ma_table</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="err">{{</span><span class="w"> </span><span class="k">limit</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
 </code></pre></div>
 <p>Tous les dialectes : <code>LIMIT 100</code></p>
 <hr />
 <h3 id="schema_tableschema-table-reference-qualifiee"><code>schema_table(schema, table)</code> — référence qualifiée</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">schema_table</span><span class="p">(</span><span class="n">params</span><span class="p">.</span><span class="k">schema</span><span class="p">,</span><span class="w"> </span><span class="s1">'clients'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">schema_table</span><span class="p">(</span><span class="n">params</span><span class="p">.</span><span class="k">schema</span><span class="p">,</span><span class="w"> </span><span class="s1">'clients'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
 </code></pre></div>
 <p>Résultat : <code>main.clients</code> (ou juste <code>clients</code> si schema est None)</p>
 <hr />
 <h2 id="combiner-les-macros">Combiner les macros</h2>
 <p>Les macros se combinent naturellement :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="s1">'VARCHAR'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                       </span><span class="k">AS</span><span class="w"> </span><span class="n">id_str</span><span class="p">,</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">to_char</span><span class="p">(</span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="s1">'date_inscription'</span><span class="p">),</span><span class="w"> </span><span class="s1">'YYYY-MM'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">mois_inscription</span><span class="p">,</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">coalesce</span><span class="p">(</span><span class="s1">'email_pro'</span><span class="p">,</span><span class="w"> </span><span class="s1">'email_perso'</span><span class="p">,</span><span class="w"> </span><span class="ss">"'inconnu'"</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">email</span><span class="p">,</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="err">{{</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nb_commandes'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">panier_moyen</span><span class="p">,</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">()</span><span class="w"> </span><span class="err">}}</span><span class="w">                                </span><span class="k">AS</span><span class="w"> </span><span class="n">updated_at</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="k">FROM</span><span class="w"> </span><span class="n">clients</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">date_inscription</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span><span class="w"> </span><span class="s1">'CURRENT_DATE'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="s1">'VARCHAR'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                       </span><span class="k">AS</span><span class="w"> </span><span class="n">id_str</span><span class="p">,</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">to_char</span><span class="p">(</span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="s1">'date_inscription'</span><span class="p">),</span><span class="w"> </span><span class="s1">'YYYY-MM'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">mois_inscription</span><span class="p">,</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">coalesce</span><span class="p">(</span><span class="s1">'email_pro'</span><span class="p">,</span><span class="w"> </span><span class="s1">'email_perso'</span><span class="p">,</span><span class="w"> </span><span class="ss">"'inconnu'"</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">email</span><span class="p">,</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="err">{{</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nb_commandes'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">panier_moyen</span><span class="p">,</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">()</span><span class="w"> </span><span class="err">}}</span><span class="w">                                </span><span class="k">AS</span><span class="w"> </span><span class="n">updated_at</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="k">FROM</span><span class="w"> </span><span class="n">clients</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">date_inscription</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span><span class="w"> </span><span class="s1">'CURRENT_DATE'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
 </code></pre></div>
 <hr />
 <h2 id="macros-utilitaires-sql">Macros utilitaires SQL</h2>
@@ -2670,13 +2871,13 @@
 <hr />
 <h3 id="nodupkey"><code>nodupkey(source, by, order_by='1')</code> — dédoublonnage</h3>
 <p>Équivalent SAS de <code>PROC SORT NODUPKEY</code>. Garde <strong>la première occurrence</strong> de chaque groupe de clés.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">-- Garder le dernier achat par client</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">nodupkey</span><span class="p">(</span><span class="k">source</span><span class="p">(</span><span class="s1">'commandes'</span><span class="p">),</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'date_commande DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1">-- Dédoublonner sur une clé composite</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">nodupkey</span><span class="p">(</span><span class="s1">'main.produits'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'categorie, fournisseur'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">-- Garder le dernier achat par client</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">nodupkey</span><span class="p">(</span><span class="k">source</span><span class="p">(</span><span class="s1">'commandes'</span><span class="p">),</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'date_commande DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1">-- Dédoublonner sur une clé composite</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">nodupkey</span><span class="p">(</span><span class="s1">'main.produits'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'categorie, fournisseur'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
 </code></pre></div>
 <p><code>nodupkey</code> retourne une sous-requête prête à être utilisée dans un <code>FROM</code>. La valeur <code>order_by</code> détermine quelle occurrence est conservée (par défaut : la première dans l'ordre naturel).</p>
 <table>
@@ -2704,54 +2905,54 @@
 <hr />
 <h3 id="running_totalcol-by-order_by1-cumul-progressif"><code>running_total(col, by='', order_by='1')</code> — cumul progressif</h3>
 <p>Équivalent SAS de <code>RETAIN cumul 0; cumul + valeur;</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">mois</span><span class="p">,</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">region</span><span class="p">,</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">running_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_cumul_region</span><span class="p">,</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">running_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">               </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_cumul_global</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_mensuelles</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="n">mois</span><span class="p">,</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="n">region</span><span class="p">,</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">running_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_cumul_region</span><span class="p">,</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">running_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">               </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_cumul_global</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_mensuelles</span>
 </code></pre></div>
 <p>SQL généré : <code>SUM(ca_total) OVER (PARTITION BY region ORDER BY mois)</code></p>
 <hr />
 <h3 id="pct_of_totalcol-by-part-en-pourcentage"><code>pct_of_total(col, by='')</code> — part en pourcentage</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="n">region</span><span class="p">,</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">pct_of_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'annee'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">     </span><span class="k">AS</span><span class="w"> </span><span class="n">pct_ca_annee</span><span class="p">,</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">pct_of_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                 </span><span class="k">AS</span><span class="w"> </span><span class="n">pct_ca_global</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_mensuelles</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="n">region</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">pct_of_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'annee'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">     </span><span class="k">AS</span><span class="w"> </span><span class="n">pct_ca_annee</span><span class="p">,</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">pct_of_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                 </span><span class="k">AS</span><span class="w"> </span><span class="n">pct_ca_global</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_mensuelles</span>
 </code></pre></div>
 <p>SQL généré : <code>ROUND(100.0 * ca_total / NULLIF(SUM(ca_total) OVER (PARTITION BY annee), 0), 2)</code></p>
 <hr />
 <h3 id="lag_colcol-offset1-by-order_by1-valeur-precedente"><code>lag_col(col, offset=1, by='', order_by='1')</code> — valeur précédente</h3>
 <p>Équivalent SAS de <code>LAG(col)</code> / <code>LAG2(col)</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="n">mois</span><span class="p">,</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">lag_col</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">          </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_mois_precedent</span><span class="p">,</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">lag_col</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">offset</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_trimestre_avant</span><span class="p">,</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">lag_col</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_prec_region</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_mensuelles</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="n">mois</span><span class="p">,</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">lag_col</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">          </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_mois_precedent</span><span class="p">,</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">lag_col</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">offset</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_trimestre_avant</span><span class="p">,</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">lag_col</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_prec_region</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_mensuelles</span>
 </code></pre></div>
 <hr />
 <h3 id="lead_colcol-offset1-by-order_by1-valeur-suivante"><code>lead_col(col, offset=1, by='', order_by='1')</code> — valeur suivante</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="n">mois</span><span class="p">,</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">lead_col</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_mois_suivant</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_mensuelles</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="n">mois</span><span class="p">,</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">lead_col</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">   </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_mois_suivant</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_mensuelles</span>
 </code></pre></div>
 <hr />
 <h3 id="rank_by"><code>rank_by(by='', order_by='1', method='row_number')</code> — rang</h3>
 <p>Équivalent SAS de <code>PROC RANK</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                       </span><span class="k">AS</span><span class="w"> </span><span class="n">rang_global</span><span class="p">,</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">          </span><span class="k">AS</span><span class="w"> </span><span class="n">rang_region</span><span class="p">,</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">,</span><span class="w"> </span><span class="k">method</span><span class="o">=</span><span class="s1">'dense_rank'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">rang_dense</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_client</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                       </span><span class="k">AS</span><span class="w"> </span><span class="n">rang_global</span><span class="p">,</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">          </span><span class="k">AS</span><span class="w"> </span><span class="n">rang_region</span><span class="p">,</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">,</span><span class="w"> </span><span class="k">method</span><span class="o">=</span><span class="s1">'dense_rank'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">rang_dense</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">stats_client</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2778,87 +2979,87 @@
 <hr />
 <h3 id="first_valuecol-by-order_by-premiere-valeur-du-groupe"><code>first_value(col, by, order_by)</code> — première valeur du groupe</h3>
 <p>Équivalent SAS de <code>FIRST.variable</code> (accès à la première valeur dans un groupe <code>BY</code>).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="n">date_commande</span><span class="p">,</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">first_value</span><span class="p">(</span><span class="s1">'date_commande'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">premiere_commande</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="n">date_commande</span><span class="p">,</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">first_value</span><span class="p">(</span><span class="s1">'date_commande'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">premiere_commande</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
 </code></pre></div>
 <hr />
 <h3 id="last_valuecol-by-order_by-derniere-valeur-du-groupe"><code>last_value(col, by, order_by)</code> — dernière valeur du groupe</h3>
 <p>Équivalent SAS de <code>LAST.variable</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">last_value</span><span class="p">(</span><span class="s1">'date_commande'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">derniere_commande</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">last_value</span><span class="p">(</span><span class="s1">'date_commande'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">derniere_commande</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
 </code></pre></div>
 <hr />
 <h3 id="is_dupby-order_by1-detection-de-doublon"><code>is_dup(by, order_by='1')</code> — détection de doublon</h3>
 <p>Retourne <code>TRUE</code> pour toutes les occurrences <strong>sauf la première</strong> — l'inverse de <code>nodupkey</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">-- Marquer les doublons sans les supprimer</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">SELECT</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="o">*</span><span class="p">,</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">is_dup</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">est_doublon</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1">-- Supprimer les doublons manuellement</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">is_dup</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_dup</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
-<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">_dup</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">-- Marquer les doublons sans les supprimer</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="o">*</span><span class="p">,</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">is_dup</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">est_doublon</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="c1">-- Supprimer les doublons manuellement</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">is_dup</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'date_commande'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">_dup</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">_dup</span>
 </code></pre></div>
 <hr />
 <h3 id="combiner-les-macros-utilitaires">Combiner les macros utilitaires</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1">-- Rapport : top 3 clients par région, avec cumul et part de marché</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">SELECT</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="n">region</span><span class="p">,</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">running_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_cumul</span><span class="p">,</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">pct_of_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                             </span><span class="k">AS</span><span class="w"> </span><span class="n">pct_region</span><span class="p">,</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                    </span><span class="k">AS</span><span class="w"> </span><span class="n">rang</span>
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">nodupkey</span><span class="p">(</span><span class="k">source</span><span class="p">(</span><span class="s1">'commandes'</span><span class="p">),</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client, region'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="p">)</span><span class="w"> </span><span class="n">t</span>
-<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span>
-<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">rang</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1">-- Rapport : top 3 clients par région, avec cumul et part de marché</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="n">region</span><span class="p">,</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="n">id_client</span><span class="p">,</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span><span class="n">ca_total</span><span class="p">,</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">running_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_cumul</span><span class="p">,</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">pct_of_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                             </span><span class="k">AS</span><span class="w"> </span><span class="n">pct_region</span><span class="p">,</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                    </span><span class="k">AS</span><span class="w"> </span><span class="n">rang</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">nodupkey</span><span class="p">(</span><span class="k">source</span><span class="p">(</span><span class="s1">'commandes'</span><span class="p">),</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'id_client, region'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="p">)</span><span class="w"> </span><span class="n">t</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">rank_by</span><span class="p">(</span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'ca_total DESC'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">rang</span>
 </code></pre></div>
 <hr />
 <h2 id="macros-utilisateur">Macros utilisateur</h2>
 <p>Crée des macros métier réutilisables dans <code>sql/macros/</code> (fichiers <code>.sql</code> ou <code>.sql.j2</code>). Elles sont <strong>auto-chargées</strong> — aucun import nécessaire.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1">-- sql/macros/metier.sql.j2</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="err">{</span><span class="o">#</span><span class="w"> </span><span class="n">Catégorise</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">montant</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">commande</span><span class="w"> </span><span class="o">#</span><span class="err">}</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="n">categorie_panier</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="k">CASE</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50</span><span class="w">  </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Petit'</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Moyen'</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">  </span><span class="k">ELSE</span><span class="w">                      </span><span class="s1">'Gros'</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="k">END</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endmacro</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
-<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="err">{</span><span class="o">#</span><span class="w"> </span><span class="n">Taux</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">pourcentage</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">arrondi</span><span class="w"> </span><span class="o">#</span><span class="err">}</span>
-<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="n">taux_pct</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">denom</span><span class="p">,</span><span class="w"> </span><span class="n">decimals</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
-<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="n">ROUND</span><span class="p">(</span><span class="err">{{</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">denom</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">decimals</span><span class="w"> </span><span class="err">}}</span><span class="p">)</span>
-<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endmacro</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1">-- sql/macros/metier.sql.j2</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="err">{</span><span class="o">#</span><span class="w"> </span><span class="n">Catégorise</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">montant</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">commande</span><span class="w"> </span><span class="o">#</span><span class="err">}</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="n">categorie_panier</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="k">CASE</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50</span><span class="w">  </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Petit'</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">  </span><span class="k">WHEN</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Moyen'</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">  </span><span class="k">ELSE</span><span class="w">                      </span><span class="s1">'Gros'</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="k">END</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endmacro</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="err">{</span><span class="o">#</span><span class="w"> </span><span class="n">Taux</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">pourcentage</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">arrondi</span><span class="w"> </span><span class="o">#</span><span class="err">}</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="n">taux_pct</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">denom</span><span class="p">,</span><span class="w"> </span><span class="n">decimals</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="n">ROUND</span><span class="p">(</span><span class="err">{{</span><span class="w"> </span><span class="n">safe_divide</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="n">denom</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">decimals</span><span class="w"> </span><span class="err">}}</span><span class="p">)</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endmacro</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
 </code></pre></div>
 <p>Utilisation dans n'importe quel SQL du projet :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">SELECT</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="n">id_commande</span><span class="p">,</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="n">montant</span><span class="p">,</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">categorie_panier</span><span class="p">(</span><span class="s1">'montant'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                      </span><span class="k">AS</span><span class="w"> </span><span class="n">categorie</span><span class="p">,</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">taux_pct</span><span class="p">(</span><span class="s1">'nb_livres'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nb_commandes'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">           </span><span class="k">AS</span><span class="w"> </span><span class="n">taux_livraison</span>
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">SELECT</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span><span class="n">id_commande</span><span class="p">,</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">    </span><span class="n">montant</span><span class="p">,</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">categorie_panier</span><span class="p">(</span><span class="s1">'montant'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">                      </span><span class="k">AS</span><span class="w"> </span><span class="n">categorie</span><span class="p">,</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">taux_pct</span><span class="p">(</span><span class="s1">'nb_livres'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nb_commandes'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">           </span><span class="k">AS</span><span class="w"> </span><span class="n">taux_livraison</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
 </code></pre></div>
 <h3 id="surcharger-une-macro-built-in">Surcharger une macro built-in</h3>
 <p>Si tu définis une macro utilisateur avec le <strong>même nom</strong> qu'une macro built-in, ta version a la priorité :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">-- sql/macros/override.sql</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="n">GETDATE</span><span class="p">()</span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endmacro</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="c1">-- Maintenant {{ current_timestamp() }} → GETDATE() partout dans ce projet</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1">-- sql/macros/override.sql</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">()</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="n">GETDATE</span><span class="p">()</span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endmacro</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="c1">-- Maintenant {{ current_timestamp() }} → GETDATE() partout dans ce projet</span>
 </code></pre></div>
 <h3 id="appeler-des-macros-built-in-depuis-une-macro-utilisateur">Appeler des macros built-in depuis une macro utilisateur</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="n">mois_label</span><span class="p">(</span><span class="n">date_col</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">to_char</span><span class="p">(</span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="n">date_col</span><span class="p">),</span><span class="w"> </span><span class="s1">'YYYY-MM'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endmacro</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">macro</span><span class="w"> </span><span class="n">mois_label</span><span class="p">(</span><span class="n">date_col</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="err">{{</span><span class="w"> </span><span class="n">to_char</span><span class="p">(</span><span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="n">date_col</span><span class="p">),</span><span class="w"> </span><span class="s1">'YYYY-MM'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endmacro</span><span class="w"> </span><span class="o">%</span><span class="err">}</span>
 </code></pre></div>
 
 

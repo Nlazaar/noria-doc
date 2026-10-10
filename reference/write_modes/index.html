@@ -1839,14 +1839,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../na%C3%AFa/create_task/" class="md-nav__link">
+      <a href="../../na%C3%AFa/create_job/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Créer une tâche
+    Créer un job
   
 
     
@@ -2073,6 +2073,9 @@
 <p>Noria propose 9 modes d'écriture pour contrôler comment les données sont insérées dans les tables cibles.</p>
 <h2 id="replace-defaut"><code>replace</code> (défaut)</h2>
 <p>DROP + CREATE TABLE AS SELECT. Toujours une copie fraîche.</p>
+<blockquote>
+<p><strong>Avec <code>foreach</code> et cible unique</strong> : la première itération recrée la table, les suivantes font un INSERT. Toutes les itérations contribuent.</p>
+</blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
 </code></pre></div>
 <h2 id="append"><code>append</code></h2>
@@ -2081,6 +2084,9 @@
 </code></pre></div>
 <h2 id="truncate"><code>truncate</code></h2>
 <p>TRUNCATE puis INSERT. Crée la table si absente.</p>
+<blockquote>
+<p><strong>Avec <code>foreach</code> et cible unique</strong> : TRUNCATE (ou création) une seule fois avant la boucle, puis INSERT pour chaque itération.</p>
+</blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truncate</span>
 </code></pre></div>
 <h2 id="merge"><code>merge</code></h2>
@@ -2094,6 +2100,9 @@
 </code></pre></div>
 <h2 id="safe_replace"><code>safe_replace</code></h2>
 <p>Comme <code>replace</code>, mais avorte si le SELECT renvoie moins de lignes que <code>safe_replace_min_rows</code>. Protège contre les écrasements accidentels.</p>
+<blockquote>
+<p><strong>Avec <code>foreach</code> et cible unique</strong> : refusé à la validation — utilisez <code>truncate</code> ou rendez la cible dépendante de l'itération.</p>
+</blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">safe_replace</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">safe_replace_min_rows</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 </code></pre></div>

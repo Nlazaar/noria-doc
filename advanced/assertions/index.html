@@ -1856,14 +1856,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../na%C3%AFa/create_task/" class="md-nav__link">
+      <a href="../../na%C3%AFa/create_job/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Créer une tâche
+    Créer un job
   
 
     
@@ -2117,7 +2117,7 @@
 <h2 id="ecrire-la-requete">Écrire la requête</h2>
 <p>La requête doit retourner les <strong>lignes en violation</strong>. Si 0 lignes → OK. Si ≥1 lignes → ÉCHEC.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">-- sql/assert_clients_sans_email.sql</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">-- Retourne les clients sans email — la tâche échoue si des lignes sont trouvées</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">-- Retourne les clients sans email — le job échoue si des lignes sont trouvées</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id_client</span><span class="p">,</span><span class="w"> </span><span class="n">nom</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">FROM</span><span class="w"> </span><span class="n">clients</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">''</span>

@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://nlazaar.github.io/noria-doc/na%C3%AFa/analyse_pipeline/">
       
       
-        <link rel="prev" href="../create_task/">
+        <link rel="prev" href="../create_job/">
       
       
         <link rel="next" href="../debug/">
@@ -1693,14 +1693,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_task/" class="md-nav__link">
+      <a href="../create_job/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Créer une tâche
+    Créer un job
   
 
     
@@ -2070,9 +2070,9 @@
 <h2 id="ce-que-naia-analyse">Ce que NAÏA analyse</h2>
 <h3 id="robustesse">Robustesse</h3>
 <ul>
-<li>Tâches sans <code>retry:</code> qui accèdent à des ressources externes (API, fichiers)</li>
-<li>Tâches sans <code>timeout:</code> avec des requêtes potentiellement longues</li>
-<li>Tâches critiques sans <code>soft_fail:</code> clairement positionné</li>
+<li>Jobs sans <code>retry:</code> qui accèdent à des ressources externes (API, fichiers)</li>
+<li>Jobs sans <code>timeout:</code> avec des requêtes potentiellement longues</li>
+<li>Jobs critiques sans <code>soft_fail:</code> clairement positionné</li>
 <li>Absence de notifications <code>on_failure:</code></li>
 </ul>
 <h3 id="qualite-des-donnees">Qualité des données</h3>
@@ -2083,16 +2083,16 @@
 </ul>
 <h3 id="performance">Performance</h3>
 <ul>
-<li>Tâches indépendantes qui pourraient s'exécuter en parallèle</li>
+<li>Jobs indépendants qui pourraient s'exécuter en parallèle</li>
 <li>Loops séquentielles qui pourraient bénéficier de <code>loop_parallel: true</code></li>
-<li>Tâches qui recalculent tout alors qu'elles pourraient être <code>incremental</code></li>
+<li>Jobs qui recalculent tout alors qu'ils pourraient être <code>incremental</code></li>
 </ul>
 <h3 id="configuration">Configuration</h3>
 <ul>
 <li>Paramètres hardcodés dans le SQL au lieu d'utiliser <code>{{ params.x }}</code></li>
 <li>Clés de merge manquantes ou incorrectes</li>
 <li>Dépendances circulaires ou manquantes</li>
-<li>Tâches sans <code>description:</code> ou sans <code>tags:</code></li>
+<li>Jobs sans <code>description:</code> ou sans <code>tags:</code></li>
 </ul>
 <h2 id="exemple-de-rapport-naia">Exemple de rapport NAÏA</h2>
 <p>Pour ce pipeline :</p>
@@ -2119,7 +2119,7 @@
 <thead>
 <tr>
 <th>Priorité</th>
-<th>Tâche</th>
+<th>Job</th>
 <th>Problème</th>
 <th>Correction suggérée</th>
 </tr>
@@ -2128,7 +2128,7 @@
 <tr>
 <td>🔴 Critique</td>
 <td><code>load_orders</code></td>
-<td>Pas de <code>retry:</code> sur une tâche de load_orders externe</td>
+<td>Pas de <code>retry:</code> sur le job load_orders externe</td>
 <td>Ajouter <code>retry: 3</code>, <code>retry_delay_s: 30</code></td>
 </tr>
 <tr>
@@ -2141,7 +2141,7 @@
 <td>🟡 Important</td>
 <td><code>stats</code></td>
 <td>Pas d'assertion qualité après calcul</td>
-<td>Ajouter une tâche <code>assert_stats</code> après <code>stats</code></td>
+<td>Ajouter un job <code>assert_stats</code> après <code>stats</code></td>
 </tr>
 <tr>
 <td>🟡 Important</td>
@@ -2152,8 +2152,8 @@
 <tr>
 <td>🟢 Suggestion</td>
 <td>toutes</td>
-<td>Aucune tâche n'a de <code>description:</code></td>
-<td>Ajouter une description à chaque tâche</td>
+<td>Aucun job n'a de <code>description:</code></td>
+<td>Ajouter une description à chaque job</td>
 </tr>
 <tr>
 <td>🟢 Suggestion</td>

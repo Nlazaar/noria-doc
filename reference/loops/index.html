@@ -818,6 +818,67 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#retry-par-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry par itération
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cible-unique-avec-replace-ou-truncate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cible unique avec replace ou truncate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combinaisons-interdites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinaisons interdites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Combinaisons interdites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safe_replace-avec-cible-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        safe_replace avec cible unique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cibles-partiellement-en-conflit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cibles partiellement en conflit
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1884,14 +1945,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../na%C3%AFa/create_task/" class="md-nav__link">
+      <a href="../../na%C3%AFa/create_job/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Créer une tâche
+    Créer un job
   
 
     
@@ -2077,6 +2138,67 @@
     <span class="md-ellipsis">
       
         Hooks par itération
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retry-par-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry par itération
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cible-unique-avec-replace-ou-truncate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cible unique avec replace ou truncate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combinaisons-interdites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combinaisons interdites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Combinaisons interdites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safe_replace-avec-cible-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        safe_replace avec cible unique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cibles-partiellement-en-conflit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cibles partiellement en conflit
       
     </span>
   </a>
@@ -2313,18 +2435,109 @@
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="nt">soft_fail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/rapport.sql</span>
 </code></pre></div>
+<h3 id="retry-par-iteration">Retry par itération</h3>
+<p>Quand un job <code>foreach</code> est retenté (option <code>retry:</code>), les itérations déjà réussies <strong>ne sont pas rejouées</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">charger_regions</span><span class="p">:</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">foreach_query</span><span class="p">:</span><span class="w"> </span><span class="s">"SELECT</span><span class="nv"> </span><span class="s">code,</span><span class="nv"> </span><span class="s">nom</span><span class="nv"> </span><span class="s">FROM</span><span class="nv"> </span><span class="s">ref_regions"</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.rapport_{{</span><span class="nv"> </span><span class="s">code</span><span class="nv"> </span><span class="s">}}"</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">append</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nt">retry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nt">retry_delay_s</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/charger_region.sql</span>
+</code></pre></div>
+<p>Si sur 10 régions les 7 premières réussissent et que la 8e échoue, le retry ne rejoue que les régions 8, 9 et 10. Les 7 premières ne sont ni réexécutées ni recomptées dans <code>rows_written</code>.</p>
+<p>Cela évite les doublons partiels en mode <code>append</code> : si la région « Paris » a déjà été insérée, elle ne le sera pas une deuxième fois lors du retry.</p>
+<hr />
+<h2 id="cible-unique-avec-replace-ou-truncate">Cible unique avec <code>replace</code> ou <code>truncate</code></h2>
+<p>Quand toutes les itérations écrivent dans la <strong>même</strong> table, Noria adopte automatiquement une stratégie <em>setup-once + append-rest</em> :</p>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Mode original</th>
+<th>Ce que Noria fait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Itération 1</td>
+<td><code>replace</code></td>
+<td>DROP + CREATE TABLE AS SELECT (table créée depuis zéro)</td>
+</tr>
+<tr>
+<td>Itération 1</td>
+<td><code>truncate</code></td>
+<td>TRUNCATE ou CREATE + INSERT (table vidée ou créée)</td>
+</tr>
+<tr>
+<td>Itérations 2…N</td>
+<td><code>replace</code> ou <code>truncate</code></td>
+<td>INSERT INTO (append)</td>
+</tr>
+</tbody>
+</table>
+<p>Résultat : <strong>toutes les itérations contribuent</strong> à la table finale, pas seulement la dernière.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">rapport</span><span class="p">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">foreach</span><span class="p">:</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="nv">nord</span><span class="p p-Indicator">}</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="nv">sud</span><span class="p p-Indicator">}</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="nv">ouest</span><span class="p p-Indicator">}</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main.rapport</span><span class="w">        </span><span class="c1"># cible fixe — Noria corrige le comportement</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span><span class="w">         </span><span class="c1"># ou truncate</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/rapport.sql</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1"># ✅ main.rapport contient 3 lignes après le run (une par itération)</span>
+</code></pre></div>
+<p>La même correction s'applique avec <code>foreach_query</code> et avec <code>foreach_parallel</code>. Dans le cas parallèle, la première itération est exécutée de façon synchrone (setup), puis les suivantes tournent en parallèle avec append — ce qui évite aussi la race condition #64.</p>
+<hr />
+<h2 id="combinaisons-interdites">Combinaisons interdites</h2>
+<h3 id="safe_replace-avec-cible-unique"><code>safe_replace</code> avec cible unique</h3>
+<p><code>safe_replace</code> ne peut pas être corrigé automatiquement (le seuil <code>safe_replace_min_rows</code> ne s'applique pas à un append). Noria refuse cette combinaison à la validation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># ⛔ Interdit — noria validate lève une ConfigError</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">rapport</span><span class="p">:</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nt">foreach</span><span class="p">:</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="nv">nord</span><span class="p p-Indicator">}</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="nv">sud</span><span class="p p-Indicator">}</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main.rapport</span><span class="w">        </span><span class="c1"># cible unique</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">safe_replace</span><span class="w">    </span><span class="c1"># refusé</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/rapport.sql</span>
+</code></pre></div>
+<p><strong>Solutions :</strong></p>
+<ol>
+<li>Utiliser <code>write_mode: truncate</code> pour le même effet avec cible unique :</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truncate</span><span class="w">   </span><span class="c1"># ✅ setup-once + append-rest automatique</span>
+</code></pre></div>
+<ol>
+<li>Rendre la cible dépendante de l'itération :</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"main.rapport_{{</span><span class="nv"> </span><span class="s">region</span><span class="nv"> </span><span class="s">}}"</span><span class="w">   </span><span class="c1"># ✅ une table par itération</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">safe_replace</span>
+</code></pre></div>
+<h3 id="cibles-partiellement-en-conflit">Cibles partiellement en conflit</h3>
+<p>Si certaines itérations partagent une cible mais d'autres non, Noria refuse (la configuration est ambiguë quel que soit le mode) :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># ⛔ Itérations 1 et 2 → main.rapport_nord ; itération 3 → main.rapport_sud</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># Noria refuse — conflit partiel</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nt">foreach</span><span class="p">:</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="nv">nord</span><span class="p p-Indicator">,</span><span class="nt"> suffixe</span><span class="p">:</span><span class="w"> </span><span class="nv">nord</span><span class="p p-Indicator">}</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="nv">nord</span><span class="p p-Indicator">,</span><span class="nt"> suffixe</span><span class="p">:</span><span class="w"> </span><span class="nv">nord</span><span class="p p-Indicator">}</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="nv">sud</span><span class="p p-Indicator">,</span><span class="nt">  suffixe</span><span class="p">:</span><span class="w"> </span><span class="nv">sud</span><span class="p p-Indicator">}</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"main.rapport_{{</span><span class="nv"> </span><span class="s">suffixe</span><span class="nv"> </span><span class="s">}}"</span>
+</code></pre></div>
 <hr />
 <h2 id="securite-echappement-des-valeurs-sql-sql_str">Sécurité — échappement des valeurs SQL (<code>sql_str</code>)</h2>
 <p>Les paramètres de boucle peuvent contenir des apostrophes ou des valeurs <code>NULL</code>.
 <strong>Ne jamais interpoler une valeur dynamique dans une chaîne SQL sans filtre.</strong></p>
 <h3 id="probleme">Problème</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- ⚠️ FRAGILE : casse si nom contient une apostrophe (ex. "L'Oréal")</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="s1">'{{ nom }}'</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">client</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">-- ⚠️ FRAGILE : casse si nom contient une apostrophe (ex. "L'Oréal")</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="s1">'{{ nom }}'</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">client</span>
 </code></pre></div>
 <p>Avec <code>nom = "L'Oréal"</code> → <code>SELECT 'L'Oréal' AS client</code> → erreur SQL.</p>
 <h3 id="solution-filtre-sql_str">Solution : filtre <code>sql_str</code></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">-- ✅ Correct : apostrophes doublées, NULL géré</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sql_str</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">client</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">-- ✅ Correct : apostrophes doublées, NULL géré</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">SELECT</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sql_str</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">client</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2355,47 +2568,47 @@
 <p>Le filtre est compatible avec tous les dialectes supportés (DuckDB, PostgreSQL,
 BigQuery, Snowflake) qui utilisent le doublement des apostrophes selon le
 standard SQL.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">jobs</span><span class="p">:</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">rapport_client</span><span class="p">:</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nt">foreach_query</span><span class="p">:</span><span class="w"> </span><span class="s">"SELECT</span><span class="nv"> </span><span class="s">nom,</span><span class="nv"> </span><span class="s">segment</span><span class="nv"> </span><span class="s">FROM</span><span class="nv"> </span><span class="s">clients"</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/rapport_client.sql</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.rapport_{{</span><span class="nv"> </span><span class="s">loop.index</span><span class="nv"> </span><span class="s">}}"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">rapport_client</span><span class="p">:</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nt">foreach_query</span><span class="p">:</span><span class="w"> </span><span class="s">"SELECT</span><span class="nv"> </span><span class="s">nom,</span><span class="nv"> </span><span class="s">segment</span><span class="nv"> </span><span class="s">FROM</span><span class="nv"> </span><span class="s">clients"</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/rapport_client.sql</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.rapport_{{</span><span class="nv"> </span><span class="s">loop.index</span><span class="nv"> </span><span class="s">}}"</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">-- sql/rapport_client.sql</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">SELECT</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sql_str</span><span class="w"> </span><span class="err">}}</span><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="n">client</span><span class="p">,</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">segment</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sql_str</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">segment</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">-- sql/rapport_client.sql</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sql_str</span><span class="w"> </span><span class="err">}}</span><span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="n">client</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">segment</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sql_str</span><span class="w"> </span><span class="err">}}</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">segment</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
 </code></pre></div>
 <hr />
 <h2 id="exemple-complet-rapport-mensuel-par-agence">Exemple complet — rapport mensuel par agence</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">jobs</span><span class="p">:</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">rapport_agence</span><span class="p">:</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">foreach_query</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">      </span><span class="no">SELECT code_agence, libelle_agence</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">      </span><span class="no">FROM ref_agences</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">      </span><span class="no">WHERE actif = TRUE</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="nt">foreach_parallel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="nt">foreach_workers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="nt">foreach_on_error</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skip</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/rapport_agence.sql</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.rapport_{{</span><span class="nv"> </span><span class="s">code_agence</span><span class="nv"> </span><span class="s">}}"</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">charger_clients</span><span class="p p-Indicator">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">rapport_agence</span><span class="p">:</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="nt">foreach_query</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">      </span><span class="no">SELECT code_agence, libelle_agence</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">      </span><span class="no">FROM ref_agences</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">      </span><span class="no">WHERE actif = TRUE</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="nt">foreach_parallel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">    </span><span class="nt">foreach_workers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="nt">foreach_on_error</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skip</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span><span class="nt">sql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/rapport_agence.sql</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"{{</span><span class="nv"> </span><span class="s">params.schema</span><span class="nv"> </span><span class="s">}}.rapport_{{</span><span class="nv"> </span><span class="s">code_agence</span><span class="nv"> </span><span class="s">}}"</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">    </span><span class="nt">write_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replace</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="nt">after</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">charger_clients</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">-- sql/rapport_agence.sql</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">SELECT</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="s1">'{{ code_agence }}'</span><span class="w">                               </span><span class="k">AS</span><span class="w"> </span><span class="n">agence</span><span class="p">,</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="s1">'{{ libelle_agence }}'</span><span class="w">                            </span><span class="k">AS</span><span class="w"> </span><span class="n">nom_agence</span><span class="p">,</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="k">EXTRACT</span><span class="p">(</span><span class="k">MONTH</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">date_commande</span><span class="p">)</span><span class="w">                 </span><span class="k">AS</span><span class="w"> </span><span class="n">mois</span><span class="p">,</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">                                          </span><span class="k">AS</span><span class="w"> </span><span class="n">nb_commandes</span><span class="p">,</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">montant</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">                            </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_total</span><span class="p">,</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">()</span><span class="w"> </span><span class="err">}}</span><span class="w">                         </span><span class="k">AS</span><span class="w"> </span><span class="n">computed_at</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">code_agence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'{{ code_agence }}'</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="k">YEAR</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">date_commande</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">params</span><span class="p">.</span><span class="n">annee</span><span class="w"> </span><span class="err">}}</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">mois</span>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">mois</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">-- sql/rapport_agence.sql</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">SELECT</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="s1">'{{ code_agence }}'</span><span class="w">                               </span><span class="k">AS</span><span class="w"> </span><span class="n">agence</span><span class="p">,</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="s1">'{{ libelle_agence }}'</span><span class="w">                            </span><span class="k">AS</span><span class="w"> </span><span class="n">nom_agence</span><span class="p">,</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="k">EXTRACT</span><span class="p">(</span><span class="k">MONTH</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">date_commande</span><span class="p">)</span><span class="w">                 </span><span class="k">AS</span><span class="w"> </span><span class="n">mois</span><span class="p">,</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">                                          </span><span class="k">AS</span><span class="w"> </span><span class="n">nb_commandes</span><span class="p">,</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">montant</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">                            </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_total</span><span class="p">,</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">()</span><span class="w"> </span><span class="err">}}</span><span class="w">                         </span><span class="k">AS</span><span class="w"> </span><span class="n">computed_at</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="k">FROM</span><span class="w"> </span><span class="n">commandes</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">code_agence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'{{ code_agence }}'</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="k">EXTRACT</span><span class="p">(</span><span class="k">YEAR</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">date_commande</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="n">params</span><span class="p">.</span><span class="n">annee</span><span class="w"> </span><span class="err">}}</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">mois</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">mois</span>
 </code></pre></div>
 
 

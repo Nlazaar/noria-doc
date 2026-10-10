@@ -1956,14 +1956,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../na%C3%AFa/create_task/" class="md-nav__link">
+      <a href="../na%C3%AFa/create_job/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Créer une tâche
+    Créer un job
   
 
     
@@ -2579,7 +2579,7 @@
 <a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">-- sql/report/02_enrichissement.sql — Stage 2</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1">-- {{ prev }} = table temporaire _noria_stats_mensuelles_s1 (gérée par Noria)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1">-- {{ prev }} = table de travail _noria_stats_mensuelles_s1_&lt;run_id&gt; (gérée par Noria)</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">SELECT</span>
 <a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="o">*</span><span class="p">,</span>
 <a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="err">{{</span><span class="w"> </span><span class="n">running_total</span><span class="p">(</span><span class="s1">'ca_total'</span><span class="p">,</span><span class="w"> </span><span class="k">by</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span><span class="w"> </span><span class="n">order_by</span><span class="o">=</span><span class="s1">'mois'</span><span class="p">)</span><span class="w"> </span><span class="err">}}</span><span class="w">  </span><span class="k">AS</span><span class="w"> </span><span class="n">ca_cumul_region</span><span class="p">,</span>

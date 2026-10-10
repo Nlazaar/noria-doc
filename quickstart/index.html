@@ -1834,14 +1834,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../na%C3%AFa/create_task/" class="md-nav__link">
+      <a href="../na%C3%AFa/create_job/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Créer une tâche
+    Créer un job
   
 
     
@@ -2232,7 +2232,7 @@ depuis le dossier <code>data_projets</code>.</p>
 </ul>
 </div>
 <h2 id="7-utiliser-les-stages">7. Utiliser les stages</h2>
-<p>Les stages permettent de décomposer un job complexe en plusieurs fichiers SQL chaînés. Chaque stage intermédiaire est matérialisé en table temporaire accessible via <code>{{ prev }}</code>.</p>
+<p>Les stages permettent de décomposer un job complexe en plusieurs fichiers SQL chaînés. Chaque stage intermédiaire est matérialisé en <strong>table de travail</strong> accessible via <code>{{ prev }}</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">-- sql/report/01_aggregate.sql</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">-- Stage 1 : agrégation — "clients" qualifié automatiquement via schemas:</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">SELECT</span>

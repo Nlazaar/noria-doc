@@ -1691,14 +1691,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../create_task/" class="md-nav__link">
+      <a href="../create_job/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Créer une tâche
+    Créer un job
   
 
     
@@ -2207,9 +2207,9 @@
 <td>Visualiser avec <code>noria dag</code> et corriger</td>
 </tr>
 <tr>
-<td><code>DependencyError: unknown task 'x'</code></td>
-<td><code>needs:</code> référence une tâche inexistante</td>
-<td>Vérifier le nom de la tâche</td>
+<td><code>DependencyError: unknown job 'x'</code></td>
+<td><code>needs:</code> référence un job inexistant</td>
+<td>Vérifier le nom du job</td>
 </tr>
 </tbody>
 </table>
@@ -2239,8 +2239,8 @@
 <td>Attendre l'alimentation de la source ou ajuster <code>max_hours</code></td>
 </tr>
 <tr>
-<td><code>TaskError: timed out after 300s</code></td>
-<td>La tâche dépasse le <code>timeout:</code> configuré</td>
+<td><code>JobError: timed out after 300s</code></td>
+<td>Le job dépasse le <code>timeout:</code> configuré</td>
 <td>Augmenter <code>timeout:</code> ou optimiser la requête</td>
 </tr>
 <tr>
@@ -2286,12 +2286,12 @@
 </code></pre></div></p>
 <p><strong>NAÏA diagnostique :</strong></p>
 <p>La requête SQL de <code>monthly_stats</code> ne retourne aucune ligne. Causes possibles :
-1. La table source est vide (tâche précédente a échoué silencieusement)
+1. La table source est vide (job précédent a échoué silencieusement)
 2. Un filtre de date trop restrictif élimine toutes les lignes
 3. Une jointure trop sélective produit un résultat vide</p>
 <p><strong>Commande de diagnostic :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w">   </span><span class="c1"># voir le SQL compilé</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w"> </span>--dry-run<span class="w">  </span><span class="c1"># compter les lignes sans écrire</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>noria<span class="w"> </span>compile<span class="w"> </span>--job<span class="w"> </span>monthly_stats<span class="w">   </span><span class="c1"># voir le SQL compilé</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--job<span class="w"> </span>monthly_stats<span class="w"> </span>--dry-run<span class="w">  </span><span class="c1"># compter les lignes sans écrire</span>
 </code></pre></div></p>
 <p><strong>Solution :</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Option 1 — baisser le seuil si les données sont légitimement peu nombreuses</span>
@@ -2325,7 +2325,7 @@
 <hr />
 <h3 id="exemple-3-assertion-echouee">Exemple 3 — Assertion échouée</h3>
 <p><strong>Erreur :</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ExecutionError: assert FAILED — task 'assert_positive_revenue' returned 3 violation(s)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ExecutionError: assert FAILED — job 'assert_positive_revenue' returned 3 violation(s)
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Sample rows:
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  client_id | ca_total | motif
@@ -2360,11 +2360,11 @@
 <hr />
 <h2 id="inspecter-le-sql-compile">Inspecter le SQL compilé</h2>
 <p>Avant de soumettre une erreur à NAÏA, utilise <code>noria compile</code> pour voir le SQL réel après résolution des variables et des macros :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># SQL compilé d'une tâche</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># SQL compilé d'un job</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>noria<span class="w"> </span>compile<span class="w"> </span>--job<span class="w"> </span>monthly_stats
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># SQL compilé avec des params spécifiques</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>noria<span class="w"> </span>compile<span class="w"> </span>--task<span class="w"> </span>monthly_stats<span class="w"> </span>--params<span class="w"> </span><span class="nv">schema</span><span class="o">=</span>prod
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>noria<span class="w"> </span>compile<span class="w"> </span>--job<span class="w"> </span>monthly_stats<span class="w"> </span>--params<span class="w"> </span><span class="nv">schema</span><span class="o">=</span>prod
 </code></pre></div>
 <p>Cela aide à identifier :
 - Les variables non résolues
@@ -2376,7 +2376,7 @@
 </code></pre></div>
 <p>Les logs détaillés montrent :
 - Le SQL exact exécuté sur la base
-- Les durées d'exécution par tâche
+- Les durées d'exécution par job
 - Les tentatives de retry
 - Les résultats des freshness checks</p>
 
