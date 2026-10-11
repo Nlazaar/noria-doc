@@ -1534,6 +1534,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#alertes-sur-anomalie-de-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alertes sur anomalie de volume
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2272,6 +2283,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#alertes-sur-anomalie-de-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alertes sur anomalie de volume
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2510,6 +2532,17 @@
 <p class="admonition-title">Bonne pratique</p>
 <p>Mettre <code>on_failure</code> avec email + Slack, et <code>on_success: []</code> (ou absent) pour éviter le bruit. Réserver <code>on_success</code> aux pipelines critiques dont on doit confirmer l'exécution.</p>
 </div>
+<hr />
+<h2 id="alertes-sur-anomalie-de-volume">Alertes sur anomalie de volume</h2>
+<p>Si un job configure <a href="../resilience/#détection-danomalies-de-volume"><code>anomaly_detection:</code></a>, Noria envoie une alerte via le canal <code>on_failure</code> dès qu'une anomalie z-score est détectée — <strong>même si <code>warn_only: true</code></strong> (le pipeline ne s'arrête pas).</p>
+<p>Le champ <code>detail</code> du payload commence par <code>Anomalie dans '…'</code> pour le distinguer d'un échec de job :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">"pipeline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mon_pipeline"</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on_failure"</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anomalie dans 'load_orders': rows=200000, mean=50000, stddev=2000, z=75.00 (threshold ±3.0)"</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Aucune configuration supplémentaire n'est requise : dès que <code>notifications.on_failure</code> est défini, les anomalies y sont automatiquement envoyées.</p>
 
 
 
