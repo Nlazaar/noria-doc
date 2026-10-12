@@ -1281,6 +1281,73 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Dashboard web — onglet Lignage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline unique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plusieurs-pipelines-graphe-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plusieurs pipelines (graphe global)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plusieurs pipelines (graphe global)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isolation-par-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolation par base de données
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partager-le-trackingdb-entre-projets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partager le tracking.db entre projets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taille-du-graphe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taille du graphe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2042,6 +2109,73 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Dashboard web — onglet Lignage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline unique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plusieurs-pipelines-graphe-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plusieurs pipelines (graphe global)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plusieurs pipelines (graphe global)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isolation-par-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolation par base de données
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partager-le-trackingdb-entre-projets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partager le tracking.db entre projets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taille-du-graphe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taille du graphe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2204,39 +2338,63 @@
 </table>
 <hr />
 <h2 id="dashboard-web-onglet-lignage">Dashboard web — onglet Lignage</h2>
-<p>Le dashboard (<code>noria monitor</code>) inclut un onglet <strong>Lignage</strong> avec :</p>
+<p>Le dashboard (<code>noria monitor</code>) inclut un onglet <strong>Lignage</strong> avec un graphe Mermaid interactif.</p>
+<h3 id="pipeline-unique">Pipeline unique</h3>
+<p>Quand un seul pipeline est présent dans le <code>tracking.db</code>, le graphe s'affiche en format plat, identique à <code>--format mermaid</code> :</p>
 <ul>
-<li>Graphe Mermaid interactif du pipeline</li>
-<li>Nœuds cliquables → détail du job</li>
-<li>Distinction visuelle : sources externes / tables intermédiaires / cibles finales</li>
+<li>Nœuds jobs (indigo) → tables cibles (jaune)</li>
+<li>Sources externes (vert)</li>
 </ul>
+<h3 id="plusieurs-pipelines-graphe-global">Plusieurs pipelines (graphe global)</h3>
+<p>Quand plusieurs pipelines partagent le même <code>tracking.db</code>, l'onglet affiche <strong>tous les pipelines</strong> dans un graphe global :</p>
+<ul>
+<li><strong>Sous-graphe</strong> dédié par pipeline, avec sa couleur propre</li>
+<li><strong>Légende</strong> en haut à gauche : chaque pastille identifie un pipeline</li>
+<li><strong>Lien inter-pipelines</strong> automatique : si le pipeline A écrit <code>main.bilan</code> et le pipeline B lit <code>main.bilan</code> <strong>dans la même base</strong> (même dialecte + même hôte + même fichier/base), un arc relie les deux pipelines via la table partagée</li>
+</ul>
+<h4 id="isolation-par-base-de-donnees">Isolation par base de données</h4>
+<p>L'identité d'une base est stockée sous la forme <code>dialect:host:database</code> (jamais le mot de passe). Deux pipelines qui ciblent des bases différentes ne seront <strong>jamais reliés</strong>, même si une table porte le même nom dans les deux bases.</p>
+<p>Les entrées de lineage sans identité de base (bases <code>tracking.db</code> créées avant Noria 0.3.1) s'affichent mais ne créent pas de liens inter-pipelines.</p>
+<h4 id="partager-le-trackingdb-entre-projets">Partager le tracking.db entre projets</h4>
+<p>Pour que deux projets alimentent le même graphe, il suffit de pointer leur <code>tracking_db</code> vers le même fichier :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># projet-a/noria.yml</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ventes</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">tracking_db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/shared/tracking.db</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># projet-b/noria.yml</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reporting</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">tracking_db</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/shared/tracking.db</span>
+</code></pre></div>
+<p>Le projet dont <code>noria monitor --project</code> est lancé utilise sa lineage compilée (la plus fraîche). Les autres pipelines utilisent leur dernier enregistrement dans <code>tracking.db</code> (mis à jour à chaque <code>noria run</code>).</p>
+<h4 id="taille-du-graphe">Taille du graphe</h4>
+<p>Mermaid est configuré avec <code>maxTextSize: 500 000</code> pour gérer des graphes de 3 × 40 jobs sans troncature. Au-delà, utiliser <code>noria lineage --format json</code> pour une extraction programmatique.</p>
 <hr />
 <h2 id="api-rest">API REST</h2>
 <h3 id="lignage-complet-du-pipeline">Lignage complet du pipeline</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>GET /api/v1/lineage
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>GET /api/v1/lineage
 </code></pre></div>
 <p>Retourne le lignage enregistré lors du dernier run :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">"pipeline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mon_pipeline"</span><span class="p">,</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-25T08:30:00"</span><span class="p">,</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"load_raw"</span><span class="p">,</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">      </span><span class="nt">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"raw.customers_raw"</span><span class="p">,</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"target"</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">      </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anonymize_for_analytics"</span><span class="p">,</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">      </span><span class="nt">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"raw.customers_raw"</span><span class="p">,</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source"</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">      </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anonymize_for_analytics"</span><span class="p">,</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">      </span><span class="nt">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"analytics.customers"</span><span class="p">,</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"target"</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">"pipeline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mon_pipeline"</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">"recorded_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-25T08:30:00"</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"load_raw"</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="nt">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"raw.customers_raw"</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"target"</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anonymize_for_analytics"</span><span class="p">,</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="nt">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"raw.customers_raw"</span><span class="p">,</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"source"</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">      </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anonymize_for_analytics"</span><span class="p">,</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">      </span><span class="nt">"table"</span><span class="p">:</span><span class="w"> </span><span class="s2">"analytics.customers"</span><span class="p">,</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">      </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"target"</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h2 id="sources-detectees-automatiquement">Sources détectées automatiquement</h2>
@@ -2283,12 +2441,12 @@
 <h2 id="enregistrement-du-lignage">Enregistrement du lignage</h2>
 <p>Le lignage est enregistré <strong>après chaque run</strong> dans <code>.noria/tracking.db</code> (table <code>lineage_entries</code>). Il est donc cumulatif : les runs successifs enrichissent le graphe — si un nouveau job est ajouté, il apparaît au prochain run.</p>
 <p>Pour forcer une mise à jour sans exécuter la pipeline :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>noria<span class="w"> </span>lineage<span class="w"> </span>--format<span class="w"> </span>json<span class="w">   </span><span class="c1"># lit le SQL, n'exécute rien</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>noria<span class="w"> </span>lineage<span class="w"> </span>--format<span class="w"> </span>json<span class="w">   </span><span class="c1"># lit le SQL, n'exécute rien</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Intégration CI/CD</p>
 <p>En CI, après chaque déploiement :
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>noria<span class="w"> </span>lineage<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>--output<span class="w"> </span>artifacts/lineage.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>noria<span class="w"> </span>lineage<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>--output<span class="w"> </span>artifacts/lineage.json
 </code></pre></div>
 Archiver ce fichier permet de comparer le lignage entre versions et détecter des régressions (table source disparue, nouvelle cible inattendue).</p>
 </div>
