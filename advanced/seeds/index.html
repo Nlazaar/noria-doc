@@ -2071,8 +2071,13 @@
 <div class="admonition note">
 <p class="admonition-title">PostgreSQL — premier usage</p>
 <p>La première exécution d'un seed PostgreSQL télécharge l'extension <code>postgres</code> de DuckDB
-depuis son registre. Un accès réseau est requis une seule fois ; l'extension est ensuite
-mise en cache localement.</p>
+(~30 Mo) depuis son registre. Un accès réseau est requis une seule fois ; l'extension est
+ensuite mise en cache localement.</p>
+<p>Si le téléchargement n'aboutit pas en 20 s (réseau lent ou absent), le seed se poursuit
+via <code>COPY</code> (psycopg2) et affiche un avertissement. Pour installer l'extension à l'avance
+(serveur sans accès Internet au moment du run, CI) :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import duckdb; duckdb.connect().execute('INSTALL postgres')"</span>
+</code></pre></div>
 </div>
 
 

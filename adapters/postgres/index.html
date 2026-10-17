@@ -2264,7 +2264,7 @@ l'extension <code>postgres</code> de DuckDB.</p>
 <li>La table cible est toujours reconstruite (<code>replace</code> implicite).</li>
 <li>Les noms de fichiers avec apostrophe (<code>l'export.csv</code>) sont supportés.</li>
 <li><strong>Atomicité</strong> : si la lecture du fichier échoue, la table existante reste intacte.</li>
-<li>La première exécution télécharge l'extension <code>postgres</code> de DuckDB (accès réseau requis une seule fois).</li>
+<li>La première exécution télécharge l'extension <code>postgres</code> de DuckDB (accès réseau requis une seule fois). Au-delà de 20 s, le seed se poursuit via <code>COPY</code> avec un avertissement (voir <a href="../../advanced/seeds/">Seeds</a>).</li>
 </ul>
 <h2 id="limitations">Limitations</h2>
 <ul>
