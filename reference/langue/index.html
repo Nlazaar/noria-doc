@@ -864,6 +864,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ce-qui-nest-pas-traduit-volontaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui n'est pas traduit (volontaire)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exemples" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1934,6 +1945,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ce-qui-nest-pas-traduit-volontaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui n'est pas traduit (volontaire)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exemples" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2004,6 +2026,9 @@ qui reflètent mieux la langue des messages que <code>LC_CTYPE</code>.</p>
 </div>
 <h2 id="portee">Portée</h2>
 <ul>
+<li><strong>CLI</strong> : l'aide des commandes et options (<code>--help</code>), les questions de
+  <code>noria init</code>, et les messages du terminal (résumé de run, <code>clean</code>, <code>backfill</code>,
+  <code>--resume</code>, <code>schedule</code>…) sont traduits.</li>
 <li><strong>Dashboard de monitoring</strong> : libellés, onglets, colonnes et statuts sont
   traduits ; l'attribut <code>&lt;html lang&gt;</code> suit la langue détectée. Les valeurs
   techniques de statut (<code>finished_ok</code>…) restent <strong>inchangées</strong> dans l'API REST ;
@@ -2011,6 +2036,14 @@ qui reflètent mieux la langue des messages que <code>LC_CTYPE</code>.</p>
 <li><strong>Messages d'erreur</strong> (<code>ConfigError</code>, validation Pydantic, conseils) : affichés
   dans la langue détectée.</li>
 </ul>
+<h2 id="ce-qui-nest-pas-traduit-volontaire">Ce qui n'est <strong>pas</strong> traduit (volontaire)</h2>
+<p>Tout ce qui est lu par des scripts reste stable : clés et valeurs JSON
+(<code>noria lineage --format json</code>, API REST), valeurs de statut (<code>finished_ok</code>…),
+codes retour, endpoint <code>/metrics</code>, noms de commandes et d'options.</p>
+<p>Les titres de sections générés par Typer/Click (<code>Usage</code>, <code>Options</code>, <code>Commands</code>,
+<code>Arguments</code>) restent en anglais : ils passent par <code>gettext</code> mais ne sont
+traduisibles qu'avec un catalogue <code>.mo</code> que Noria ne fournit pas (approche JSON,
+sans dépendance), et certains sont figés à l'import de Typer.</p>
 <h2 id="exemples">Exemples</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Dashboard en anglais</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">NORIA_LANG</span><span class="o">=</span>en<span class="w"> </span>noria<span class="w"> </span>monitor<span class="w"> </span>--project<span class="w"> </span>.
