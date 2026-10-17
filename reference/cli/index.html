@@ -2804,6 +2804,7 @@
 <li>Les jobs dont le statut était <code>finished_ok</code>, <code>warning</code>, <code>skipped</code> ou <code>deactivated</code> sont ignorés (statut <code>skipped</code> dans le nouveau run).</li>
 <li>Les jobs en échec (<code>finished_ko</code>) ou avortés (<code>aborted</code>) sont rejoués normalement.</li>
 <li>Les paramètres (<code>--param</code>, <code>run_date</code>…) du run d'origine sont automatiquement réutilisés.</li>
+<li>Un job <code>compute_params</code> déjà réussi n'est pas relancé : ses valeurs sont rechargées depuis le run d'origine (relancé seulement pour un run enregistré par une version qui ne les conservait pas).</li>
 <li>Incompatible avec <code>--job</code> et <code>--param</code> (exit 2).</li>
 </ul>
 <h3 id="statuts-de-job">Statuts de job</h3>
@@ -3325,7 +3326,7 @@
 <tr>
 <td><code>--schema</code></td>
 <td>Schéma par défaut</td>
-<td>prompt</td>
+<td>prompt (<code>main</code> ; <code>public</code> sous PostgreSQL)</td>
 </tr>
 <tr>
 <td><code>--minimal</code></td>
