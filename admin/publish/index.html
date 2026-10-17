@@ -1666,44 +1666,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequis-une-seule-fois" class="md-nav__link">
+  <a href="#la-regle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prérequis (une seule fois)
+        La règle
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Prérequis (une seule fois)">
+    <nav class="md-nav" aria-label="La règle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-compte-pypi" class="md-nav__link">
+  <a href="#comment-la-ci-verifie-la-version" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Compte PyPI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-token-api-pypi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Token API PyPI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-configurer-uv-pour-utiliser-le-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Configurer uv pour utiliser le token
+        Comment la CI vérifie la version
       
     </span>
   </a>
@@ -1716,22 +1694,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-publier-une-nouvelle-version" class="md-nav__link">
+  <a href="#publier-une-version" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflow — publier une nouvelle version
+        Publier une version
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Workflow — publier une nouvelle version">
+    <nav class="md-nav" aria-label="Publier une version">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etape-1-modifier-le-code" class="md-nav__link">
+  <a href="#1-preparer-une-pr-de-release" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 1 — Modifier le code
+        1. Préparer une PR de release
       
     </span>
   </a>
@@ -1739,10 +1717,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etape-2-bumper-la-version" class="md-nav__link">
+  <a href="#2-verifier-la-simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 2 — Bumper la version
+        2. Vérifier la simulation
       
     </span>
   </a>
@@ -1750,10 +1728,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etape-3-committer-et-taguer" class="md-nav__link">
+  <a href="#3-fusionner" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 3 — Committer et taguer
+        3. Fusionner
       
     </span>
   </a>
@@ -1761,43 +1739,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etape-4-builder-le-package" class="md-nav__link">
+  <a href="#4-verifier-la-publication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 4 — Builder le package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-5-publier-sur-pypi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 5 — Publier sur PyPI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-6-verifier-la-publication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 6 — Vérifier la publication
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-7-tester-linstallation-depuis-pypi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 7 — Tester l'installation depuis PyPI
+        4. Vérifier la publication
       
     </span>
   </a>
@@ -1822,32 +1767,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#le-job-version-a-publier-echoue-versions-differentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le job « Version à publier » échoue : versions différentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-job-version-a-publier-echoue-pypi-injoignable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le job « Version à publier » échoue : PyPI injoignable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-tests-echouent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les tests échouent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#file-already-exists" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "File already exists"
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#invalid-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "Invalid token"
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-tests-echouent-avant-la-publication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Les tests échouent avant la publication
+        « File already exists »
       
     </span>
   </a>
@@ -1860,10 +1816,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resume-rapide" class="md-nav__link">
+  <a href="#publication-manuelle-secours" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Résumé rapide
+        Publication manuelle (secours)
       
     </span>
   </a>
@@ -2084,44 +2040,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequis-une-seule-fois" class="md-nav__link">
+  <a href="#la-regle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prérequis (une seule fois)
+        La règle
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Prérequis (une seule fois)">
+    <nav class="md-nav" aria-label="La règle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-compte-pypi" class="md-nav__link">
+  <a href="#comment-la-ci-verifie-la-version" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Compte PyPI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-token-api-pypi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Token API PyPI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-configurer-uv-pour-utiliser-le-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Configurer uv pour utiliser le token
+        Comment la CI vérifie la version
       
     </span>
   </a>
@@ -2134,22 +2068,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-publier-une-nouvelle-version" class="md-nav__link">
+  <a href="#publier-une-version" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflow — publier une nouvelle version
+        Publier une version
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Workflow — publier une nouvelle version">
+    <nav class="md-nav" aria-label="Publier une version">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#etape-1-modifier-le-code" class="md-nav__link">
+  <a href="#1-preparer-une-pr-de-release" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 1 — Modifier le code
+        1. Préparer une PR de release
       
     </span>
   </a>
@@ -2157,10 +2091,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etape-2-bumper-la-version" class="md-nav__link">
+  <a href="#2-verifier-la-simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 2 — Bumper la version
+        2. Vérifier la simulation
       
     </span>
   </a>
@@ -2168,10 +2102,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etape-3-committer-et-taguer" class="md-nav__link">
+  <a href="#3-fusionner" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 3 — Committer et taguer
+        3. Fusionner
       
     </span>
   </a>
@@ -2179,43 +2113,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#etape-4-builder-le-package" class="md-nav__link">
+  <a href="#4-verifier-la-publication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Étape 4 — Builder le package
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-5-publier-sur-pypi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 5 — Publier sur PyPI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-6-verifier-la-publication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 6 — Vérifier la publication
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etape-7-tester-linstallation-depuis-pypi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Étape 7 — Tester l'installation depuis PyPI
+        4. Vérifier la publication
       
     </span>
   </a>
@@ -2240,32 +2141,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#le-job-version-a-publier-echoue-versions-differentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le job « Version à publier » échoue : versions différentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-job-version-a-publier-echoue-pypi-injoignable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le job « Version à publier » échoue : PyPI injoignable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-tests-echouent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les tests échouent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#file-already-exists" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "File already exists"
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#invalid-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "Invalid token"
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#les-tests-echouent-avant-la-publication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Les tests échouent avant la publication
+        « File already exists »
       
     </span>
   </a>
@@ -2278,10 +2190,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resume-rapide" class="md-nav__link">
+  <a href="#publication-manuelle-secours" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Résumé rapide
+        Publication manuelle (secours)
       
     </span>
   </a>
@@ -2309,40 +2221,40 @@
 
 
 <h1 id="publier-une-nouvelle-version-de-noria-sur-pypi">Publier une nouvelle version de Noria sur PyPI</h1>
-<p>Ce guide est destiné au mainteneur du package. Il décrit les étapes complètes pour modifier le code, builder le package et le publier sur PyPI.</p>
+<p>Ce guide est destiné au mainteneur du package.</p>
 <hr />
-<h2 id="prerequis-une-seule-fois">Prérequis (une seule fois)</h2>
-<h3 id="1-compte-pypi">1. Compte PyPI</h3>
-<p>Le package <code>noria</code> est enregistré sur <a href="https://pypi.org">pypi.org</a> sous le compte <strong>Noria Contributors</strong>.<br />
-Tu dois avoir accès à ce compte pour publier.</p>
-<h3 id="2-token-api-pypi">2. Token API PyPI</h3>
-<p>Sur PyPI : <strong>Account settings → API tokens → Add API token</strong></p>
-<ul>
-<li>Scope : limiter au projet <code>noria</code></li>
-<li>Copier le token (commence par <code>pypi-</code>)</li>
+<h2 id="la-regle">La règle</h2>
+<p>La publication est <strong>automatique</strong> et ne dépend que de la version déclarée dans <code>pyproject.toml</code> :</p>
+<blockquote>
+<p>Sur un push vers <code>main</code>, <strong>si</strong> la version de <code>pyproject.toml</code> n'existe pas encore sur PyPI, <strong>et</strong> si les tests sont verts (Python 3.10, 3.11 et 3.12), <strong>alors</strong> la CI publie le paquet sur PyPI et crée le tag <code>vX.Y.Z</code>. Sinon, elle ne fait rien.</p>
+</blockquote>
+<p>Le message de commit ne joue <strong>aucun</strong> rôle. Une version déjà publiée n'est jamais republiée.</p>
+<div class="admonition warning">
+<p class="admonition-title">Changer la version = publier</p>
+<p>Ne modifiez la version de <code>pyproject.toml</code> que lorsque vous voulez réellement publier. Une fois fusionnée sur <code>main</code>, la publication part toute seule.</p>
+</div>
+<h3 id="comment-la-ci-verifie-la-version">Comment la CI vérifie la version</h3>
+<p>Le job « Version à publier » (<code>.github/scripts/version_a_publier.py</code>) :</p>
+<ol>
+<li>lit <code>version</code> dans <code>pyproject.toml</code> et vérifie qu'elle est identique à <code>__version__</code> dans <code>src/noria/_version.py</code> (sinon, échec) ;</li>
+<li>interroge l'<a href="https://docs.pypi.org/api/json/">API JSON de PyPI</a> (« Get a release ») : <code>GET https://pypi.org/pypi/noria/&lt;version&gt;/json</code> :<ul>
+<li><code>200</code> : la version existe déjà, rien à publier ;</li>
+<li><code>404</code> : la version n'existe pas encore, elle sera publiée ;</li>
+<li>autre réponse, ou PyPI injoignable : échec, rien n'est publié.</li>
 </ul>
-<h3 id="3-configurer-uv-pour-utiliser-le-token">3. Configurer uv pour utiliser le token</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Stocker le token dans la config uv (une seule fois sur ta machine)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uv<span class="w"> </span>publish<span class="w"> </span>--token<span class="w"> </span>pypi-XXXXXXXXXXXXXXXX
-</code></pre></div>
-<p>Ou créer un fichier <code>~/.pypirc</code> :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[pypi]</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">__token__</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pypi-XXXXXXXXXXXXXXXX</span>
-</code></pre></div>
+</li>
+</ol>
+<p>Sur une pull request, l'étape « Simulation (PR) » affiche seulement ce qui se passerait après la fusion : <code>publierait X.Y.Z</code> ou <code>rien à publier</code>. Rien n'est publié depuis une PR.</p>
+<p>Le job « Publish to PyPI » revérifie PyPI juste avant l'envoi (deux pushes rapprochés ne publient pas deux fois), construit le paquet (<code>python -m build</code>), le publie avec <a href="https://github.com/pypa/gh-action-pypi-publish"><code>pypa/gh-action-pypi-publish</code></a> en <em>trusted publishing</em> (OIDC, aucun token stocké), puis pousse le tag <code>vX.Y.Z</code> sur le commit publié.</p>
 <hr />
-<h2 id="workflow-publier-une-nouvelle-version">Workflow — publier une nouvelle version</h2>
-<h3 id="etape-1-modifier-le-code">Étape 1 — Modifier le code</h3>
-<p>Faire les modifications nécessaires dans <code>src/noria/</code>.<br />
-Lancer les tests pour vérifier que tout passe :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pytest
-</code></pre></div>
-<p>Les 378 tests doivent passer à 100% avant de publier.</p>
-<h3 id="etape-2-bumper-la-version">Étape 2 — Bumper la version</h3>
-<p>La version est définie dans <strong><code>pyproject.toml</code></strong>, ligne :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.1.0"</span>
-</code></pre></div>
-<p>Suivre le versionnage sémantique :</p>
+<h2 id="publier-une-version">Publier une version</h2>
+<h3 id="1-preparer-une-pr-de-release">1. Préparer une PR de release</h3>
+<p>Sur une branche créée depuis <code>main</code> (ex. <code>chore/release-0.6.0</code>) :</p>
+<ul>
+<li>changer la version dans <strong><code>pyproject.toml</code></strong> <strong>et</strong> dans <strong><code>src/noria/_version.py</code></strong> (même valeur) ;</li>
+<li>compléter le <code>CHANGELOG.md</code>.</li>
+</ul>
+<p>Versionnage sémantique :</p>
 <table>
 <thead>
 <tr>
@@ -2353,86 +2265,45 @@ Lancer les tests pour vérifier que tout passe :</p>
 <tbody>
 <tr>
 <td>Correctif (bug fix)</td>
-<td><code>0.1.0</code> → <code>0.1.1</code></td>
+<td><code>0.5.0</code> → <code>0.5.1</code></td>
 </tr>
 <tr>
 <td>Nouvelle fonctionnalité (rétrocompatible)</td>
-<td><code>0.1.0</code> → <code>0.2.0</code></td>
+<td><code>0.5.0</code> → <code>0.6.0</code></td>
 </tr>
 <tr>
 <td>Rupture de compatibilité</td>
-<td><code>0.1.0</code> → <code>1.0.0</code></td>
+<td><code>0.5.0</code> → <code>1.0.0</code></td>
 </tr>
 </tbody>
 </table>
-<p>Modifier la version dans <code>pyproject.toml</code> :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="w">   </span><span class="c1"># ← nouvelle version</span>
+<h3 id="2-verifier-la-simulation">2. Vérifier la simulation</h3>
+<p>Dans la CI de la PR, l'étape « Simulation (PR) » du job « Version à publier » doit afficher <code>publierait 0.6.0</code>.</p>
+<h3 id="3-fusionner">3. Fusionner</h3>
+<p>Après la fusion dans <code>main</code>, la CI publie la version et crée le tag <code>v0.6.0</code>. Aucune autre action n'est nécessaire.</p>
+<h3 id="4-verifier-la-publication">4. Vérifier la publication</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>index<span class="w"> </span>versions<span class="w"> </span>noria
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>tag<span class="w"> </span>--list<span class="w"> </span><span class="s1">'v*'</span>
 </code></pre></div>
-<h3 id="etape-3-committer-et-taguer">Étape 3 — Committer et taguer</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Committer la nouvelle version</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>add<span class="w"> </span>pyproject.toml
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"chore: bump version to 0.2.0"</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Poser un tag git</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v0.2.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">"v0.2.0 — description courte des changements"</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># Pousser sur GitHub</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v0.2.0
-</code></pre></div>
-<h3 id="etape-4-builder-le-package">Étape 4 — Builder le package</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Nettoyer les anciens builds</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>dist/
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Construire le wheel et le source distribution</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>uv<span class="w"> </span>build
-</code></pre></div>
-<p>Résultat attendu dans <code>dist/</code> :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dist/
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  noria-0.2.0-py3-none-any.whl
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  noria-0.2.0.tar.gz
-</code></pre></div>
-<h3 id="etape-5-publier-sur-pypi">Étape 5 — Publier sur PyPI</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>uv<span class="w"> </span>publish
-</code></pre></div>
-<p>Si le token n'est pas configuré globalement :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>uv<span class="w"> </span>publish<span class="w"> </span>--token<span class="w"> </span>pypi-XXXXXXXXXXXXXXXX
-</code></pre></div>
-<h3 id="etape-6-verifier-la-publication">Étape 6 — Vérifier la publication</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Attendre ~1 minute puis vérifier</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>pip<span class="w"> </span>index<span class="w"> </span>versions<span class="w"> </span>noria
-</code></pre></div>
-<p>Ou vérifier sur <a href="https://pypi.org/project/noria">pypi.org/project/noria</a>.</p>
-<h3 id="etape-7-tester-linstallation-depuis-pypi">Étape 7 — Tester l'installation depuis PyPI</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Dans un environnement vierge</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>uv<span class="w"> </span>run<span class="w"> </span>--with<span class="w"> </span>noria<span class="w"> </span>noria<span class="w"> </span>--version
-</code></pre></div>
+<p>Ou sur <a href="https://pypi.org/project/noria">pypi.org/project/noria</a>.</p>
 <hr />
 <h2 id="en-cas-derreur">En cas d'erreur</h2>
-<h3 id="file-already-exists">"File already exists"</h3>
-<p>PyPI n'accepte pas l'écrasement d'une version existante.<br />
-Il faut obligatoirement bumper la version dans <code>pyproject.toml</code> et rebuilder.</p>
-<h3 id="invalid-token">"Invalid token"</h3>
-<p>Vérifier que le token commence bien par <code>pypi-</code> et qu'il a le scope du projet <code>noria</code>.</p>
-<h3 id="les-tests-echouent-avant-la-publication">Les tests échouent avant la publication</h3>
-<p>Ne jamais publier avec des tests en échec. Corriger le code, puis recommencer depuis l'étape 1.</p>
+<h3 id="le-job-version-a-publier-echoue-versions-differentes">Le job « Version à publier » échoue : versions différentes</h3>
+<p><code>pyproject.toml</code> et <code>src/noria/_version.py</code> ne déclarent pas la même version. Alignez-les.</p>
+<h3 id="le-job-version-a-publier-echoue-pypi-injoignable">Le job « Version à publier » échoue : PyPI injoignable</h3>
+<p>Erreur réseau ou réponse inattendue de PyPI. Relancez le job ; rien n'a été publié.</p>
+<h3 id="les-tests-echouent">Les tests échouent</h3>
+<p>La publication ne part pas. Corrigez, puis poussez de nouveau sur <code>main</code> : la version étant toujours absente de PyPI, elle sera publiée au prochain push vert.</p>
+<h3 id="file-already-exists">« File already exists »</h3>
+<p>PyPI n'accepte pas l'écrasement d'une version existante. Il faut changer la version.</p>
 <hr />
-<h2 id="resume-rapide">Résumé rapide</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 1. Tests</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pytest
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># 2. Bumper la version dans pyproject.toml</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># 3. Git</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>git<span class="w"> </span>add<span class="w"> </span>pyproject.toml
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"chore: bump version to X.Y.Z"</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>vX.Y.Z<span class="w"> </span>-m<span class="w"> </span><span class="s2">"vX.Y.Z — ..."</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>vX.Y.Z
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># 4. Build + publish</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>rm<span class="w"> </span>-rf<span class="w"> </span>dist/
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>uv<span class="w"> </span>build
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>uv<span class="w"> </span>publish
+<h2 id="publication-manuelle-secours">Publication manuelle (secours)</h2>
+<p>Uniquement si la CI est indisponible. Il faut un token API PyPI limité au projet <code>noria</code> (PyPI : <strong>Account settings → API tokens</strong>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pytest
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>dist/
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>uv<span class="w"> </span>build
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>uv<span class="w"> </span>publish<span class="w"> </span>--token<span class="w"> </span>pypi-XXXXXXXXXXXXXXXX
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>git<span class="w"> </span>tag<span class="w"> </span>vX.Y.Z<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>vX.Y.Z
 </code></pre></div>
 
 
