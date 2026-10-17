@@ -2348,7 +2348,7 @@
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>GET  /api/v1/lineage                         → lignage du pipeline
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>GET  /api/v1/impact/pipeline/{nom}           → tables d'un pipeline
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>GET  /api/v1/impact/table/{schema.table}     → pipelines d'une table
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>POST /api/v1/trigger                         → déclencher un run
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>POST /api/v1/runs                            → déclencher un run
 </code></pre></div>
 <p>Exemple :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>http://127.0.0.1:7070/api/v1/runs<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[0]'</span>

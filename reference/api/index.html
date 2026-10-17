@@ -1010,10 +1010,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#post-apiv1trigger" class="md-nav__link">
+  <a href="#post-apiv1runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        POST /api/v1/trigger
+        POST /api/v1/runs
       
     </span>
   </a>
@@ -1022,6 +1022,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentification
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2348,10 +2359,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#post-apiv1trigger" class="md-nav__link">
+  <a href="#post-apiv1runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        POST /api/v1/trigger
+        POST /api/v1/runs
       
     </span>
   </a>
@@ -2360,6 +2371,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentification
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2588,20 +2610,62 @@
 </code></pre></div>
 <hr />
 <h2 id="declencher-un-run">Déclencher un run</h2>
-<h3 id="post-apiv1trigger"><code>POST /api/v1/trigger</code></h3>
-<p>Lance un run du pipeline en arrière-plan et retourne immédiatement un token de suivi.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:7070/api/v1/trigger
+<h3 id="post-apiv1runs"><code>POST /api/v1/runs</code></h3>
+<p>Lance un run du pipeline en arrière-plan et retourne immédiatement (<code>202</code>) un token de suivi.</p>
+<p>Corps JSON (facultatif, tous les champs sont optionnels) :</p>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>job</code></td>
+<td>chaîne</td>
+<td>Exécuter ce seul job, sans attendre ses dépendances non sélectionnées (comme <code>noria run --job</code>).</td>
+</tr>
+<tr>
+<td><code>dry_run</code></td>
+<td>booléen</td>
+<td>Compiler sans exécuter (<code>false</code> par défaut).</td>
+</tr>
+<tr>
+<td><code>env</code></td>
+<td>chaîne</td>
+<td>Environnement à appliquer (<code>envs/&lt;env&gt;.yml</code>), caractères <code>[A-Za-z0-9_-]</code> uniquement.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:7070/api/v1/runs<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"job": "load_customers"}'</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">{</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7a2c8e1"</span><span class="p">,</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pipeline lancé en arrière-plan"</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="p">}</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7a2c8e1"</span><span class="p">,</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run started"</span><span class="p">,</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="nt">"job"</span><span class="p">:</span><span class="w"> </span><span class="s2">"load_customers"</span><span class="p">,</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span><span class="nt">"dry_run"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="p">}</span>
 </code></pre></div>
-<p>Le run est exécuté dans un thread daemon — surveiller son avancement via <code>GET /api/v1/runs</code> ou le dashboard web.</p>
+<p>Le run est exécuté dans un thread en arrière-plan — surveiller son avancement via <code>GET /api/v1/runs</code> ou le dashboard web. Si aucun job n'a été exécuté (job désactivé), le run est enregistré en <code>finished_ko</code>, avec le message dans <code>summary.error</code>.</p>
+<h2 id="authentification">Authentification</h2>
+<ul>
+<li>Par défaut, le serveur écoute uniquement sur <code>127.0.0.1</code> (<code>noria monitor --host</code>, ou <code>monitoring.host</code> dans <code>noria.yml</code>).</li>
+<li>Le démarrage sur une interface non locale (autre que <code>127.0.0.1</code>, <code>localhost</code> ou <code>::1</code>) est <strong>refusé</strong> tant que la variable d'environnement <code>NORIA_API_TOKEN</code> n'est pas définie (<code>noria monitor</code> sort avec le code 2).</li>
+<li>Quand <code>NORIA_API_TOKEN</code> est définie, <code>POST /api/v1/runs</code> exige l'en-tête <code>Authorization: Bearer &lt;NORIA_API_TOKEN&gt;</code> ; sans lui, ou avec une autre valeur, la réponse est <code>401</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NORIA_API_TOKEN</span><span class="o">=</span>&lt;votre-secret&gt;
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">7070</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://serveur:7070/api/v1/runs<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$NORIA_API_TOKEN</span><span class="s2">"</span>
+</code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">Usage</p>
-<p>L'endpoint <code>/api/v1/trigger</code> est conçu pour les intégrations internes (webhooks, scripts d'automatisation). Il n'y a pas d'authentification — ne pas exposer le dashboard sur Internet sans proxy sécurisé.</p>
+<p class="admonition-title">Exposition réseau</p>
+<p>Préférez l'écoute locale (<code>127.0.0.1</code>). Pour un accès depuis le réseau, placez le dashboard derrière un proxy qui authentifie les utilisateurs et chiffre les échanges (HTTPS).</p>
 </div>
 <hr />
 <h2 id="codes-http">Codes HTTP</h2>
@@ -2622,6 +2686,14 @@
 <td>Accepté (run lancé en arrière-plan)</td>
 </tr>
 <tr>
+<td><code>400</code></td>
+<td>Requête invalide (valeur <code>env</code> refusée)</td>
+</tr>
+<tr>
+<td><code>401</code></td>
+<td>Token absent ou invalide (<code>POST /api/v1/runs</code> quand <code>NORIA_API_TOKEN</code> est définie)</td>
+</tr>
+<tr>
 <td><code>404</code></td>
 <td>Ressource introuvable (run_id inconnu, table absente du catalogue, <code>job</code> inconnu dans <code>POST /api/v1/runs</code>)</td>
 </tr>
@@ -2629,32 +2701,36 @@
 <td><code>500</code></td>
 <td>Erreur interne du serveur</td>
 </tr>
+<tr>
+<td><code>503</code></td>
+<td>Aucun projet configuré pour le serveur (<code>noria monitor --project</code>)</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <h2 id="exemples-dintegration">Exemples d'intégration</h2>
 <h3 id="script-de-supervision">Script de supervision</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="ch">#!/bin/bash</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="c1"># Lancer le pipeline et attendre la fin</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:7070/api/v1/trigger<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.token'</span><span class="k">)</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Run lancé, token: </span><span class="nv">$TOKEN</span><span class="s2">"</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c1"># Vérifier le dernier run</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>sleep<span class="w"> </span><span class="m">5</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:7070/api/v1/runs<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[0] | {status, duration_s, rows_written}'</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="c1"># Lancer le pipeline et attendre la fin</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:7070/api/v1/runs<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.token'</span><span class="k">)</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Run lancé, token: </span><span class="nv">$TOKEN</span><span class="s2">"</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="c1"># Vérifier le dernier run</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>sleep<span class="w"> </span><span class="m">5</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:7070/api/v1/runs<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[0] | {status, duration_s, rows_written}'</span>
 </code></pre></div>
 <h3 id="alerte-si-anomalie-de-volume">Alerte si anomalie de volume</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Vérifier le dernier run</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nv">STATUS</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:7070/api/v1/runs<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.[0].status'</span><span class="k">)</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$STATUS</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"finished_ko"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Pipeline en erreur — vérifier le dashboard"</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="k">fi</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Vérifier le dernier run</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nv">STATUS</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:7070/api/v1/runs<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.[0].status'</span><span class="k">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$STATUS</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"finished_ko"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Pipeline en erreur — vérifier le dashboard"</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="k">fi</span>
 </code></pre></div>
 <h3 id="inventaire-des-tables-audit">Inventaire des tables (audit)</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Exporter toutes les tables connues</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:7070/api/v1/impact/tables<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[] | .table'</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>&gt;<span class="w"> </span>inventaire_tables.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Exporter toutes les tables connues</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:7070/api/v1/impact/tables<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">'.[] | .table'</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>&gt;<span class="w"> </span>inventaire_tables.txt
 </code></pre></div>
 
 
