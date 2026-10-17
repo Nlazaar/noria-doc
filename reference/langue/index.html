@@ -2035,6 +2035,11 @@ qui reflètent mieux la langue des messages que <code>LC_CTYPE</code>.</p>
   seul le libellé affiché est traduit.</li>
 <li><strong>Messages d'erreur</strong> (<code>ConfigError</code>, validation Pydantic, conseils) : affichés
   dans la langue détectée.</li>
+<li><strong>Logs d'exécution</strong> (niveau INFO : démarrage du pipeline et des jobs, fin de
+  job, <code>compute_params</code>, <code>foreach</code>…) et <strong>tableau de résumé de run</strong> (titre et
+  en-têtes de colonnes) : traduits. Les valeurs de statut affichées dans le
+  tableau et les logs (<code>finished_ok</code>…) restent les valeurs techniques. Les
+  avertissements (WARNING) d'exécution restent pour l'instant en anglais.</li>
 </ul>
 <h2 id="ce-qui-nest-pas-traduit-volontaire">Ce qui n'est <strong>pas</strong> traduit (volontaire)</h2>
 <p>Tout ce qui est lu par des scripts reste stable : clés et valeurs JSON
