@@ -2066,6 +2066,7 @@
 <li>Les seeds n'ont pas de <code>sql:</code> — le SQL de lecture est généré automatiquement.</li>
 <li>Compatible avec <code>after:</code>, <code>tags:</code>, <code>retry:</code>, <code>pre_hook:</code>, <code>post_hook:</code> et <code>timeout:</code>, appliqués comme pour un job <code>sql</code> : un <code>pre_hook</code> en échec fait échouer le seed (sauf <code>soft_fail: true</code>).</li>
 <li><code>noria compile</code> affiche le fichier et la cible du seed : le SQL de lecture n'est généré qu'à l'exécution.</li>
+<li><code>noria validate</code> vérifie que le <code>seed_file</code> existe (code retour <code>1</code> sinon) ; une URL (<code>https://</code>, <code>s3://</code>…) n'est pas vérifiée.</li>
 <li><strong>Atomicité</strong> : si la lecture du fichier échoue (fichier absent, format incorrect), la table cible reste intacte.</li>
 <li><strong>Noms avec apostrophe</strong> : les chemins comme <code>l'export.csv</code> sont supportés.</li>
 </ul>

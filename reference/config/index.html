@@ -2817,6 +2817,8 @@ modifiez uniquement le catalog — tous les SQL s'adaptent automatiquement.</p>
 <li><code>params:</code> au niveau du job</li>
 <li><code>--param k=v</code> en CLI</li>
 </ol>
+<p>Autrement dit : <strong><code>--param</code> &gt; params du job &gt; params du pipeline</strong>. Avec <code>params: {montant_min: 0}</code> sur un job, <code>noria run --param montant_min=-100</code> compile ce job avec <code>-100</code>. Cet ordre vaut pour <code>noria run</code>, <code>compile</code>, <code>test</code>, <code>backfill</code> (y compris <code>run_date</code>, fixé par jour) et <code>run --resume</code> (qui reprend les <code>--param</code> du run d'origine).</p>
+<p>Les variables d'une boucle <code>foreach</code> ne sont pas des params : chaque itération garde ses propres valeurs, même si <code>--param</code> porte le même nom.</p>
 <hr />
 <h2 id="environnements-envs">Environnements (<code>envs/</code>)</h2>
 <p>Les fichiers <code>envs/*.yml</code> permettent de surcharger la config de base selon l'environnement, sans toucher <code>noria.yml</code>.</p>
@@ -3042,7 +3044,7 @@ modifiez uniquement le catalog — tous les SQL s'adaptent automatiquement.</p>
 <h3 id="hooks">Hooks</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">pre_hook</span><span class="p">:</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/hooks/avant.sql</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">soft_fail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">   </span><span class="c1"># true = log l'erreur mais continue</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">soft_fail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">   </span><span class="c1"># true = avertissement (WARNING) et le job continue, y compris si le fichier est absent</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nt">post_hook</span><span class="p">:</span>
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sql/hooks/apres.sql</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="nt">soft_fail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>

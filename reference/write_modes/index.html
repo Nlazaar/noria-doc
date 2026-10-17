@@ -2151,6 +2151,7 @@
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nt">update_key</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">id_client</span><span class="p p-Indicator">]</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nt">update_cols</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">nom</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">email</span><span class="p p-Indicator">]</span><span class="w">   </span><span class="c1"># optionnel — toutes les colonnes non-clé si absent</span>
 </code></pre></div>
+<p>La table cible doit exister : <code>update</code> ne crée pas de table. Si elle est absente, le job échoue (code retour <code>1</code>) avec un message qui nomme la table et propose de la créer d'abord (par exemple avec un job en <code>replace</code> ou <code>create_if_not_exists</code>).</p>
 
 
 

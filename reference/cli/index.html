@@ -936,6 +936,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#noria-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#noria-preview" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2406,6 +2417,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#noria-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noria test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#noria-preview" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2983,18 +3005,34 @@
 <hr />
 <h2 id="noria-compile"><code>noria compile</code></h2>
 <p>Compile le SQL Jinja2 sans exécuter — utile pour vérifier le SQL généré.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>noria<span class="w"> </span>compile<span class="w"> </span><span class="o">[</span>--job<span class="w"> </span>nom<span class="o">]</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span><span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>fichier.sql<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>noria<span class="w"> </span>compile<span class="w"> </span><span class="o">[</span>--job<span class="w"> </span>nom<span class="o">]</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span><span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>fichier.sql<span class="o">]</span><span class="w"> </span><span class="o">[</span>--param<span class="w"> </span><span class="nv">k</span><span class="o">=</span>v<span class="o">]</span>
 </code></pre></div>
+<ul>
+<li>Job <code>foreach</code> (liste statique) : le SQL de la <strong>1re itération</strong> est affiché, précédé d'un en-tête qui l'indique (<code>-- foreach : 1re itération sur 2 (cat=A) …</code>). À l'exécution, chaque itération est compilée avec ses propres valeurs. Un <code>--param</code> qui porte le nom d'une variable de boucle ne change pas cet affichage, comme il ne change pas l'exécution.</li>
+<li>Job <code>foreach_query</code> : les valeurs de boucle ne sont connues qu'à l'exécution. Une variable de boucle non fournie par <code>--param</code> est remplacée par <code>_x_</code>, et l'en-tête le signale.</li>
+<li><code>--param</code> suit le même ordre que <code>noria run</code> (voir <a href="../config/#priorite-des-parametres-du-plus-faible-au-plus-fort">Priorité des paramètres</a>).</li>
+</ul>
+<hr />
+<h2 id="noria-test"><code>noria test</code></h2>
+<p>Exécute uniquement les jobs <code>type: assert</code>, sur des tables <strong>déjà alimentées</strong> (par un <code>noria run</code> précédent).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>noria<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span><span class="w"> </span><span class="o">[</span>--tag<span class="w"> </span>daily<span class="o">]</span><span class="w"> </span><span class="o">[</span>--param<span class="w"> </span><span class="nv">k</span><span class="o">=</span>v<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li>Les asserts sont lancés <strong>sans attendre leurs <code>after:</code></strong> : les jobs dont ils dépendent ne sont pas exécutés, leurs tables doivent déjà exister.</li>
+<li>Code retour <code>1</code> si au moins un assert échoue (y compris en statut <code>warning</code> : une itération en violation avec <code>foreach_on_error: continue</code>), <strong>ou</strong> si un assert n'a pas été exécuté (par exemple <code>active: false</code>) : la liste des asserts non exécutés est affichée avec leur statut.</li>
+<li>Code retour <code>0</code> seulement si chaque assert sélectionné a été exécuté et a réussi.</li>
+</ul>
 <hr />
 <h2 id="noria-preview"><code>noria preview</code></h2>
 <p>Affiche les premières lignes d'un job <strong>sans écrire en base</strong>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>noria<span class="w"> </span>preview<span class="w"> </span>&lt;nom_du_job&gt;<span class="w"> </span><span class="o">[</span>--limit<span class="w"> </span><span class="m">20</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>noria<span class="w"> </span>preview<span class="w"> </span>&lt;nom_du_job&gt;<span class="w"> </span><span class="o">[</span>--limit<span class="w"> </span><span class="m">20</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span>
 </code></pre></div>
 <hr />
 <h2 id="noria-validate"><code>noria validate</code></h2>
 <p>Valide la configuration et le DAG sans connexion base de données.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>noria<span class="w"> </span>validate<span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span><span class="w"> </span><span class="o">[</span>--fail-on-warning<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>noria<span class="w"> </span>validate<span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span><span class="w"> </span><span class="o">[</span>--fail-on-warning<span class="o">]</span>
 </code></pre></div>
+<p><code>noria validate</code> vérifie que les fichiers déclarés existent : <code>sql:</code>, chaque fichier de <code>stages:</code>, le <code>seed_file</code> d'un seed (sauf une URL <code>https://</code>, <code>s3://</code>…) et le <code>file:</code> de chaque hook (<code>pre_hook</code>, <code>post_hook</code>, <code>on_failure_hook</code>, <code>foreach_pre_hook</code>, <code>foreach_post_hook</code>). Un fichier absent donne le code retour <code>1</code>, avec son chemin.</p>
 <p>En plus des erreurs de configuration, <code>noria validate</code> émet des <strong>avertissements de dépendance</strong> quand un job lit une table produite par un autre job sans le déclarer dans <code>after:</code>.</p>
 <table>
 <thead>
@@ -3019,18 +3057,18 @@
 </tbody>
 </table>
 <p>Les noms de tables sont normalisés (casse ignorée, schéma par défaut ajouté : <code>main</code> pour DuckDB, <code>public</code> pour PostgreSQL) : <code>customers</code> et <code>main.customers</code> sont équivalents.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>⚠  Le job 'monthly_report' lit 'main.customers', écrite par 'load_customers',
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>   sans le déclarer : ajoutez after: [load_customers].
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>⚠  Le job 'monthly_report' lit 'main.customers', écrite par 'load_customers',
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>   sans le déclarer : ajoutez after: [load_customers].
 </code></pre></div>
 <hr />
 <h2 id="noria-add"><code>noria add</code></h2>
 <p>Ajoute un nouveau job à <code>noria.yml</code> de manière interactive.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>noria<span class="w"> </span>add<span class="w"> </span>&lt;nom_du_job&gt;<span class="w"> </span><span class="o">[</span>--sql<span class="w"> </span>sql/mon_job.sql<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target<span class="w"> </span>main.ma_table<span class="o">]</span><span class="w"> </span><span class="o">[</span>--after<span class="w"> </span>autre_job<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>noria<span class="w"> </span>add<span class="w"> </span>&lt;nom_du_job&gt;<span class="w"> </span><span class="o">[</span>--sql<span class="w"> </span>sql/mon_job.sql<span class="o">]</span><span class="w"> </span><span class="o">[</span>--target<span class="w"> </span>main.ma_table<span class="o">]</span><span class="w"> </span><span class="o">[</span>--after<span class="w"> </span>autre_job<span class="o">]</span>
 </code></pre></div>
 <hr />
 <h2 id="noria-dag"><code>noria dag</code></h2>
 <p>Génère la cartographie visuelle du DAG.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>noria<span class="w"> </span>dag<span class="w"> </span><span class="o">[</span>--format<span class="w"> </span>html<span class="p">|</span>mermaid<span class="p">|</span>ascii<span class="o">]</span><span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>fichier<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>noria<span class="w"> </span>dag<span class="w"> </span><span class="o">[</span>--format<span class="w"> </span>html<span class="p">|</span>mermaid<span class="p">|</span>ascii<span class="o">]</span><span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>fichier<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -3057,12 +3095,12 @@
 <hr />
 <h2 id="noria-status"><code>noria status</code></h2>
 <p>Affiche l'historique des exécutions.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>noria<span class="w"> </span>status<span class="w"> </span><span class="o">[</span>--limit<span class="w"> </span><span class="m">20</span><span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>noria<span class="w"> </span>status<span class="w"> </span><span class="o">[</span>--limit<span class="w"> </span><span class="m">20</span><span class="o">]</span>
 </code></pre></div>
 <hr />
 <h2 id="noria-lineage"><code>noria lineage</code></h2>
 <p>Affiche le lignage du pipeline — sources et cibles de chaque job.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>noria<span class="w"> </span>lineage<span class="w"> </span><span class="o">[</span>--format<span class="w"> </span>ascii<span class="p">|</span>mermaid<span class="p">|</span>json<span class="o">]</span><span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>fichier<span class="o">]</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>noria<span class="w"> </span>lineage<span class="w"> </span><span class="o">[</span>--format<span class="w"> </span>ascii<span class="p">|</span>mermaid<span class="p">|</span>json<span class="o">]</span><span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>fichier<span class="o">]</span><span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -3090,15 +3128,15 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>noria<span class="w"> </span>lineage<span class="w">                              </span><span class="c1"># arbre ASCII dans le terminal</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>noria<span class="w"> </span>lineage<span class="w"> </span>--format<span class="w"> </span>mermaid<span class="w">            </span><span class="c1"># syntaxe Mermaid</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>noria<span class="w"> </span>lineage<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>--output<span class="w"> </span>lineage.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>noria<span class="w"> </span>lineage<span class="w">                              </span><span class="c1"># arbre ASCII dans le terminal</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>noria<span class="w"> </span>lineage<span class="w"> </span>--format<span class="w"> </span>mermaid<span class="w">            </span><span class="c1"># syntaxe Mermaid</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>noria<span class="w"> </span>lineage<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>--output<span class="w"> </span>lineage.json
 </code></pre></div>
 <p>Voir <a href="../../advanced/lineage/">Lignage de données</a> pour le détail.</p>
 <hr />
 <h2 id="noria-impact"><code>noria impact</code></h2>
 <p>Analyse d'impact bidirectionnelle — sources/cibles d'un pipeline ou pipelines utilisant une table.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>noria<span class="w"> </span>impact<span class="w"> </span><span class="o">[</span>--pipeline<span class="w"> </span>nom<span class="o">]</span><span class="w"> </span><span class="o">[</span>--table<span class="w"> </span>schema.table<span class="o">]</span><span class="w"> </span><span class="o">[</span>--search<span class="w"> </span>motif<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>noria<span class="w"> </span>impact<span class="w"> </span><span class="o">[</span>--pipeline<span class="w"> </span>nom<span class="o">]</span><span class="w"> </span><span class="o">[</span>--table<span class="w"> </span>schema.table<span class="o">]</span><span class="w"> </span><span class="o">[</span>--search<span class="w"> </span>motif<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -3122,17 +3160,17 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>noria<span class="w"> </span>impact<span class="w">                               </span><span class="c1"># catalogue global de toutes les tables</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>noria<span class="w"> </span>impact<span class="w"> </span>--pipeline<span class="w"> </span>mon_pipeline<span class="w">       </span><span class="c1"># impact d'un pipeline</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>noria<span class="w"> </span>impact<span class="w"> </span>--table<span class="w"> </span>analytics.customers<span class="w">  </span><span class="c1"># impact d'une table</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>noria<span class="w"> </span>impact<span class="w"> </span>--table<span class="w"> </span><span class="s2">"raw.*"</span><span class="w">              </span><span class="c1"># toutes les tables du schéma raw</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>noria<span class="w"> </span>impact<span class="w"> </span>--search<span class="w"> </span>customers<span class="w">           </span><span class="c1"># tables contenant "customers"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>noria<span class="w"> </span>impact<span class="w">                               </span><span class="c1"># catalogue global de toutes les tables</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>noria<span class="w"> </span>impact<span class="w"> </span>--pipeline<span class="w"> </span>mon_pipeline<span class="w">       </span><span class="c1"># impact d'un pipeline</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>noria<span class="w"> </span>impact<span class="w"> </span>--table<span class="w"> </span>analytics.customers<span class="w">  </span><span class="c1"># impact d'une table</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>noria<span class="w"> </span>impact<span class="w"> </span>--table<span class="w"> </span><span class="s2">"raw.*"</span><span class="w">              </span><span class="c1"># toutes les tables du schéma raw</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>noria<span class="w"> </span>impact<span class="w"> </span>--search<span class="w"> </span>customers<span class="w">           </span><span class="c1"># tables contenant "customers"</span>
 </code></pre></div>
 <p>Voir <a href="../../advanced/impact/">Analyse d'impact</a> pour le détail.</p>
 <hr />
 <h2 id="noria-monitor"><code>noria monitor</code></h2>
 <p>Démarre le dashboard web de monitoring.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>noria<span class="w"> </span>monitor<span class="w"> </span><span class="o">[</span>--port<span class="w"> </span><span class="m">7070</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="o">]</span><span class="w"> </span><span class="o">[</span>--open/--no-open<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>noria<span class="w"> </span>monitor<span class="w"> </span><span class="o">[</span>--port<span class="w"> </span><span class="m">7070</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="o">]</span><span class="w"> </span><span class="o">[</span>--open/--no-open<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -3165,25 +3203,25 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>noria<span class="w"> </span>monitor<span class="w">                        </span><span class="c1"># dashboard local sur http://127.0.0.1:7070</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span><span class="w">            </span><span class="c1"># port personnalisé</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--no-open<span class="w">              </span><span class="c1"># sans ouvrir le navigateur</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>noria<span class="w"> </span>monitor<span class="w">                        </span><span class="c1"># dashboard local sur http://127.0.0.1:7070</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span><span class="w">            </span><span class="c1"># port personnalisé</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--no-open<span class="w">              </span><span class="c1"># sans ouvrir le navigateur</span>
 </code></pre></div>
 <h3 id="securiser-lacces-depuis-un-reseau-distant">Sécuriser l'accès depuis un réseau distant</h3>
 <p>Par défaut, le dashboard écoute uniquement sur <code>127.0.0.1</code> (loopback) et ne nécessite aucune authentification.</p>
 <p>Si vous devez l'exposer sur une interface accessible depuis le réseau (ex. <code>--host 0.0.0.0</code>), définissez la variable d'environnement <code>NORIA_API_TOKEN</code> <strong>avant</strong> de démarrer le serveur :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NORIA_API_TOKEN</span><span class="o">=</span>&lt;votre-secret&gt;
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">7070</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NORIA_API_TOKEN</span><span class="o">=</span>&lt;votre-secret&gt;
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>noria<span class="w"> </span>monitor<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">7070</span>
 </code></pre></div>
 <p>Sans ce token, le démarrage sur un hôte non-local est refusé.</p>
 <p>Les appels à <code>POST /api/v1/runs</code> devront alors inclure l'en-tête :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Authorization: Bearer &lt;votre-secret&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Authorization: Bearer &lt;votre-secret&gt;
 </code></pre></div>
 <p>Les routes de lecture (<code>GET /api/v1/runs</code>, dashboard HTML…) restent accessibles sans authentification.</p>
 <hr />
 <h2 id="noria-clean"><code>noria clean</code></h2>
 <p>Supprime les tables de travail orphelines laissées par un run interrompu brutalement.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>noria<span class="w"> </span>clean<span class="w"> </span><span class="o">[</span>--yes<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>noria<span class="w"> </span>clean<span class="w"> </span><span class="o">[</span>--yes<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
@@ -3201,8 +3239,8 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>noria<span class="w"> </span>clean<span class="w">          </span><span class="c1"># liste les tables et demande confirmation</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>noria<span class="w"> </span>clean<span class="w"> </span>--yes<span class="w">    </span><span class="c1"># supprime directement (mode script)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>noria<span class="w"> </span>clean<span class="w">          </span><span class="c1"># liste les tables et demande confirmation</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>noria<span class="w"> </span>clean<span class="w"> </span>--yes<span class="w">    </span><span class="c1"># supprime directement (mode script)</span>
 </code></pre></div>
 <h3 id="fonctionnement">Fonctionnement</h3>
 <p>Pendant un run, Noria crée des tables de travail nommées <code>_noria_&lt;job&gt;_s&lt;n&gt;_&lt;run_id&gt;</code>. Elles sont normalement supprimées à la fin de chaque job, mais un arrêt brutal (<code>kill -9</code>, crash) peut en laisser dans la base.</p>
@@ -3212,12 +3250,12 @@
 <li><strong>protège</strong> celles qui appartiennent à un run encore en cours (vérifié dans <code>tracking.db</code> — par PID sur la machine locale, par précaution sur une machine distante) ;</li>
 <li>affiche les tables orphelines, puis demande confirmation avant de les supprimer.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>3 table(s) de travail orpheline(s) :
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>  • main._noria_clients_s1_3f2a1b4c
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>  • main._noria_clients_s2_3f2a1b4c
-<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>  • main._noria_rapport_s1_3f2a1b4c
-<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>
-<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>Supprimer ces tables ? [y/N]:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>3 table(s) de travail orpheline(s) :
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>  • main._noria_clients_s1_3f2a1b4c
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>  • main._noria_clients_s2_3f2a1b4c
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>  • main._noria_rapport_s1_3f2a1b4c
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>Supprimer ces tables ? [y/N]:
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Bases en réseau</p>
@@ -3226,46 +3264,46 @@
 <hr />
 <h2 id="noria-docs"><code>noria docs</code></h2>
 <p>Génère une page HTML de documentation du pipeline (jobs, SQL, dépendances).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>noria<span class="w"> </span>docs<span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>docs/pipeline.html<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>noria<span class="w"> </span>docs<span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>docs/pipeline.html<span class="o">]</span>
 </code></pre></div>
 <hr />
 <h2 id="noria-watch"><code>noria watch</code></h2>
 <p>Mode développeur : relance le pipeline automatiquement à chaque modification d'un fichier SQL ou YAML.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>noria<span class="w"> </span>watch<span class="w">  </span><span class="c1"># nécessite: pip install "noria[watch]"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>noria<span class="w"> </span>watch<span class="w">  </span><span class="c1"># nécessite: pip install "noria[watch]"</span>
 </code></pre></div>
 <hr />
 <h2 id="noria-init"><code>noria init</code></h2>
 <p>Crée un nouveau projet Noria de façon interactive. La commande pose quelques questions, génère toute l'arborescence et affiche les étapes suivantes.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>noria<span class="w"> </span>init<span class="w"> </span>mon_pipeline
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>noria<span class="w"> </span>init<span class="w"> </span>mon_pipeline
 </code></pre></div>
 <h3 id="mode-interactif-defaut">Mode interactif (défaut)</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Noria Init — new project wizard
-<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
-<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>Database dialect
-<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>  1  duckdb         local file, zero config — ideal for development
-<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>  2  postgresql     standard SQL server
-<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>  3  bigquery       Google Cloud data warehouse
-<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>  4  snowflake      Snowflake cloud data warehouse
-<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>
-<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>Choice [1-4]: 2
-<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>Default schema [main]: reporting
-<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>Include example SQL files? [Y/n]: Y
-<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>Run git init? [y/N]: y
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Noria Init — new project wizard
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>Database dialect
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>  1  duckdb         local file, zero config — ideal for development
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>  2  postgresql     standard SQL server
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>  3  bigquery       Google Cloud data warehouse
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>  4  snowflake      Snowflake cloud data warehouse
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>Choice [1-4]: 2
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>Default schema [main]: reporting
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>Include example SQL files? [Y/n]: Y
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>Run git init? [y/N]: y
 </code></pre></div>
 <p>Noria génère ensuite l'arborescence complète et affiche les commandes suivantes :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>mon_pipeline/
-<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>├── noria.yml
-<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>├── envs/
-<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>│   ├── dev.yml
-<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>│   └── prod.yml
-<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>├── sql/
-<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>│   ├── macros/
-<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>│   │   └── utils.sql.j2
-<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>│   ├── 01_load_customers.sql
-<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>│   └── report/
-<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>│       ├── 01_aggregate.sql
-<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>│       └── 02_enrich.sql
-<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>└── README.md
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>mon_pipeline/
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>├── noria.yml
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>├── envs/
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>│   ├── dev.yml
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>│   └── prod.yml
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>├── sql/
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>│   ├── macros/
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>│   │   └── utils.sql.j2
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>│   ├── 01_load_customers.sql
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>│   └── report/
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>│       ├── 01_aggregate.sql
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>│       └── 02_enrich.sql
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>└── README.md
 </code></pre></div>
 <h3 id="options">Options</h3>
 <table>
@@ -3310,14 +3348,14 @@
 </tbody>
 </table>
 <h3 id="mode-non-interactif-ciscripts">Mode non-interactif (CI/scripts)</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1"># Projet DuckDB complet, tout en une ligne</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>noria<span class="w"> </span>init<span class="w"> </span>mon_pipeline<span class="w"> </span>--dialect<span class="w"> </span>duckdb<span class="w"> </span>--schema<span class="w"> </span>main<span class="w"> </span>--yes
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="c1"># Projet PostgreSQL sans exemples</span>
-<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>noria<span class="w"> </span>init<span class="w"> </span>mon_pipeline<span class="w"> </span>--dialect<span class="w"> </span>postgresql<span class="w"> </span>--schema<span class="w"> </span>reporting<span class="w"> </span>--minimal<span class="w"> </span>--yes
-<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>
-<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="c1"># Projet avec git init automatique</span>
-<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>noria<span class="w"> </span>init<span class="w"> </span>mon_pipeline<span class="w"> </span>--dialect<span class="w"> </span>duckdb<span class="w"> </span>--git<span class="w"> </span>--yes
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="c1"># Projet DuckDB complet, tout en une ligne</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>noria<span class="w"> </span>init<span class="w"> </span>mon_pipeline<span class="w"> </span>--dialect<span class="w"> </span>duckdb<span class="w"> </span>--schema<span class="w"> </span>main<span class="w"> </span>--yes
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="c1"># Projet PostgreSQL sans exemples</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>noria<span class="w"> </span>init<span class="w"> </span>mon_pipeline<span class="w"> </span>--dialect<span class="w"> </span>postgresql<span class="w"> </span>--schema<span class="w"> </span>reporting<span class="w"> </span>--minimal<span class="w"> </span>--yes
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="c1"># Projet avec git init automatique</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>noria<span class="w"> </span>init<span class="w"> </span>mon_pipeline<span class="w"> </span>--dialect<span class="w"> </span>duckdb<span class="w"> </span>--git<span class="w"> </span>--yes
 </code></pre></div>
 <h3 id="noriayml-genere-selon-le-dialecte">noria.yml généré selon le dialecte</h3>
 <p>Chaque dialecte produit un <code>noria.yml</code> et des <code>envs/</code> préconfigurés :</p>
@@ -3362,20 +3400,20 @@ database:
 <hr />
 <h2 id="utilisation-avec-un-ordonnanceur">Utilisation avec un ordonnanceur</h2>
 <p>Noria est conçu pour s'intégrer sans friction dans Jenkins, Airflow, cron ou tout autre ordonnanceur.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1"># Jenkins / script shell</span>
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod<span class="w"> </span>--project<span class="w"> </span>/pipelines/mon_pipeline<span class="w"> </span>--log-file<span class="w"> </span>logs/run.log
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="c1"># Airflow (BashOperator)</span>
-<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod<span class="w"> </span>--only-tags<span class="w"> </span>daily<span class="w"> </span>--continue-on-error
-<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>
-<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="c1"># Cron (crontab)</span>
-<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="m">0</span><span class="w"> </span><span class="m">6</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/pipelines/mon_pipeline<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c1"># Jenkins / script shell</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod<span class="w"> </span>--project<span class="w"> </span>/pipelines/mon_pipeline<span class="w"> </span>--log-file<span class="w"> </span>logs/run.log
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="c1"># Airflow (BashOperator)</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod<span class="w"> </span>--only-tags<span class="w"> </span>daily<span class="w"> </span>--continue-on-error
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="c1"># Cron (crontab)</span>
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="m">0</span><span class="w"> </span><span class="m">6</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/pipelines/mon_pipeline<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>noria<span class="w"> </span>run<span class="w"> </span>--env<span class="w"> </span>prod
 </code></pre></div>
 <p>Les variables de connexion sensibles passent par des variables d'environnement résolues dans <code>envs/prod.yml</code> :</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c1"># envs/prod.yml</span>
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nt">database</span><span class="p">:</span>
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_HOST}</span>
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_PASSWORD}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="c1"># envs/prod.yml</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="nt">database</span><span class="p">:</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_HOST}</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DB_PASSWORD}</span>
 </code></pre></div>
 
 
