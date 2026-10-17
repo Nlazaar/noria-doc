@@ -2815,9 +2815,11 @@ modifiez uniquement le catalog — tous les SQL s'adaptent automatiquement.</p>
 <li><code>params_file:</code> (fichier YAML externe)</li>
 <li><code>envs/{env}.yml</code> (overlay d'environnement)</li>
 <li><code>params:</code> au niveau du job</li>
+<li>valeurs calculées par un job <a href="#compute_params-jobs-calculateurs"><code>compute_params</code></a>, pendant le run</li>
 <li><code>--param k=v</code> en CLI</li>
 </ol>
-<p>Autrement dit : <strong><code>--param</code> &gt; params du job &gt; params du pipeline</strong>. Avec <code>params: {montant_min: 0}</code> sur un job, <code>noria run --param montant_min=-100</code> compile ce job avec <code>-100</code>. Cet ordre vaut pour <code>noria run</code>, <code>compile</code>, <code>test</code>, <code>backfill</code> (y compris <code>run_date</code>, fixé par jour) et <code>run --resume</code> (qui reprend les <code>--param</code> du run d'origine).</p>
+<p>Autrement dit : <strong><code>--param</code> &gt; <code>compute_params</code> &gt; params du job &gt; params du pipeline</strong>. Avec <code>params: {montant_min: 0}</code> sur un job, <code>noria run --param montant_min=-100</code> compile ce job avec <code>-100</code> ; sans <code>--param</code>, une valeur <code>montant_min</code> calculée par un job <code>compute_params</code> l'emporte sur le <code>0</code> du job. Cet ordre vaut pour <code>noria run</code>, <code>compile</code>, <code>test</code>, <code>backfill</code> (y compris <code>run_date</code>, fixé par jour) et <code>run --resume</code> (qui reprend les <code>--param</code> du run d'origine).</p>
+<p>C'est la seule référence de cet ordre : les autres pages y renvoient.</p>
 <p>Les variables d'une boucle <code>foreach</code> ne sont pas des params : chaque itération garde ses propres valeurs, même si <code>--param</code> porte le même nom.</p>
 <hr />
 <h2 id="environnements-envs">Environnements (<code>envs/</code>)</h2>
@@ -3313,7 +3315,7 @@ modifiez uniquement le catalog — tous les SQL s'adaptent automatiquement.</p>
 <li>Si le SELECT retourne plusieurs lignes, <strong>seule la première est utilisée</strong></li>
 <li>Si le SELECT retourne zéro ligne, un warning est loggé et aucun param n'est injecté</li>
 <li>Les valeurs <code>NULL</code> dans la ligne résultat sont ignorées (non injectées)</li>
-<li>Les params injectés ont la même priorité que <code>params:</code> au niveau du job — ils peuvent être surchargés par <code>--param key=value</code> CLI</li>
+<li>Priorité des params injectés : voir <a href="#priorite-des-parametres-du-plus-faible-au-plus-fort">Priorité des paramètres</a></li>
 </ul>
 </div>
 <div class="admonition tip">

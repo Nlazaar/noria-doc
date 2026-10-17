@@ -2766,6 +2766,7 @@
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>noria<span class="w"> </span>run<span class="w"> </span>--fail-on-warning<span class="w">            </span><span class="c1"># exit 3 si warning</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>noria<span class="w"> </span>run<span class="w"> </span>--resume<span class="w"> </span>abc12345<span class="w">            </span><span class="c1"># reprendre un run échoué</span>
 </code></pre></div>
+<p>Avec <code>--job</code> ou <code>--only-tags</code>, seuls les jobs choisis sont exécutés, <strong>sans attendre leurs dépendances non sélectionnées</strong> (elles ne sont pas relancées : leurs tables doivent déjà exister, et les valeurs d'un job <code>compute_params</code> non choisi ne sont pas calculées). L'ordre entre jobs choisis est conservé, même s'ils ne sont reliés que par un job non choisi (<code>-j load -j report</code> avec <code>load → transform → report</code> : <code>report</code> attend <code>load</code>). Si aucun job n'est exécuté (jobs désactivés, aucun tag ne correspond), le code retour est <code>1</code>, avec un message. <code>noria run-job &lt;job&gt;</code> suit la même règle.</p>
 <h3 id="codes-retour">Codes retour</h3>
 <table>
 <thead>
@@ -3019,8 +3020,9 @@
 </code></pre></div>
 <ul>
 <li>Les asserts sont lancés <strong>sans attendre leurs <code>after:</code></strong> : les jobs dont ils dépendent ne sont pas exécutés, leurs tables doivent déjà exister.</li>
-<li>Code retour <code>1</code> si au moins un assert échoue (y compris en statut <code>warning</code> : une itération en violation avec <code>foreach_on_error: continue</code>), <strong>ou</strong> si un assert n'a pas été exécuté (par exemple <code>active: false</code>) : la liste des asserts non exécutés est affichée avec leur statut.</li>
-<li>Code retour <code>0</code> seulement si chaque assert sélectionné a été exécuté et a réussi.</li>
+<li>Un assert <code>active: false</code> est ignoré : il est affiché « désactivé » et ne fait pas échouer la commande.</li>
+<li>Code retour <code>1</code> si au moins un assert échoue (y compris en statut <code>warning</code> : une itération en violation avec <code>foreach_on_error: continue</code>), <strong>ou</strong> si un assert actif n'a pas été exécuté : la liste est affichée avec leur statut.</li>
+<li>Code retour <code>0</code> si chaque assert actif a été exécuté et a réussi.</li>
 </ul>
 <hr />
 <h2 id="noria-preview"><code>noria preview</code></h2>
@@ -3032,8 +3034,8 @@
 <p>Valide la configuration et le DAG sans connexion base de données.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>noria<span class="w"> </span>validate<span class="w"> </span><span class="o">[</span>--env<span class="w"> </span>prod<span class="o">]</span><span class="w"> </span><span class="o">[</span>--fail-on-warning<span class="o">]</span>
 </code></pre></div>
-<p><code>noria validate</code> vérifie que les fichiers déclarés existent : <code>sql:</code>, chaque fichier de <code>stages:</code>, le <code>seed_file</code> d'un seed (sauf une URL <code>https://</code>, <code>s3://</code>…) et le <code>file:</code> de chaque hook (<code>pre_hook</code>, <code>post_hook</code>, <code>on_failure_hook</code>, <code>foreach_pre_hook</code>, <code>foreach_post_hook</code>). Un fichier absent donne le code retour <code>1</code>, avec son chemin.</p>
-<p>En plus des erreurs de configuration, <code>noria validate</code> émet des <strong>avertissements de dépendance</strong> quand un job lit une table produite par un autre job sans le déclarer dans <code>after:</code>.</p>
+<p><code>noria validate</code> vérifie que les fichiers déclarés existent : <code>sql:</code>, chaque fichier de <code>stages:</code>, le <code>seed_file</code> d'un seed (sauf une URL <code>https://</code>, <code>s3://</code>…) et le <code>file:</code> de chaque hook (<code>pre_hook</code>, <code>post_hook</code>, <code>on_failure_hook</code>, <code>foreach_pre_hook</code>, <code>foreach_post_hook</code>). Un fichier absent donne le code retour <code>1</code>, avec son chemin — sauf pour un hook en <code>soft_fail: true</code> : un <strong>avertissement</strong> (code <code>0</code>, ou <code>3</code> avec <code>--fail-on-warning</code>), comme <code>noria run</code>, qui ignore ce hook avec un avertissement.</p>
+<p>En plus des erreurs de configuration, <code>noria validate</code> émet des <strong>avertissements</strong> : fichier absent d'un hook en <code>soft_fail: true</code> (ci-dessus), et <strong>dépendance non déclarée</strong> quand un job lit une table produite par un autre job sans le déclarer dans <code>after:</code>.</p>
 <table>
 <thead>
 <tr>
